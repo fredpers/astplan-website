@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+---
+
+<BaseLayout
+  title="Warteliste"
+  description="Auf die AstPlan-Warteliste — wir melden uns, sobald der nächste Zugang frei wird."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Warteliste</span>
+      <h1>Auf die Warteliste</h1>
+      <p class="lead">
+        Früher Zugang zur Feld-App. Kurz ausfüllen — wir melden uns per E-Mail.
+      </p>
+      <WaitlistForm />
+    </div>
+  </section>
+</BaseLayout>

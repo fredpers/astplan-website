@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCards from '../components/FeatureCards.astro';
+import StepRow from '../components/StepRow.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const cards = [
+  {
+    title: 'Karte zuerst',
+    body: 'Orientierung auf der Karte, Details im Sheet — ohne Umweg über Desktop-Workflows.',
+  },
+  {
+    title: 'Kontrolle in Minuten',
+    body: 'Marker setzen, Zustand erfassen, weiter. Feldtempo statt Formular-Marathon.',
+  },
+  {
+    title: 'Export statt Parallelwelt',
+    body: 'Ergebnisse landen als Excel zurück in euer Kataster — SoR bleibt bei euch.',
+  },
+];
+
+const steps = [
+  {
+    n: '1',
+    title: 'Import',
+    body: 'Bäume aus eurem Bestand laden — bereit für den Rundgang.',
+  },
+  {
+    n: '2',
+    title: 'Kontrolle',
+    body: 'Auf der Karte arbeiten, Sheet öffnen, Status und Maßnahmen setzen.',
+  },
+  {
+    n: '3',
+    title: 'Export',
+    body: 'Fertige Kontrolle als Excel — zurück in Green GIS, Treesta oder euer System.',
+  },
+];
+---
+
+<BaseLayout
+  title="AstPlan — Feld-Baumkontrolle"
+  description="Baumkontrolle im Feld — schnell, klar, exportfertig. Die freundliche Feld-App für Baumkontrolle mit Export in euer Kataster."
+>
+  <Hero
+    eyebrow="Feld-Baumkontrolle"
+    title="Baumkontrolle im Feld — schnell, klar, exportfertig."
+    subtitle="AstPlan ist die freundliche Feld-App für Baumkontrolle: Karte zuerst, Kontrolle in Minuten, Export zurück in euer Kataster."
+    showPhone={true}
+  />
+  <FeatureCards cards={cards} />
+  <StepRow title="Tagesablauf in drei Schritten" steps={steps} />
+  <CtaBand title="Bereit für Feld-Tempo?" />
+</BaseLayout>

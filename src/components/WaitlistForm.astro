@@ -1,0 +1,123 @@
+---
+---
+
+<div class="waitlist" id="waitlist-root">
+  <form class="form" id="waitlist-form" novalidate>
+    <div class="field">
+      <label for="email">E-Mail <span class="req">*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        placeholder="name@firma.de"
+      />
+    </div>
+    <div class="field">
+      <label for="name">Name <span class="opt">optional</span></label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="Vor- und Nachname" />
+    </div>
+    <div class="field">
+      <label for="firma">Firma <span class="opt">optional</span></label>
+      <input type="text" id="firma" name="firma" autocomplete="organization" placeholder="Organisation" />
+    </div>
+    <div class="field">
+      <label for="nutze">Ich nutze bereits</label>
+      <select id="nutze" name="nutze">
+        <option value="">Bitte wählen…</option>
+        <option value="green-gis">Green GIS</option>
+        <option value="treesta">Treesta</option>
+        <option value="anderes">anderes</option>
+        <option value="noch-keines">noch keines</option>
+      </select>
+    </div>
+    <p class="hint">Kein Live-Backend — Eintrag folgt mit AST-69. Formular speichert lokal nur den Erfolgszustand.</p>
+    <button type="submit" class="btn btn-primary submit">Auf die Liste</button>
+  </form>
+  <div class="success card-soft" id="waitlist-success" hidden>
+    <h3>Danke — ihr seid auf der Liste.</h3>
+    <p>
+      Wir melden uns per E-Mail, sobald der nächste Zugang frei wird. Bis dahin könnt ihr die App bereits
+      unter <a href="https://astplanapp.web.app" rel="noopener">astplanapp.web.app</a> öffnen.
+    </p>
+  </div>
+</div>
+
+<style>
+  .form {
+    display: grid;
+    gap: 18px;
+    max-width: 480px;
+  }
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-primary);
+  }
+  .req {
+    color: var(--brand-purple);
+  }
+  .opt {
+    font-weight: 400;
+    color: var(--ink-secondary);
+    font-size: 13px;
+  }
+  input,
+  select {
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink-primary);
+    background: var(--surface);
+  }
+  input:focus,
+  select:focus {
+    outline: 2px solid var(--brand-purple);
+    outline-offset: 1px;
+    border-color: var(--brand-purple);
+  }
+  .hint {
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--ink-secondary);
+  }
+  .submit {
+    width: 100%;
+    max-width: 280px;
+  }
+  .success {
+    max-width: 520px;
+    padding: 28px;
+    border-radius: var(--radius);
+  }
+  .success h3 {
+    margin-bottom: 8px;
+  }
+  .success p {
+    margin: 0;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('waitlist-form') as HTMLFormElement | null;
+  const success = document.getElementById('waitlist-success');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (form.querySelector('#email') as HTMLInputElement)?.value?.trim();
+    if (!email || !email.includes('@')) {
+      (form.querySelector('#email') as HTMLInputElement)?.focus();
+      return;
+    }
+    form.hidden = true;
+    success?.removeAttribute('hidden');
+  });
+</script>

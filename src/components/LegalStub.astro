@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  kind?: 'impressum' | 'datenschutz';
+}
+
+const { title, kind = 'impressum' } = Astro.props;
+---
+
+<article class="legal card">
+  <span class="badge">Platzhalter</span>
+  <h1>{title}</h1>
+  {
+    kind === 'impressum' ? (
+      <div class="body">
+        <p>
+          Dieses Impressum ist ein <strong>Platzhalter</strong>. Verbindliche Anbieterkennzeichnung folgt
+          mit AST-70 — hier werden keine erfundenen Firmendaten, Adressen oder Registerangaben eingesetzt.
+        </p>
+        <p class="muted">
+          Bis zur finalen Fassung: rechtlich maßgebliche Angaben erscheinen hier, sobald sie freigegeben
+          sind.
+        </p>
+      </div>
+    ) : (
+      <div class="body">
+        <p>
+          Diese Datenschutzerklärung ist ein <strong>Platzhalter</strong> für DE/EU-Anforderungen
+          (DSGVO). Die finale Fassung folgt mit AST-70 — ohne erfundene Verarbeitungszwecke oder
+          Auftragsverarbeiter.
+        </p>
+        <p class="muted">
+          Bis dahin: personenbezogene Daten aus dem Wartelisten-Formular werden erst angebunden, wenn
+          das Backend (AST-69) und die Privacy-Texte stehen.
+        </p>
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .legal {
+    max-width: 640px;
+    padding: 32px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--brand-purple);
+    background: var(--brand-purple-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .body p {
+    margin-bottom: 1em;
+  }
+  .muted {
+    color: var(--ink-secondary);
+  }
+</style>

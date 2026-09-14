@@ -1,0 +1,171 @@
+---
+const nav = [
+  { href: '/produkt', label: 'Produkt' },
+  { href: '/einordnung', label: 'Einordnung' },
+  { href: '/preise', label: 'Preise' },
+  { href: '/faq', label: 'FAQ' },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/">AstPlan</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={['nav-link', { active: path === item.href || path.startsWith(item.href + '/') }]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost header-btn" href="https://astplanapp.web.app" rel="noopener">
+        App öffnen
+      </a>
+      <a class="btn btn-primary header-btn" href="/warteliste">Auf die Warteliste</a>
+    </div>
+    <button type="button" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobile-panel" hidden>
+    <nav aria-label="Mobilnavigation">
+      {
+        nav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+      <a href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
+      <a class="btn btn-primary" href="/warteliste">Auf die Warteliste</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: var(--header-h);
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ink-primary);
+    text-decoration: none !important;
+    letter-spacing: -0.03em;
+  }
+  .nav {
+    display: none;
+    gap: 4px;
+    margin-left: 8px;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--ink-secondary);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none !important;
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--ink-primary);
+    background: var(--page);
+  }
+  .header-actions {
+    display: none;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .header-btn {
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+  .menu-toggle {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink-primary);
+    border-radius: 1px;
+  }
+  .mobile-panel {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px 20px;
+  }
+  .mobile-panel nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-panel a {
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--ink-primary);
+    font-weight: 500;
+    text-decoration: none !important;
+  }
+  .mobile-panel a:hover {
+    background: var(--page);
+  }
+  .mobile-panel .btn {
+    margin-top: 8px;
+    text-align: center;
+  }
+  @media (min-width: 900px) {
+    .nav,
+    .header-actions {
+      display: flex;
+    }
+    .menu-toggle,
+    .mobile-panel {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const panel = document.getElementById('mobile-panel');
+  toggle?.addEventListener('click', () => {
+    const open = panel?.hasAttribute('hidden') === false;
+    if (open) {
+      panel?.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      panel?.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+</script>

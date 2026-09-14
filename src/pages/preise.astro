@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<BaseLayout
+  title="Preise"
+  description="Preise für AstPlan — kommt bald. Bis dahin auf die Warteliste."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Preise</span>
+      <h1>Preise — kommt bald</h1>
+      <p class="lead">
+        Transparente Pakete folgen. Wir nennen hier keine erfundenen Euro-Beträge — bis die Preisgestaltung
+        freigegeben ist, lohnt sich die Warteliste.
+      </p>
+      <div class="stub card">
+        <p>
+          <strong>Platzhalter.</strong> Sobald Modelle und Konditionen stehen, erscheinen sie auf dieser Seite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Interesse an Zugang?"
+    body="Auf die Warteliste — wir informieren euch, wenn Preise und nächste Slots da sind."
+    secondaryHref=""
+    secondaryLabel=""
+  />
+</BaseLayout>
+
+<style>
+  .stub {
+    margin-top: 28px;
+    max-width: 520px;
+    padding: 24px;
+  }
+  .stub p {
+    margin: 0;
+  }
+</style>

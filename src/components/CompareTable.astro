@@ -1,0 +1,86 @@
+---
+interface Row {
+  label: string;
+  astplan: string;
+  greengis: string;
+  treesta: string;
+}
+
+interface Props {
+  rows: Row[];
+}
+
+const { rows } = Astro.props;
+---
+
+<div class="table-wrap" role="region" aria-label="Vergleichstabelle" tabindex="0">
+  <table class="compare">
+    <thead>
+      <tr>
+        <th scope="col">Aspekt</th>
+        <th scope="col" class="hl">AstPlan</th>
+        <th scope="col">Green GIS</th>
+        <th scope="col">Treesta</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            <td class="hl">{row.astplan}</td>
+            <td>{row.greengis}</td>
+            <td>{row.treesta}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+  th,
+  td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+  thead th {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    background: var(--page);
+  }
+  tbody th {
+    font-weight: 600;
+    color: var(--ink-primary);
+    width: 22%;
+  }
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .hl {
+    background: var(--brand-purple-soft) !important;
+    color: var(--ink-primary);
+    font-weight: 500;
+  }
+  thead th.hl {
+    color: var(--brand-purple);
+    font-weight: 700;
+  }
+</style>
