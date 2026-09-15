@@ -32,14 +32,26 @@
         <option value="noch-keines">noch keines</option>
       </select>
     </div>
-    <p class="hint">Kein Live-Backend — Eintrag folgt mit AST-69. Formular speichert lokal nur den Erfolgszustand.</p>
-    <button type="submit" class="btn btn-primary submit">Auf die Liste</button>
+    <!-- Honeypot: must stay empty; hidden from users, not autocomplete -->
+    <div class="hp" aria-hidden="true">
+      <label for="website">Website</label>
+      <input
+        type="text"
+        id="website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+    <p class="form-error" id="waitlist-error" hidden role="alert"></p>
+    <button type="submit" class="btn btn-primary submit" id="waitlist-submit">Auf die Liste</button>
   </form>
   <div class="success card-soft" id="waitlist-success" hidden>
-    <h3>Danke — ihr seid auf der Liste.</h3>
+    <h3>Danke — wir melden uns.</h3>
     <p>
-      Wir melden uns per E-Mail, sobald der nächste Zugang frei wird. Bis dahin könnt ihr die App bereits
-      unter <a href="https://astplanapp.web.app" rel="noopener">astplanapp.web.app</a> öffnen.
+      Ihr seid auf der Warteliste. Wir melden uns per E-Mail, sobald der nächste Zugang frei wird. Bis dahin
+      könnt ihr die App bereits unter
+      <a href="https://astplanapp.web.app" rel="noopener">astplanapp.web.app</a> öffnen.
     </p>
   </div>
 </div>
@@ -84,15 +96,27 @@
     outline-offset: 1px;
     border-color: var(--brand-purple);
   }
-  .hint {
+  .hp {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .form-error {
     margin: 0;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
-    color: var(--ink-secondary);
+    color: #b42318;
   }
   .submit {
     width: 100%;
     max-width: 280px;
+  }
+  .submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
   }
   .success {
     max-width: 520px;
@@ -110,14 +134,74 @@
 <script>
   const form = document.getElementById('waitlist-form') as HTMLFormElement | null;
   const success = document.getElementById('waitlist-success');
-  form?.addEventListener('submit', (e) => {
+  const errorEl = document.getElementById('waitlist-error');
+  const submitBtn = document.getElementById('waitlist-submit') as HTMLButtonElement | null;
+
+  function showError(message: string) {
+    if (!errorEl) return;
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+  }
+
+  function clearError() {
+    if (!errorEl) return;
+    errorEl.textContent = '';
+    errorEl.hidden = true;
+  }
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = (form.querySelector('#email') as HTMLInputElement)?.value?.trim();
+    clearError();
+
+    const emailInput = form.querySelector('#email') as HTMLInputElement | null;
+    const email = emailInput?.value?.trim() ?? '';
     if (!email || !email.includes('@')) {
-      (form.querySelector('#email') as HTMLInputElement)?.focus();
+      emailInput?.focus();
+      showError('Bitte eine gültige E-Mail angeben.');
       return;
     }
-    form.hidden = true;
-    success?.removeAttribute('hidden');
+
+    const payload = {
+      email,
+      name: (form.querySelector('#name') as HTMLInputElement)?.value?.trim() ?? '',
+      firma: (form.querySelector('#firma') as HTMLInputElement)?.value?.trim() ?? '',
+      nutze: (form.querySelector('#nutze') as HTMLSelectElement)?.value ?? '',
+      website: (form.querySelector('#website') as HTMLInputElement)?.value ?? '',
+    };
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet…';
+    }
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      let body: { ok?: boolean; error?: string } = {};
+      try {
+        body = await res.json();
+      } catch {
+        body = {};
+      }
+
+      if (res.ok && body.ok) {
+        form.hidden = true;
+        success?.removeAttribute('hidden');
+        return;
+      }
+
+      showError(body.error || 'Senden fehlgeschlagen. Bitte später erneut versuchen.');
+    } catch {
+      showError('Netzwerkfehler. Bitte Verbindung prüfen und erneut versuchen.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Auf die Liste';
+      }
+    }
   });
 </script>
