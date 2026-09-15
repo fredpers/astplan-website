@@ -2,8 +2,7 @@
 interface Row {
   label: string;
   astplan: string;
-  greengis: string;
-  treesta: string;
+  kataster: string;
 }
 
 interface Props {
@@ -19,8 +18,7 @@ const { rows } = Astro.props;
       <tr>
         <th scope="col">Aspekt</th>
         <th scope="col" class="hl">AstPlan</th>
-        <th scope="col">Green GIS</th>
-        <th scope="col">Treesta</th>
+        <th scope="col">Baumkataster / GIS</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +27,7 @@ const { rows } = Astro.props;
           <tr>
             <th scope="row">{row.label}</th>
             <td class="hl">{row.astplan}</td>
-            <td>{row.greengis}</td>
-            <td>{row.treesta}</td>
+            <td>{row.kataster}</td>
           </tr>
         ))
       }
@@ -48,7 +45,7 @@ const { rows } = Astro.props;
   .compare {
     width: 100%;
     border-collapse: collapse;
-    min-width: 640px;
+    min-width: 520px;
     font-size: 15px;
     line-height: 22px;
   }

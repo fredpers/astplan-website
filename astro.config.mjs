@@ -4,4 +4,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   output: 'static',
   site: 'https://astplan.de',
+  redirects: {
+    '/warteliste': '/',
+  },
 });

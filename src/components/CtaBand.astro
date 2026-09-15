@@ -4,17 +4,15 @@ interface Props {
   body?: string;
   primaryHref?: string;
   primaryLabel?: string;
-  secondaryHref?: string;
-  secondaryLabel?: string;
+  showDisabledRegister?: boolean;
 }
 
 const {
   title = 'Bereit für Feld-Tempo?',
-  body = 'Auf die Warteliste — wir melden uns, sobald der nächste Zugang frei wird.',
-  primaryHref = '/warteliste',
-  primaryLabel = 'Auf die Warteliste',
-  secondaryHref = 'https://astplanapp.web.app',
-  secondaryLabel = 'App öffnen',
+  body = 'App öffnen und direkt im Feld starten — Registrierung folgt demnächst.',
+  primaryHref = 'https://astplanapp.web.app',
+  primaryLabel = 'App öffnen',
+  showDisabledRegister = true,
 } = Astro.props;
 ---
 
@@ -26,12 +24,17 @@ const {
         <p>{body}</p>
       </div>
       <div class="band-actions">
-        <a class="btn btn-primary" href={primaryHref}>{primaryLabel}</a>
+        <a class="btn btn-primary" href={primaryHref} rel="noopener">{primaryLabel}</a>
         {
-          secondaryHref && (
-            <a class="btn btn-ghost" href={secondaryHref} rel="noopener">
-              {secondaryLabel}
-            </a>
+          showDisabledRegister && (
+            <span
+              class="btn btn-disabled"
+              role="link"
+              aria-disabled="true"
+              title="Registrieren — demnächst"
+            >
+              Registrieren
+            </span>
           )
         }
       </div>

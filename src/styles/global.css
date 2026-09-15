@@ -163,6 +163,18 @@ p:last-child {
   background: #e0daff;
 }
 
+/* Disabled / coming-soon CTA (e.g. Registrieren) */
+.btn-disabled,
+.btn[aria-disabled="true"] {
+  background: transparent;
+  color: var(--ink-secondary);
+  border-color: var(--border);
+  text-decoration: line-through !important;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 /* Sections */
 .section {
   padding: 56px 0;

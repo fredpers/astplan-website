@@ -21,8 +21,15 @@ const {
       <h1>{title}</h1>
       {subtitle && <p class="lead">{subtitle}</p>}
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="/warteliste">Auf die Warteliste</a>
-        <a class="btn btn-ghost" href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
+        <a class="btn btn-primary" href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
+        <span
+          class="btn btn-disabled"
+          role="link"
+          aria-disabled="true"
+          title="Registrieren — demnächst"
+        >
+          Registrieren
+        </span>
       </div>
     </div>
     {

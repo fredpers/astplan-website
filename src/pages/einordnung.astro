@@ -7,39 +7,34 @@ const rows = [
   {
     label: 'Rolle',
     astplan: 'Feldschicht',
-    greengis: 'Kataster / SoR',
-    treesta: 'Kataster / SoR',
+    kataster: 'Kataster / SoR',
   },
   {
     label: 'Fokus',
     astplan: 'Kontrolle & Ausführung im Gelände',
-    greengis: 'Bestand, Planung, Verwaltung',
-    treesta: 'Bestand, Planung, Verwaltung',
+    kataster: 'Bestand, Planung, Verwaltung',
   },
   {
     label: 'Gerät',
     astplan: 'Handy / Tablet zuerst',
-    greengis: 'Desktop & Fachverfahren',
-    treesta: 'Desktop & Fachverfahren',
+    kataster: 'Desktop & Fachverfahren',
   },
   {
     label: 'Datenfluss',
     astplan: 'Import → Feld → Excel-Export',
-    greengis: 'Führendes System',
-    treesta: 'Führendes System',
+    kataster: 'Führendes System',
   },
   {
     label: 'Ersetzt SoR?',
     astplan: 'Nein',
-    greengis: 'Ist SoR',
-    treesta: 'Ist SoR',
+    kataster: 'Ist SoR',
   },
 ];
 ---
 
 <BaseLayout
   title="Einordnung"
-  description="AstPlan ist die Feldschicht — euer Kataster bleibt System of Record. Vergleich mit Green GIS und Treesta."
+  description="AstPlan ist die Feldschicht — euer Kataster bleibt System of Record. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
 >
   <section class="page-hero">
     <div class="container">
@@ -55,7 +50,8 @@ const rows = [
     <div class="container">
       <CompareTable rows={rows} />
       <p class="note muted">
-        Kurzfassung: Green GIS und Treesta bleiben euer System of Record. AstPlan ist der Feld-Loop dazwischen.
+        Kurzfassung: euer Baumkataster bzw. GIS-System bleibt System of Record. AstPlan ist der
+        Feld-Loop dazwischen.
       </p>
     </div>
   </section>

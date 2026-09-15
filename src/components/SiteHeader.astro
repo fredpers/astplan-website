@@ -24,10 +24,17 @@ const path = Astro.url.pathname;
       }
     </nav>
     <div class="header-actions">
-      <a class="btn btn-ghost header-btn" href="https://astplanapp.web.app" rel="noopener">
+      <a class="btn btn-primary header-btn" href="https://astplanapp.web.app" rel="noopener">
         App öffnen
       </a>
-      <a class="btn btn-primary header-btn" href="/warteliste">Auf die Warteliste</a>
+      <span
+        class="btn btn-disabled header-btn"
+        role="link"
+        aria-disabled="true"
+        title="Registrieren — demnächst"
+      >
+        Registrieren
+      </span>
     </div>
     <button type="button" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" id="menu-toggle">
       <span></span><span></span><span></span>
@@ -40,8 +47,15 @@ const path = Astro.url.pathname;
           <a href={item.href}>{item.label}</a>
         ))
       }
-      <a href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
-      <a class="btn btn-primary" href="/warteliste">Auf die Warteliste</a>
+      <a class="btn btn-primary" href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
+      <span
+        class="btn btn-disabled"
+        role="link"
+        aria-disabled="true"
+        title="Registrieren — demnächst"
+      >
+        Registrieren
+      </span>
     </nav>
   </div>
 </header>
