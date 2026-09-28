@@ -1,7 +1,7 @@
 ---
 interface Row {
   label: string;
-  astplan: string;
+  ramosmap: string;
   kataster: string;
 }
 
@@ -17,7 +17,7 @@ const { rows } = Astro.props;
     <thead>
       <tr>
         <th scope="col">Aspekt</th>
-        <th scope="col" class="hl">AstPlan</th>
+        <th scope="col" class="hl">RamosMap</th>
         <th scope="col">Baumkataster / GIS</th>
       </tr>
     </thead>
@@ -26,7 +26,7 @@ const { rows } = Astro.props;
         rows.map((row) => (
           <tr>
             <th scope="row">{row.label}</th>
-            <td class="hl">{row.astplan}</td>
+            <td class="hl">{row.ramosmap}</td>
             <td>{row.kataster}</td>
           </tr>
         ))

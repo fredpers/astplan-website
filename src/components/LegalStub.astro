@@ -14,24 +14,25 @@ const { title, kind = 'impressum' } = Astro.props;
     kind === 'impressum' ? (
       <div class="body">
         <p>
-          Dieses Impressum ist ein <strong>Platzhalter</strong>. Verbindliche Anbieterkennzeichnung folgt
-          mit AST-70 — hier werden keine erfundenen Firmendaten, Adressen oder Registerangaben eingesetzt.
+          Dieses Impressum ist ein <strong>Platzhalter</strong> für RamosMap. Verbindliche
+          Anbieterkennzeichnung folgt mit Domain und Firmendaten (AST-87) — hier werden keine erfundenen
+          Firmendaten, Adressen oder Registerangaben eingesetzt.
         </p>
         <p class="muted">
           Bis zur finalen Fassung: rechtlich maßgebliche Angaben erscheinen hier, sobald sie freigegeben
-          sind.
+          sind. Die Domain ramosmap.com ist ausstehend (AST-87); Custom-DNS ist nicht Teil dieses Cutover.
         </p>
       </div>
     ) : (
       <div class="body">
         <p>
-          Diese Datenschutzerklärung ist ein <strong>Platzhalter</strong> für DE/EU-Anforderungen
-          (DSGVO). Die finale Fassung folgt mit AST-70 — ohne erfundene Verarbeitungszwecke oder
+          Diese Datenschutzerklärung ist ein <strong>Platzhalter</strong> für RamosMap (DE/EU, DSGVO).
+          Die finale Fassung folgt mit AST-87 / AST-76 — ohne erfundene Verarbeitungszwecke oder
           Auftragsverarbeiter.
         </p>
         <p class="muted">
-          Bis dahin: personenbezogene Daten werden erst angebunden, wenn die Privacy-Texte (AST-70)
-          und die zugehörigen Verarbeitungen freigegeben sind.
+          Bis dahin: personenbezogene Daten werden erst angebunden, wenn die Privacy-Texte und die
+          zugehörigen Verarbeitungen freigegeben sind.
         </p>
       </div>
     )
