@@ -10,7 +10,12 @@ const path = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="/">AstPlan</a>
+    <a class="logo" href="/" aria-label="RamosMap">
+      <img class="logo-mark" src="/brand/ramos-mark-outlined.svg" alt="" width="32" height="32" />
+      <span class="logo-word" aria-hidden="true">
+        <span class="ramos">Ramos</span><span class="map">Map</span>
+      </span>
+    </a>
     <nav class="nav" aria-label="Hauptnavigation">
       {
         nav.map((item) => (
@@ -78,11 +83,25 @@ const path = Astro.url.pathname;
     height: var(--header-h);
   }
   .logo {
-    font-weight: 700;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
     color: var(--ink-primary);
     text-decoration: none !important;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+  }
+  .logo-word {
+    font-weight: 700;
+    font-size: 20px;
     letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .logo-word .map {
+    color: var(--brand-purple);
   }
   .nav {
     display: none;

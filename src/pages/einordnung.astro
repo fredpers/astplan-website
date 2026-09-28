@@ -6,27 +6,27 @@ import CtaBand from '../components/CtaBand.astro';
 const rows = [
   {
     label: 'Rolle',
-    astplan: 'Feldschicht',
+    ramosmap: 'Feldschicht',
     kataster: 'Kataster / SoR',
   },
   {
     label: 'Fokus',
-    astplan: 'Kontrolle & Ausführung im Gelände',
+    ramosmap: 'Kontrolle & Ausführung im Gelände',
     kataster: 'Bestand, Planung, Verwaltung',
   },
   {
     label: 'Gerät',
-    astplan: 'Handy / Tablet zuerst',
+    ramosmap: 'Handy / Tablet zuerst',
     kataster: 'Desktop & Fachverfahren',
   },
   {
     label: 'Datenfluss',
-    astplan: 'Import → Feld → Excel-Export',
+    ramosmap: 'Import → Feld → Excel-Export',
     kataster: 'Führendes System',
   },
   {
     label: 'Ersetzt SoR?',
-    astplan: 'Nein',
+    ramosmap: 'Nein',
     kataster: 'Ist SoR',
   },
 ];
@@ -34,12 +34,12 @@ const rows = [
 
 <BaseLayout
   title="Einordnung"
-  description="AstPlan ist die Feldschicht — euer Kataster bleibt System of Record. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
+  description="RamosMap ist die Feldschicht — euer Kataster bleibt System of Record. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
 >
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Einordnung</span>
-      <h1>AstPlan ist die Feldschicht — euer Kataster bleibt SoR.</h1>
+      <h1>RamosMap ist die Feldschicht — euer Kataster bleibt SoR.</h1>
       <p class="lead">
         Wir ergänzen bestehende Baumkataster: schnell im Feld, sauber zurück. Kein Parallel-System.
       </p>
@@ -50,7 +50,7 @@ const rows = [
     <div class="container">
       <CompareTable rows={rows} />
       <p class="note muted">
-        Kurzfassung: euer Baumkataster bzw. GIS-System bleibt System of Record. AstPlan ist der
+        Kurzfassung: euer Baumkataster bzw. GIS-System bleibt System of Record. RamosMap ist der
         Feld-Loop dazwischen.
       </p>
     </div>

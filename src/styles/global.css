@@ -1,7 +1,7 @@
-/* Feldklar design tokens — AstPlan marketing (AST-67) */
+/* Feldklar design tokens — RamosMap marketing (AST-67 / AST-89) */
 :root {
-  --brand-purple: #6b4eff;
-  --brand-purple-soft: #ede9ff;
+  --brand-purple: #5b45e0;
+  --brand-purple-soft: #eeebfb;
   --ink-primary: #0e0f14;
   --ink-secondary: #5c6070;
   --surface: #ffffff;
@@ -140,7 +140,7 @@ p:last-child {
 }
 
 .btn-primary:hover {
-  background: #5a3ff0;
+  background: #4a37c7;
 }
 
 .btn-ghost {
@@ -160,7 +160,7 @@ p:last-child {
 }
 
 .btn-soft:hover {
-  background: #e0daff;
+  background: #e2ddf8;
 }
 
 /* Disabled / coming-soon CTA (e.g. Registrieren) */

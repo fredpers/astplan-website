@@ -4,7 +4,10 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <strong>AstPlan</strong>
+      <a class="footer-logo" href="/" aria-label="RamosMap">
+        <img src="/brand/ramos-mark-outlined.svg" alt="" width="28" height="28" />
+        <strong><span>Ramos</span><span class="map">Map</span></strong>
+      </a>
       <p>Feld-Baumkontrolle — Export in euer Kataster.</p>
     </div>
     <nav class="footer-nav" aria-label="Fußzeile">
@@ -27,10 +30,24 @@
     flex-direction: column;
     gap: 20px;
   }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-primary);
+    text-decoration: none !important;
+    margin-bottom: 8px;
+  }
+  .footer-logo img {
+    width: 28px;
+    height: 28px;
+  }
   .footer-brand strong {
     font-size: 16px;
-    display: block;
-    margin-bottom: 6px;
+    letter-spacing: -0.03em;
+  }
+  .footer-brand .map {
+    color: var(--brand-purple);
   }
   .footer-brand p {
     margin: 0;
