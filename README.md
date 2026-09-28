@@ -32,9 +32,9 @@ npm run preview  # preview production build
 | Build command | `npm run build` |
 | Build output directory | `dist` |
 | Node version | `20` |
-| Canonical site | `https://ramosmap.com` (Astro `site`; custom DNS is **AST-90**, blocked on domain purchase **AST-87**) |
+| Canonical site | `https://astplan-website.pages.dev` (Astro `site`; no custom DNS / `ramosmap.com` until the domain is bought later) |
 
-No paid secrets required. No waitlist / FormSubmit backend. Do **not** attach custom DNS in this cutover.
+No paid secrets required. No waitlist / FormSubmit backend. Do **not** buy domains or attach custom DNS in this cutover. Brand+copy ships on the current Pages host.
 
 ## Brand assets
 
@@ -77,7 +77,7 @@ public/
 - English locale
 - Real product photos / motion / blog
 - App chrome clone
-- Custom DNS / `ramosmap.com` on Cloudflare (AST-87 / AST-90)
+- Buying domains or attaching custom DNS / `ramosmap.com` (later: AST-87 / AST-90)
 - Waitlist / FormSubmit (canceled)
 - Competitor vendor brand names on the marketing site
 - Final Impressum/Datenschutz legal copy (Platzhalter until AST-87)

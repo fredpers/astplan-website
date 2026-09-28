@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://ramosmap.com',
+  site: 'https://astplan-website.pages.dev',
   redirects: {
     '/warteliste': '/',
   },
