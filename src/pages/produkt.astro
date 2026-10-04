@@ -1,82 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureCards from '../components/FeatureCards.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PageHero from '../components/PageHero.astro';
 
 const sections = [
-  {
-    title: 'Karte + Sheet',
-    body: 'Die Karte ist der Einstieg. Tippt einen Baum an — das Sheet zeigt die relevanten Felder, ohne die Orientierung zu verlieren.',
-  },
-  {
-    title: 'Marker',
-    body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.',
-  },
-  {
-    title: 'Filter',
-    body: 'Nach Status, Maßnahme oder Gebiet filtern — der Rundgang bleibt übersichtlich.',
-  },
-  {
-    title: 'Offline / Sync',
-    body: 'Im Gelände oft kein Netz: lokal weiterarbeiten und später synchronisieren.',
-  },
-  {
-    title: 'Export',
-    body: 'Kontrolle abgeschlossen? Excel-Export — und zurück in euer Kataster als System of Record.',
-  },
-];
+  { icon: 'map', title: 'Karte + Sheet', body: 'Die Karte ist der Einstieg. Tippt einen Baum an – das Sheet zeigt die relevanten Felder, ohne die Orientierung zu verlieren.' },
+  { icon: 'marker', title: 'Marker', body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.' },
+  { icon: 'filter', title: 'Filter', body: 'Nach Status, Maßnahme oder Gebiet filtern – der Rundgang bleibt übersichtlich.' },
+  { icon: 'check', title: 'Kontrolle', body: 'Im Sheet Status und Maßnahme setzen – direkt am Baum, ohne Formular-Marathon.' },
+  { icon: 'export', title: 'Export', body: 'Kontrolle abgeschlossen? Excel-Export oder GeoPackage für QGIS – zurück in euer Kataster als System of Record.' },
+  { icon: 'none', dashed: true, tag: 'Nicht-Ziele', title: 'Feldschicht, kein Kataster', body: 'RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Wir sind die Feldschicht – euer Kataster bleibt SoR.' },
+] as const;
+const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
 ---
-
 <BaseLayout
   title="Produkt"
-  description="Der Feld-Loop: Import → Kontrolle → Ausführung → Excel. RamosMap als Feldschicht für Baumkontrolle."
+  description="Der Feld-Loop: Import → Kontrolle → Ausführung → Export. RamosMap als Feldschicht für Baumkontrolle."
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Produkt</span>
-      <h1>Der Feld-Loop: Import → Kontrolle → Ausführung → Excel</h1>
-      <p class="lead">
-        RamosMap deckt den Feldteil ab — von der Übernahme eurer Bäume bis zum Export zurück in euer System.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Produkt"
+    title="Der Feld-Loop: Import → Kontrolle → Ausführung → Export"
+    lead="RamosMap deckt den Feldteil ab – von der Übernahme eurer Bäume bis zum Export zurück in euer System."
+  >
+    <ol class="loop" aria-label="Feld-Loop">
+      {loop.map((l, i) => (<li class:list={{ last: i === loop.length - 1 }}><span class="n">{i + 1}</span>{l}</li>))}
+    </ol>
+  </PageHero>
 
-  <section class="section-tight">
-    <div class="container stack">
-      {
-        sections.map((s) => (
-          <article class="card block">
-            <h2>{s.title}</h2>
-            <p>{s.body}</p>
-          </article>
-        ))
-      }
-      <article class="card block nicht">
-        <h2>Nicht-Ziele</h2>
-        <p>
-          RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Wir sind die
-          Feldschicht — euer Kataster bleibt SoR.
-        </p>
-      </article>
-    </div>
-  </section>
+  <FeatureCards cards={[...sections]} />
+
 
   <CtaBand />
 </BaseLayout>
-
 <style>
-  .stack {
-    display: grid;
-    gap: 14px;
-    max-width: 720px;
+  .loop { list-style: none; padding: 0; margin: var(--rm-space-10) auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--rm-space-3); }
+  .loop li {
+    display: inline-flex; align-items: center; gap: var(--rm-space-2);
+    padding: 6px 16px 6px 6px; border-radius: var(--rm-radius-pill);
+    border: 1px solid var(--site-line-strong); background: var(--site-glass);
+    font: 500 15px/1 var(--rm-font-ui); color: var(--rm-text-primary);
   }
-  .block h2 {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-  .block p {
-    margin: 0;
-  }
-  .nicht {
-    border-style: dashed;
-  }
+  .loop .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--site-pill-bg); color: var(--rm-brand-text); font: 600 12px/1 var(--rm-font-mono); }
+  .loop li.last { background: var(--rm-accent); border-color: var(--rm-accent); color: var(--rm-ink-900); }
+  .loop li.last .n { background: var(--rm-ink-900); color: var(--rm-accent); }
 </style>

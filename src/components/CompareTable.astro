@@ -37,47 +37,15 @@ const { rows } = Astro.props;
 
 <style>
   .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
+    overflow-x: auto; max-width: 920px; margin: 0 auto;
+    border: 1px solid var(--rm-border); border-radius: var(--rm-radius-xl);
+    background: var(--rm-surface); box-shadow: var(--rm-shadow-md);
   }
-  .compare {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 520px;
-    font-size: 15px;
-    line-height: 22px;
-  }
-  th,
-  td {
-    padding: 14px 16px;
-    text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid var(--border);
-  }
-  thead th {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-secondary);
-    background: var(--page);
-  }
-  tbody th {
-    font-weight: 600;
-    color: var(--ink-primary);
-    width: 22%;
-  }
-  tbody tr:last-child th,
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-  .hl {
-    background: var(--brand-purple-soft) !important;
-    color: var(--ink-primary);
-    font-weight: 500;
-  }
-  thead th.hl {
-    color: var(--brand-purple);
-    font-weight: 700;
-  }
+  .compare { width: 100%; border-collapse: collapse; min-width: 560px; font: var(--rm-type-body); }
+  th, td { padding: 18px 22px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rm-divider); color: var(--rm-text-secondary); }
+  thead th { font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking); text-transform: uppercase; color: var(--rm-text-muted); background: var(--rm-surface-alt); }
+  tbody th { font-weight: 600; color: var(--rm-text-primary); width: 22%; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
+  .hl { background: var(--rm-brand-subtle); color: var(--rm-text-primary); font-weight: 500; }
+  thead th.hl { color: var(--rm-brand-strong); background: var(--rm-brand-muted); }
 </style>

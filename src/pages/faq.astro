@@ -2,52 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PageHero from '../components/PageHero.astro';
 
 const items = [
-  {
-    q: 'Ersetzt RamosMap unser Baumkataster?',
-    a: 'Nein. RamosMap ist die <strong>Feldschicht</strong>. Euer Kataster bzw. GIS-System bleibt System of Record. Wir importieren, kontrollieren im Feld und exportieren zurück.',
-  },
-  {
-    q: 'Brauche ich nur den Browser?',
-    a: 'Ja für den Einstieg: RamosMap läuft als Web-App im Browser auf Handy und Tablet. Kein App-Store-Zwang für den Feldalltag.',
-  },
-  {
-    q: 'Funktioniert das offline?',
-    a: 'Ja — im Gelände oft ohne Netz. Ihr arbeitet lokal weiter und synchronisiert, sobald wieder Verbindung besteht.',
-  },
-  {
-    q: 'Wie funktionieren Konten / Zugang?',
-    a: 'Aktuell: App öffnen und loslegen. Registrierung und Team-/Rollen-Details folgen mit dem Produktausbau.',
-  },
-  {
-    q: 'Welche Exporte gibt es?',
-    a: 'Excel-Export der Kontrolle — gedacht für den Rückweg in euer Kataster bzw. GIS-System. Weitere Formate nach Bedarf.',
-  },
-  {
-    q: 'Und QGIS / Desktop-GIS?',
-    a: 'RamosMap ersetzt kein Desktop-GIS. Wenn ihr QGIS oder vergleichbare Tools für Analyse und Planung nutzt, bleibt das so — wir sind für den Feld-Loop da.',
-  },
+  { q: 'Ersetzt RamosMap unser Baumkataster?', a: 'Nein. RamosMap ist die <strong>Feldschicht</strong>. Euer Kataster bzw. GIS-System bleibt System of Record. Wir importieren, kontrollieren im Feld und exportieren zurück.' },
+  { q: 'Brauche ich nur den Browser?', a: 'Ja für den Einstieg: RamosMap läuft als Web-App im Browser auf Handy und Tablet. Kein App-Store-Zwang für den Feldalltag.' },
+  { q: 'Wie funktionieren Konten / Zugang?', a: 'Aktuell: App öffnen und loslegen. Registrierung und Team-/Rollen-Details folgen mit dem Produktausbau.' },
+  { q: 'Welche Exporte gibt es?', a: 'Excel-Export der Kontrolle und GeoPackage-Export für QGIS – gedacht für den Rückweg in euer Kataster bzw. GIS-System.' },
+  { q: 'Und QGIS / Desktop-GIS?', a: 'RamosMap ersetzt kein Desktop-GIS. Wenn ihr QGIS oder vergleichbare Tools für Analyse und Planung nutzt, bleibt das so – wir sind für den Feld-Loop da.' },
 ];
 ---
-
-<BaseLayout
-  title="FAQ"
-  description="Häufige Fragen zu RamosMap: Baumkataster, Browser, Offline, Konten, Exporte, QGIS."
->
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">FAQ</span>
-      <h1>Häufige Fragen</h1>
-      <p class="lead">Kurz und klar — ohne Marketingnebel.</p>
-    </div>
+<BaseLayout title="FAQ" description="Häufige Fragen zu RamosMap: Baumkataster, Browser, Konten, Exporte, QGIS.">
+  <PageHero eyebrow="FAQ" title="Häufige Fragen" lead="Kurz und klar – ohne Marketingnebel." />
+  <section class="body-wrap">
+    <div class="container"><FaqAccordion items={items} /></div>
   </section>
-
-  <section class="section-tight">
-    <div class="container">
-      <FaqAccordion items={items} />
-    </div>
-  </section>
-
   <CtaBand />
 </BaseLayout>
+<style>
+  .body-wrap { padding: var(--site-section-y) 0 0; }
+</style>

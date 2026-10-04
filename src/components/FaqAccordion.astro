@@ -25,43 +25,24 @@ const { items } = Astro.props;
 </div>
 
 <style>
-  .faq {
-    display: grid;
-    gap: 10px;
-    max-width: 720px;
-  }
+  .faq { display: grid; gap: var(--rm-space-3); max-width: 820px; margin: 0 auto; }
   .item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 0 20px;
+    background: var(--rm-surface); border: 1px solid var(--rm-border); border-radius: var(--rm-radius-xl);
+    padding: 0 var(--rm-space-6); box-shadow: var(--rm-shadow-sm); transition: border-color .2s ease;
   }
+  .item[open] { border-color: var(--rm-purple-200); box-shadow: var(--rm-shadow-md); }
   summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 18px 0;
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--ink-primary);
+    cursor: pointer; list-style: none; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: var(--rm-space-4);
+    font: var(--rm-type-h4); font-family: var(--rm-font-display); font-weight: 500; font-size: 19px; color: var(--rm-text-primary);
+    border-radius: var(--rm-radius-sm);
   }
-  summary::-webkit-details-marker {
-    display: none;
-  }
+  summary::-webkit-details-marker { display: none; }
   summary::after {
-    content: '+';
-    float: right;
-    color: var(--brand-purple);
-    font-weight: 700;
+    content: '+'; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--rm-surface-alt); border: 1px solid var(--rm-border);
+    color: var(--rm-brand-text); font: 500 18px/1 var(--rm-font-ui);
   }
-  details[open] summary::after {
-    content: '−';
-  }
-  .answer {
-    padding: 0 0 18px;
-  }
-  .answer p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 26px;
-  }
+  details[open] summary::after { content: '−'; background: var(--rm-brand); border-color: var(--rm-brand); color: var(--rm-text-on-brand); }
+  .answer { padding: 0 0 22px; }
+  .answer p { margin: 0; color: var(--rm-text-secondary); }
 </style>

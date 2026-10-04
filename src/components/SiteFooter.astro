@@ -1,80 +1,30 @@
 ---
+import Brand from './Brand.astro';
+import { APP_URL } from '../config/brand';
 ---
-
-<footer class="site-footer">
+<footer class="site-footer" data-theme="dark">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a class="footer-logo" href="/" aria-label="RamosMap">
-        <img src="/brand/ramos-mark-outlined.svg" alt="" width="28" height="28" />
-        <strong><span>Ramos</span><span class="map">Map</span></strong>
-      </a>
-      <p>Feld-Baumkontrolle — Export in euer Kataster.</p>
+      <Brand size={28} />
+      <p>Feld-Baumkontrolle – Export in euer Kataster.</p>
     </div>
     <nav class="footer-nav" aria-label="Fußzeile">
+      <a href="/produkt">Produkt</a>
+      <a href="/faq">FAQ</a>
       <a href="/impressum">Impressum</a>
       <a href="/datenschutz">Datenschutz</a>
-      <a href="https://astplanapp.web.app" rel="noopener">App</a>
+      <a href={APP_URL} rel="noopener">App</a>
     </nav>
   </div>
 </footer>
-
 <style>
-  .site-footer {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 36px 0;
-    margin-top: 48px;
-  }
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--ink-primary);
-    text-decoration: none !important;
-    margin-bottom: 8px;
-  }
-  .footer-logo img {
-    width: 28px;
-    height: 28px;
-  }
-  .footer-brand strong {
-    font-size: 16px;
-    letter-spacing: -0.03em;
-  }
-  .footer-brand .map {
-    color: var(--brand-purple);
-  }
-  .footer-brand p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 22px;
-    color: var(--ink-secondary);
-    max-width: 360px;
-  }
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-  }
-  .footer-nav a {
-    color: var(--ink-secondary);
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none !important;
-  }
-  .footer-nav a:hover {
-    color: var(--brand-purple);
-  }
-  @media (min-width: 700px) {
-    .footer-inner {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
+  .site-footer { border-top: 1px solid var(--rm-divider); padding: var(--rm-space-10) 0; }
+  .footer-inner { display: flex; flex-direction: column; gap: var(--rm-space-6); }
+  .footer-brand p { margin: var(--rm-space-3) 0 0; font: var(--rm-type-body-sm); color: var(--rm-text-muted); }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: var(--rm-space-2) var(--rm-space-6); }
+  .footer-nav a { font: var(--rm-type-body-sm); color: var(--rm-text-secondary); }
+  .footer-nav a:hover { color: var(--rm-text-primary); }
+  @media (min-width: 760px) {
+    .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
   }
 </style>

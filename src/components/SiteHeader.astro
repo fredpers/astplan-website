@@ -1,190 +1,78 @@
 ---
+import Brand from './Brand.astro';
+import CtaButtons from './CtaButtons.astro';
 const nav = [
   { href: '/produkt', label: 'Produkt' },
   { href: '/einordnung', label: 'Einordnung' },
   { href: '/preise', label: 'Preise' },
   { href: '/faq', label: 'FAQ' },
 ];
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
-
-<header class="site-header">
+<header class="site-header" data-theme="dark">
   <div class="container header-inner">
-    <a class="logo" href="/" aria-label="RamosMap">
-      <img class="logo-mark" src="/brand/ramos-mark-outlined.svg" alt="" width="32" height="32" />
-      <span class="logo-word" aria-hidden="true">
-        <span class="ramos">Ramos</span><span class="map">Map</span>
-      </span>
-    </a>
+    <Brand size={32} />
     <nav class="nav" aria-label="Hauptnavigation">
-      {
-        nav.map((item) => (
-          <a
-            href={item.href}
-            class:list={['nav-link', { active: path === item.href || path.startsWith(item.href + '/') }]}
-          >
-            {item.label}
-          </a>
-        ))
-      }
+      {nav.map((item) => (
+        <a href={item.href} class="nav-link" aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary header-btn" href="https://astplanapp.web.app" rel="noopener">
-        App öffnen
-      </a>
-      <span
-        class="btn btn-disabled header-btn"
-        role="link"
-        aria-disabled="true"
-        title="Registrieren — demnächst"
-      >
-        Registrieren
-      </span>
+      <CtaButtons size="sm" variant="outline" />
     </div>
-    <button type="button" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" id="menu-toggle">
-      <span></span><span></span><span></span>
+    <button type="button" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-panel" id="menu-toggle">
+      <span></span><span></span>
     </button>
   </div>
   <div class="mobile-panel" id="mobile-panel" hidden>
-    <nav aria-label="Mobilnavigation">
-      {
-        nav.map((item) => (
-          <a href={item.href}>{item.label}</a>
-        ))
-      }
-      <a class="btn btn-primary" href="https://astplanapp.web.app" rel="noopener">App öffnen</a>
-      <span
-        class="btn btn-disabled"
-        role="link"
-        aria-disabled="true"
-        title="Registrieren — demnächst"
-      >
-        Registrieren
-      </span>
+    <nav class="container" aria-label="Mobilnavigation">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <div class="mobile-ctas"><CtaButtons variant="accent" /></div>
     </nav>
   </div>
 </header>
 
 <style>
   .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    height: var(--header-h);
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    background: var(--site-header-bg);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border-bottom: 1px solid var(--rm-divider);
   }
-  .header-inner {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    height: var(--header-h);
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    color: var(--ink-primary);
-    text-decoration: none !important;
-  }
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-  }
-  .logo-word {
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  .logo-word .map {
-    color: var(--brand-purple);
-  }
-  .nav {
-    display: none;
-    gap: 4px;
-    margin-left: 8px;
-  }
+  .header-inner { display: flex; align-items: center; gap: var(--rm-space-8); height: var(--site-header-h); }
+  .nav { display: none; gap: var(--rm-space-1); }
   .nav-link {
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--ink-secondary);
-    font-size: 15px;
-    font-weight: 500;
+    padding: 8px 12px; border-radius: var(--rm-radius-pill);
+    font: var(--rm-type-body-sm); color: var(--rm-text-secondary);
     text-decoration: none !important;
+    transition: color .2s ease, background .2s ease;
   }
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--ink-primary);
-    background: var(--page);
-  }
-  .header-actions {
-    display: none;
-    gap: 10px;
-    margin-left: auto;
-  }
-  .header-btn {
-    min-height: 42px;
-    padding: 0 16px;
-    font-size: 14px;
-  }
+  .nav-link:hover { color: var(--rm-text-primary); background: var(--rm-surface-alt); }
+  .nav-link[aria-current='page'] { color: var(--rm-text-primary); background: var(--site-pill-bg); }
+  .header-actions { display: none; margin-left: auto; }
   .menu-toggle {
-    margin-left: auto;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
+    margin-left: auto; width: 44px; height: 44px;
+    border: 1px solid var(--site-line-strong); border-radius: var(--rm-radius-pill);
+    background: transparent; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 6px; cursor: pointer;
   }
-  .menu-toggle span {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: var(--ink-primary);
-    border-radius: 1px;
-  }
-  .mobile-panel {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 20px 20px;
-  }
-  .mobile-panel nav {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .mobile-panel a {
-    padding: 12px;
-    border-radius: 10px;
-    color: var(--ink-primary);
-    font-weight: 500;
+  .menu-toggle span { display: block; width: 18px; height: 1.5px; background: var(--rm-text-primary); border-radius: 1px; transition: transform .2s ease; }
+  .menu-toggle[aria-expanded='true'] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .menu-toggle[aria-expanded='true'] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+  .mobile-panel { border-top: 1px solid var(--rm-divider); padding: var(--rm-space-3) 0 var(--rm-space-6); background: var(--rm-bg); }
+  .mobile-panel nav { display: flex; flex-direction: column; gap: var(--rm-space-1); }
+  .mobile-panel a:not(.btn) {
+    padding: 12px 4px; color: var(--rm-text-primary);
+    font: 500 18px/1.4 var(--rm-font-display); border-bottom: 1px solid var(--rm-divider);
     text-decoration: none !important;
   }
-  .mobile-panel a:hover {
-    background: var(--page);
-  }
-  .mobile-panel .btn {
-    margin-top: 8px;
-    text-align: center;
-  }
-  @media (min-width: 900px) {
-    .nav,
-    .header-actions {
-      display: flex;
-    }
-    .menu-toggle,
-    .mobile-panel {
-      display: none !important;
-    }
+  .mobile-ctas { margin-top: var(--rm-space-4); }
+  @media (min-width: 920px) {
+    .nav, .header-actions { display: flex; }
+    .menu-toggle, .mobile-panel { display: none !important; }
   }
 </style>
 
@@ -192,13 +80,9 @@ const path = Astro.url.pathname;
   const toggle = document.getElementById('menu-toggle');
   const panel = document.getElementById('mobile-panel');
   toggle?.addEventListener('click', () => {
-    const open = panel?.hasAttribute('hidden') === false;
-    if (open) {
-      panel?.setAttribute('hidden', '');
-      toggle.setAttribute('aria-expanded', 'false');
-    } else {
-      panel?.removeAttribute('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
+    if (open) panel?.setAttribute('hidden', ''); else panel?.removeAttribute('hidden');
   });
 </script>

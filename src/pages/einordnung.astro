@@ -2,67 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CompareTable from '../components/CompareTable.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PageHero from '../components/PageHero.astro';
 
 const rows = [
-  {
-    label: 'Rolle',
-    ramosmap: 'Feldschicht',
-    kataster: 'Kataster / SoR',
-  },
-  {
-    label: 'Fokus',
-    ramosmap: 'Kontrolle & Ausführung im Gelände',
-    kataster: 'Bestand, Planung, Verwaltung',
-  },
-  {
-    label: 'Gerät',
-    ramosmap: 'Handy / Tablet zuerst',
-    kataster: 'Desktop & Fachverfahren',
-  },
-  {
-    label: 'Datenfluss',
-    ramosmap: 'Import → Feld → Excel-Export',
-    kataster: 'Führendes System',
-  },
-  {
-    label: 'Ersetzt SoR?',
-    ramosmap: 'Nein',
-    kataster: 'Ist SoR',
-  },
+  { label: 'Rolle', ramosmap: 'Feldschicht', kataster: 'Kataster / SoR' },
+  { label: 'Fokus', ramosmap: 'Kontrolle & Ausführung im Gelände', kataster: 'Bestand, Planung, Verwaltung' },
+  { label: 'Gerät', ramosmap: 'Handy / Tablet zuerst', kataster: 'Desktop & Fachverfahren' },
+  { label: 'Datenfluss', ramosmap: 'Import → Feld → Excel/GeoPackage-Export', kataster: 'Führendes System' },
+  { label: 'Ersetzt SoR?', ramosmap: 'Nein', kataster: 'Ist SoR' },
 ];
 ---
-
 <BaseLayout
   title="Einordnung"
-  description="RamosMap ist die Feldschicht — euer Kataster bleibt System of Record. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
+  description="RamosMap ist die Feldschicht – euer Kataster bleibt System of Record. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Einordnung</span>
-      <h1>RamosMap ist die Feldschicht — euer Kataster bleibt SoR.</h1>
-      <p class="lead">
-        Wir ergänzen bestehende Baumkataster: schnell im Feld, sauber zurück. Kein Parallel-System.
-      </p>
-    </div>
-  </section>
-
-  <section class="section-tight">
+  <PageHero
+    eyebrow="Einordnung"
+    title="RamosMap ist die Feldschicht – euer Kataster bleibt SoR."
+    lead="Wir ergänzen bestehende Baumkataster: schnell im Feld, sauber zurück. Kein Parallel-System."
+  />
+  <section class="body-wrap">
     <div class="container">
       <CompareTable rows={rows} />
-      <p class="note muted">
+      <p class="note">
         Kurzfassung: euer Baumkataster bzw. GIS-System bleibt System of Record. RamosMap ist der
         Feld-Loop dazwischen.
       </p>
     </div>
   </section>
-
   <CtaBand />
 </BaseLayout>
-
 <style>
-  .note {
-    margin-top: 20px;
-    font-size: 15px;
-    max-width: 640px;
-  }
+  .body-wrap { padding: var(--site-section-y) 0 0; }
+  .note { margin: var(--rm-space-8) auto 0; font: var(--rm-type-body-sm); max-width: 640px; color: var(--rm-text-muted); text-align: center; }
 </style>

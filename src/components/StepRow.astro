@@ -1,76 +1,80 @@
 ---
-interface Step {
-  n: string;
-  title: string;
-  body: string;
-}
-
-interface Props {
-  title?: string;
-  steps: Step[];
-}
-
-const { title = 'So läuft der Tag', steps } = Astro.props;
+// "How it works": numbered step list (left) + illustrative export panel (right).
+interface Step { n: string; title: string; body: string }
+interface Props { eyebrow?: string; title?: string; intro?: string; steps: Step[] }
+const { eyebrow = 'So funktioniert’s', title = 'So läuft der Tag', intro, steps } = Astro.props;
 ---
-
-<section class="section">
-  <div class="container">
+<section class="section how" id="ablauf" data-theme="dark">
+  <div class="arcs" aria-hidden="true"></div>
+  <div class="container rel">
     <div class="section-head">
+      <span class="pill">{eyebrow}</span>
       <h2>{title}</h2>
+      {intro && <p>{intro}</p>}
     </div>
-    <ol class="steps">
-      {
-        steps.map((step) => (
-          <li class="card step">
-            <span class="num">{step.n}</span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
+    <div class="how-grid">
+      <ol class="steps">
+        {steps.map((s, i) => (
+          <li class:list={['step', { active: i === 0 }]}>
+            <span class="num">{s.n}.</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
           </li>
-        ))
-      }
-    </ol>
+        ))}
+      </ol>
+      <div class="panel card" aria-hidden="true">
+        <div class="panel-head">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="panel-title">Export · Excel / GeoPackage</span>
+        </div>
+        <div class="sheet-grid">
+          {Array.from({ length: 7 }).map((_, r) => (
+            <div class:list={['row', { head: r === 0 }]}>
+              {Array.from({ length: 4 }).map((_, c) => <span class:list={['cell', `c${c}`]} />)}
+            </div>
+          ))}
+        </div>
+        <div class="flow">
+          <span>Import</span><span class="arrow">→</span><span>Kontrolle</span><span class="arrow">→</span><span class="hl">Export</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
 <style>
-  .steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
+  .how { overflow: hidden; padding-top: calc(var(--site-section-y) * 0.6); }
+  .arcs {
+    position: absolute; left: 50%; top: -280px; width: 900px; height: 520px; transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 100%, var(--site-glow-a) 0%, transparent 60%);
+    opacity: .45; filter: blur(60px); pointer-events: none;
   }
-  .step {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .num {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--brand-purple);
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .step h3 {
-    margin-bottom: 6px;
-  }
-  .step p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 26px;
-  }
-  @media (min-width: 768px) {
-    .steps {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
+  .how-grid { display: grid; gap: var(--rm-space-10); align-items: center; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; }
+  .step { padding: var(--rm-space-6) 0; border-top: 1px solid var(--rm-border); position: relative; }
+  .step.active::before { content: ''; position: absolute; top: -1px; left: 0; width: 45%; height: 2px; background: var(--rm-brand-text); }
+  .num { display: block; font: 600 30px/1 var(--rm-font-display); letter-spacing: -0.02em; color: var(--rm-text-muted); margin-bottom: var(--rm-space-3); }
+  .step.active .num { color: var(--rm-brand-text); }
+  .step h3 { margin-bottom: var(--rm-space-2); font: var(--rm-type-h4); }
+  .step:not(.active) h3 { color: var(--rm-text-secondary); }
+  .step p { margin: 0; color: var(--rm-text-muted); }
+  .step.active p { color: var(--rm-text-secondary); }
+
+  .panel { padding: var(--rm-space-6); background: var(--rm-surface); }
+  .panel-head { display: flex; align-items: center; gap: 6px; margin-bottom: var(--rm-space-6); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--site-line-strong); }
+  .panel-title { margin-left: var(--rm-space-3); font: var(--rm-type-caption); font-family: var(--rm-font-mono); color: var(--rm-text-muted); }
+  .sheet-grid { display: grid; gap: 1px; background: var(--rm-border); border: 1px solid var(--rm-border); border-radius: var(--rm-radius-md); overflow: hidden; }
+  .row { display: grid; grid-template-columns: 0.7fr 1.4fr 1fr 1fr; gap: 1px; }
+  .cell { display: block; height: 34px; background: var(--rm-bg); position: relative; }
+  .cell::after { content: ''; position: absolute; left: 12px; top: 50%; height: 7px; width: 55%; transform: translateY(-50%); border-radius: 4px; background: var(--site-line-strong); }
+  .row.head .cell { background: var(--rm-surface-alt); }
+  .row.head .cell::after { background: var(--rm-brand-text); opacity: .7; width: 40%; }
+  .row:nth-child(3) .c2::after, .row:nth-child(5) .c2::after { background: var(--rm-brand); width: 45%; }
+  .row:nth-child(4) .c3::after { background: var(--rm-accent); width: 30%; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--rm-space-2); margin-top: var(--rm-space-6); font: var(--rm-type-body-sm); color: var(--rm-text-secondary); }
+  .flow span:not(.arrow) { padding: 6px 12px; border-radius: var(--rm-radius-pill); border: 1px solid var(--rm-border); }
+  .flow .hl { color: var(--rm-ink-900); background: var(--rm-accent); border-color: var(--rm-accent) !important; }
+  .arrow { color: var(--rm-text-muted); }
+  @media (min-width: 900px) { .how-grid { grid-template-columns: 0.85fr 1.15fr; gap: var(--rm-space-20); } }
 </style>
