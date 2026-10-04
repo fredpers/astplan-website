@@ -9,24 +9,24 @@ import CtaBand from '../components/CtaBand.astro';
 const cards = [
   { icon: 'map', title: 'Für die Baumkontrolle im Gelände', hl: 'Baumkontrolle', body: 'RamosMap ist die Feld-App für die Baumkontrolle.' },
   { icon: 'check', title: 'Zustand und Maßnahme erfassen', hl: 'Zustand', body: 'Baum auswählen, Zustand und Maßnahme erfassen, weiter zum nächsten.' },
-  { icon: 'export', title: 'Ergebnisse zurück ins Kataster', hl: 'Kataster', body: 'Excel oder GeoPackage zurück in euer Kataster/QGIS. RamosMap ergänzt Ihr Baumkataster – und ersetzt es nicht.' },
+  { icon: 'export', title: 'Ergebnisse zurück ins Kataster', hl: 'Kataster', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS. RamosMap ergänzt Ihr Baumkataster – und ersetzt es nicht.' },
 ] as const;
 
 const steps = [
   { n: '1', title: 'Import', body: 'Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP).' },
   { n: '2', title: 'Kontrolle', body: 'Auf der Karte arbeiten, Detailansicht öffnen, Status und Maßnahmen setzen.' },
-  { n: '3', title: 'Export', body: 'Excel oder GeoPackage zurück in euer Kataster/QGIS.' },
+  { n: '3', title: 'Export', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS.' },
 ];
 
 const floats = [
   { label: 'Karte + Detailansicht', text: 'Tippen Sie auf einen Baum – die Detailansicht zeigt alle Kontrollfelder.' },
   { label: 'Kontrolle', text: 'Status und Maßnahme direkt am Baum setzen' },
-  { label: 'Export', text: 'Excel oder GeoPackage zurück in euer Kataster/QGIS' },
+  { label: 'Export', text: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS' },
 ];
 ---
 <BaseLayout
   title="RamosMap – Feld-Baumkontrolle"
-  description="Baumkontrolle im Feld – schnell, klar, exportfertig. Die Feld-App für die Baumkontrolle mit Export in euer Kataster."
+  description="Baumkontrolle im Feld – schnell, klar, exportfertig. Die Feld-App für die Baumkontrolle mit Export in Ihr Kataster."
 >
   <Hero
     eyebrow="Feld-Baumkontrolle"
@@ -37,10 +37,10 @@ const floats = [
   <StepRow
     eyebrow="So funktioniert’s"
     title="Tagesablauf in <span class='hl'>drei</span> Schritten"
-    intro="RamosMap deckt den Feldteil ab – von der Übernahme eurer Bäume bis zum Export zurück in euer System."
+    intro="RamosMap deckt den Feldteil ab – von der Übernahme Ihrer Bäume bis zum Export zurück in Ihr System."
     steps={steps}
   />
-  <FeatureCards eyebrow="Warum RamosMap" title='Was ihr im <span class="hl">Feld</span> erfasst' cards={[...cards]} />
+  <FeatureCards eyebrow="Warum RamosMap" title='Was Sie im <span class="hl">Feld</span> erfassen' cards={[...cards]} />
   <PositionTeaser />
   <CtaBand />
 </BaseLayout>

@@ -7,7 +7,7 @@ import { APP_URL } from '../config/brand';
 interface Props { title: string; description?: string }
 const {
   title,
-  description = 'RamosMap – Feld-Baumkontrolle. Schnell, klar, exportfertig. Export in euer Kataster.',
+  description = 'RamosMap – Feld-Baumkontrolle. Schnell, klar, exportfertig. Export in Ihr Kataster.',
 } = Astro.props;
 const fullTitle = title.includes('RamosMap') ? title : `${title} · RamosMap`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;

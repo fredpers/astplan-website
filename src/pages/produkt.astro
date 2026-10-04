@@ -10,7 +10,7 @@ const sections = [
   { icon: 'marker', title: 'Marker', hl: 'Marker', body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.' },
   { icon: 'filter', title: 'Filter', hl: 'Filter', body: 'Nach Status, Maßnahme oder Gebiet filtern – der Rundgang bleibt übersichtlich.' },
   { icon: 'check', title: 'Kontrolle', hl: 'Kontrolle', body: 'Status und Maßnahme setzen – direkt am Baum.' },
-  { icon: 'export', title: 'Export', hl: 'Export', body: 'Excel oder GeoPackage zurück in euer Kataster/QGIS.' },
+  { icon: 'export', title: 'Export', hl: 'Export', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS.' },
   { icon: 'none', dashed: true, tag: 'Was RamosMap nicht ist', title: 'Kein Ersatz fürs Kataster', hl: 'Kataster', body: 'RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Ihr Kataster bleibt die maßgebliche Datenquelle.' },
 ] as const;
 const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
@@ -22,7 +22,7 @@ const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
   <PageHero
     eyebrow="Produkt"
     title="Vom Baumbestand zur fertigen <span class='hl'>Kontrolle</span>"
-    lead="Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP). Export als Excel oder GeoPackage zurück in euer Kataster/QGIS."
+    lead="Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP). Export als Excel oder GeoPackage zurück in Ihr Kataster/QGIS."
   >
     <ol class="loop" aria-label="Ablauf">
       {loop.map((l, i) => (<li><span class="n">{i + 1}</span>{l}</li>))}
