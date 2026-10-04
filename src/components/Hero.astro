@@ -1,6 +1,6 @@
 ---
 import CtaButtons from './CtaButtons.astro';
-import PhoneMock from './PhoneMock.astro';
+import ScreenshotSlot from './ScreenshotSlot.astro';
 interface Props { eyebrow?: string; title: string; subtitle?: string; floats?: { label: string; text: string }[] }
 const { eyebrow, title, subtitle, floats = [] } = Astro.props;
 ---
@@ -12,13 +12,13 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
   <div class="container hero-grid rel">
     <div class="hero-copy">
       {eyebrow && <span class="pill">{eyebrow}</span>}
-      <h1>{title}</h1>
+      <h1 set:html={title} />
       {subtitle && <p class="lead">{subtitle}</p>}
       <CtaButtons variant="accent" />
     </div>
     <div class="hero-visual">
       <div class="halo" aria-hidden="true"></div>
-      <PhoneMock />
+      <ScreenshotSlot ratio="phone" caption="Screenshot folgt" label="Platzhalter für App-Screenshot" />
       {floats.map((f, i) => (
         <div class:list={['float', `f${i + 1}`]} aria-hidden="true">
           <span class="float-label">{f.label}</span>

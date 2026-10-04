@@ -1,9 +1,9 @@
 ---
 import CtaButtons from './CtaButtons.astro';
-import { LOGO_SRC } from '../config/brand';
+import { LOGO_SRC_SMALL } from '../config/brand';
 interface Props { title?: string; body?: string; showDisabledRegister?: boolean }
 const {
-  title = 'Bereit für Feld-Tempo?',
+  title = 'Bereit für die nächste <span class="hl">Baumkontrolle</span>?',
   body = 'App öffnen und direkt im Feld starten – Registrierung folgt demnächst.',
   showDisabledRegister = true,
 } = Astro.props;
@@ -15,8 +15,8 @@ const {
       <div class="glow pg2"></div>
       <div class="stars"></div>
       <div class="inner rel">
-        <img class="mark" src={LOGO_SRC} width="64" height="64" alt="" decoding="async" />
-        <h2>{title}</h2>
+        <img class="mark" src={LOGO_SRC_SMALL} width="64" height="64" alt="" decoding="async" />
+        <h2 set:html={title} />
         <p>{body}</p>
         <CtaButtons align="center" variant="accent" showRegister={showDisabledRegister} />
       </div>

@@ -18,28 +18,36 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       ))}
     </nav>
     <div class="header-actions">
-      <CtaButtons size="sm" variant="outline" />
+      <CtaButtons size="sm" variant="accent" showRegister={false} />
     </div>
     <button type="button" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-panel" id="menu-toggle">
-      <span></span><span></span>
+      <span class="bars" aria-hidden="true"><span></span><span></span></span>
+      <span class="x" aria-hidden="true">×</span>
     </button>
   </div>
+  <div class="menu-backdrop" id="menu-backdrop" hidden></div>
   <div class="mobile-panel" id="mobile-panel" hidden>
-    <nav class="container" aria-label="Mobilnavigation">
-      {nav.map((item) => (
-        <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
-      ))}
+    <div class="container mobile-inner">
+      <div class="mobile-head">
+        <span class="mobile-title">Menü</span>
+        <button type="button" class="menu-close" id="menu-close" aria-label="Menü schließen">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <nav aria-label="Mobilnavigation">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </nav>
       <div class="mobile-ctas"><CtaButtons variant="accent" /></div>
-    </nav>
+    </div>
   </div>
 </header>
 
 <style>
   .site-header {
     position: fixed; inset: 0 0 auto 0; z-index: 100;
-    background: var(--site-header-bg);
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    background: #051023;
     border-bottom: 1px solid var(--rm-divider);
   }
   .header-inner { display: flex; align-items: center; gap: var(--rm-space-8); height: var(--site-header-h); }
@@ -56,33 +64,73 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .menu-toggle {
     margin-left: auto; width: 44px; height: 44px;
     border: 1px solid var(--site-line-strong); border-radius: var(--rm-radius-pill);
-    background: transparent; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 6px; cursor: pointer;
+    background: transparent; display: grid; place-items: center; cursor: pointer;
+    color: var(--rm-text-primary);
   }
-  .menu-toggle span { display: block; width: 18px; height: 1.5px; background: var(--rm-text-primary); border-radius: 1px; transition: transform .2s ease; }
-  .menu-toggle[aria-expanded='true'] span:first-child { transform: translateY(3.75px) rotate(45deg); }
-  .menu-toggle[aria-expanded='true'] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
-  .mobile-panel { border-top: 1px solid var(--rm-divider); padding: var(--rm-space-3) 0 var(--rm-space-6); background: var(--rm-bg); }
+  .menu-toggle .bars { display: flex; flex-direction: column; gap: 6px; }
+  .menu-toggle .bars span { display: block; width: 18px; height: 1.5px; background: var(--rm-text-primary); border-radius: 1px; }
+  .menu-toggle .x { display: none; font: 500 28px/1 var(--rm-font-ui); }
+  .menu-toggle[aria-expanded='true'] .bars { display: none; }
+  .menu-toggle[aria-expanded='true'] .x { display: block; }
+  .menu-backdrop {
+    position: fixed; inset: 0; z-index: 98;
+    background: rgba(5, 16, 35, 0.62);
+  }
+  .mobile-panel {
+    position: fixed; inset: 0; z-index: 99;
+    background: #051023;
+    overflow-y: auto;
+    padding: calc(var(--site-header-h) + var(--rm-space-4)) 0 var(--rm-space-10);
+  }
+  .mobile-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: var(--rm-space-4);
+  }
+  .mobile-title { font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking); text-transform: uppercase; color: var(--rm-brand-text); }
+  .menu-close {
+    width: 44px; height: 44px; border: 1px solid var(--site-line-strong);
+    border-radius: var(--rm-radius-pill); background: transparent;
+    color: var(--rm-text-primary); cursor: pointer;
+    display: grid; place-items: center;
+  }
+  .menu-close span { font: 500 28px/1 var(--rm-font-ui); }
   .mobile-panel nav { display: flex; flex-direction: column; gap: var(--rm-space-1); }
   .mobile-panel a:not(.btn) {
+    min-height: 44px; display: flex; align-items: center;
     padding: 12px 4px; color: var(--rm-text-primary);
     font: 500 18px/1.4 var(--rm-font-display); border-bottom: 1px solid var(--rm-divider);
     text-decoration: none !important;
   }
-  .mobile-ctas { margin-top: var(--rm-space-4); }
+  .mobile-ctas { margin-top: var(--rm-space-6); }
   @media (min-width: 920px) {
     .nav, .header-actions { display: flex; }
-    .menu-toggle, .mobile-panel { display: none !important; }
+    .menu-toggle, .mobile-panel, .menu-backdrop { display: none !important; }
   }
 </style>
 
 <script>
   const toggle = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('menu-close');
   const panel = document.getElementById('mobile-panel');
+  const backdrop = document.getElementById('menu-backdrop');
+
+  const setOpen = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    if (open) {
+      panel?.removeAttribute('hidden');
+      backdrop?.removeAttribute('hidden');
+      document.body.classList.add('menu-open');
+    } else {
+      panel?.setAttribute('hidden', '');
+      backdrop?.setAttribute('hidden', '');
+      document.body.classList.remove('menu-open');
+    }
+  };
+
   toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
-    if (open) panel?.setAttribute('hidden', ''); else panel?.removeAttribute('hidden');
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
   });
+  closeBtn?.addEventListener('click', () => setOpen(false));
+  backdrop?.addEventListener('click', () => setOpen(false));
 </script>

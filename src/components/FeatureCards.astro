@@ -1,6 +1,6 @@
 ---
 // Glass cards with a highlighted lead phrase (avaros-style emphasis).
-interface Card { title: string; body: string; dashed?: boolean; tag?: string; icon?: 'map' | 'check' | 'export' | 'marker' | 'filter' | 'none' }
+interface Card { title: string; hl?: string; body: string; dashed?: boolean; tag?: string; icon?: 'map' | 'check' | 'export' | 'marker' | 'filter' | 'none' }
 interface Props { eyebrow?: string; title?: string; intro?: string; cards: Card[]; columns?: 2 | 3 }
 const { eyebrow, title, intro, cards, columns = 3 } = Astro.props;
 const showHead = Boolean(eyebrow || title);
@@ -12,13 +12,19 @@ const icons: Record<string, string> = {
   marker: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>',
   filter: '<path d="M4 5h16l-6 7.5V19l-4-1.5v-5L4 5Z"/>',
 };
+
+function titleWithHl(text: string, hl?: string) {
+  if (!hl || !text.includes(hl)) return text;
+  const i = text.indexOf(hl);
+  return `${text.slice(0, i)}<span class="hl">${hl}</span>${text.slice(i + hl.length)}`;
+}
 ---
 <section class="section">
   <div class="container">
     {showHead && (
       <div class="section-head">
         {eyebrow && <span class="pill">{eyebrow}</span>}
-        {title && <h2>{title}</h2>}
+        {title && <h2 set:html={title} />}
         {intro && <p>{intro}</p>}
       </div>
     )}
@@ -31,7 +37,7 @@ const icons: Record<string, string> = {
             </span>
           )}
           {card.tag && <span class="pill">{card.tag}</span>}
-          <h3>{card.title}</h3>
+          <h3 set:html={titleWithHl(card.title, card.hl)} />
           <p>{card.body}</p>
         </article>
       ))}
@@ -49,11 +55,8 @@ const icons: Record<string, string> = {
   }
   .icon svg { width: 22px; height: 22px; }
   .feature h3 { margin-bottom: var(--rm-space-3); }
-  .feature h3 .hl { color: var(--rm-brand-text); }
-  .feature p { margin: 0; color: var(--rm-text-muted); }
+  .feature h3 :global(.hl) { color: var(--rm-brand-text); }
+  .feature p { margin: 0; color: var(--rm-text-secondary); }
   .feature.dashed { border-style: dashed; border-color: var(--rm-border-strong); background: var(--rm-surface-alt); box-shadow: none; }
   .feature .pill { align-self: flex-start; margin-bottom: var(--rm-space-8); }
-  .feature.dashed p { color: var(--rm-text-secondary); }
-  @media (min-width: 760px) { .cols-2, .cols-3 { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .cols-3 { grid-template-columns: repeat(3, 1fr); } .cards { gap: var(--rm-space-6); } }
 </style>

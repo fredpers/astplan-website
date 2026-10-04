@@ -1,5 +1,4 @@
-/* RamosMap tokens v0.1 (2026-10-04). Avaros-inspired; brand purple #5B45E0 unchanged. */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Fragment+Mono&display=swap');
+/* RamosMap tokens v0.1 (2026-10-04). Avaros-inspired; brand purple #5F3CD7. */
 :root{
   --rm-purple-50: #F5F6FF;
   --rm-purple-100: #EBEDFF;
@@ -7,7 +6,7 @@
   --rm-purple-300: #BABDFF;
   --rm-purple-400: #9393FE;
   --rm-purple-500: #7469FB;
-  --rm-purple-600: #5B45E0;
+  --rm-purple-600: #5F3CD7;
   --rm-purple-700: #4933BB;
   --rm-purple-800: #382892;
   --rm-purple-900: #281C6B;
@@ -41,7 +40,7 @@
   --rm-text-muted: #636E7F;
   --rm-text-on-brand: #FFFFFF;
   --rm-brand: #5F3CD7;
-  --rm-brand-text: #5B45E0;
+  --rm-brand-text: #5F3CD7;
   --rm-brand-hover: #4933BB;
   --rm-brand-strong: #382892;
   --rm-brand-subtle: #F5F6FF;
@@ -68,7 +67,7 @@
   --rm-tree-unassessed: #8A94A6;
   --rm-font-display: 'Montserrat', system-ui, sans-serif;
   --rm-font-ui: 'Inter', system-ui, sans-serif;
-  --rm-font-mono: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --rm-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
   --rm-type-display: 500 56px/1.05 var(--rm-font-display); --rm-type-display-tracking: -0.04em;
   --rm-type-h1: 500 40px/1.1 var(--rm-font-display); --rm-type-h1-tracking: -0.03em;
   --rm-type-h2: 500 32px/1.15 var(--rm-font-display); --rm-type-h2-tracking: -0.03em;
@@ -98,10 +97,10 @@
   --rm-radius-2xl: 24px;
   --rm-radius-pill: 999px;
   --rm-shadow-sm: 0 1px 2px rgba(8,21,44,0.06), 0 0 8px rgba(8,21,44,0.04);
-  --rm-shadow-md: 0 2px 10px rgba(91,69,224,0.04), 0 6px 28px rgba(91,69,224,0.06), 0 18px 90px rgba(91,69,224,0.08);
+  --rm-shadow-md: 0 2px 10px rgba(95,60,215,0.04), 0 6px 28px rgba(95,60,215,0.06), 0 18px 90px rgba(95,60,215,0.08);
   --rm-shadow-lg: 0 16px 32px rgba(8,21,44,0.12), 0 4px 8px rgba(8,21,44,0.06);
   --rm-shadow-sheet: 0 -8px 32px rgba(8,21,44,0.12);
-  --rm-shadow-glow-dark: 0 0 40px 10px rgba(91,69,224,0.45), 0 20px 160px rgba(91,69,224,0.35);
+  --rm-shadow-glow-dark: 0 0 40px 10px rgba(95,60,215,0.45), 0 20px 160px rgba(95,60,215,0.35);
   --rm-shadow-inset-glow-dark: inset 0 1px 20px rgba(116,105,251,0.30);
 }
 /* Dark: opt-in via [data-theme="dark"] (Avaros is dark-first; use for marketing hero/sections) */
@@ -113,7 +112,7 @@
   --rm-text-primary: #F9FDFF;
   --rm-text-secondary: #BCC5D1;
   --rm-text-muted: #828D9D;
-  --rm-brand: #5B45E0; /* fills stay logo purple */
+  --rm-brand: #5F3CD7; /* fills stay logo purple */
   --rm-brand-text: #9393FE; /* purple text/icons on dark */
   --rm-text-on-brand: #FFFFFF;
   --rm-brand-hover: var(--rm-purple-700);

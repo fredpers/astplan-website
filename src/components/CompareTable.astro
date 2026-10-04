@@ -35,6 +35,24 @@ const { rows } = Astro.props;
   </table>
 </div>
 
+<div class="compare-cards">
+  {rows.map((row) => (
+    <article class="card compare-card">
+      <h3>{row.label}</h3>
+      <dl>
+        <div>
+          <dt>RamosMap</dt>
+          <dd>{row.ramosmap}</dd>
+        </div>
+        <div>
+          <dt>Baumkataster / GIS</dt>
+          <dd>{row.kataster}</dd>
+        </div>
+      </dl>
+    </article>
+  ))}
+</div>
+
 <style>
   .table-wrap {
     overflow-x: auto; max-width: 920px; margin: 0 auto;
@@ -48,4 +66,18 @@ const { rows } = Astro.props;
   tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
   .hl { background: var(--rm-brand-subtle); color: var(--rm-text-primary); font-weight: 500; }
   thead th.hl { color: var(--rm-brand-strong); background: var(--rm-brand-muted); }
+
+  .compare-cards { display: none; gap: var(--rm-space-4); }
+  .compare-card h3 { font: var(--rm-type-h4); margin-bottom: var(--rm-space-4); }
+  .compare-card dl { margin: 0; display: grid; gap: var(--rm-space-4); }
+  .compare-card dt {
+    font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking);
+    text-transform: uppercase; color: var(--rm-brand-text); margin-bottom: 4px;
+  }
+  .compare-card dd { margin: 0; color: var(--rm-text-secondary); }
+
+  @media (max-width: 720px) {
+    .table-wrap { display: none; }
+    .compare-cards { display: grid; }
+  }
 </style>

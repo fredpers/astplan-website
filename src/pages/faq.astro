@@ -5,15 +5,19 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 
 const items = [
-  { q: 'Ersetzt RamosMap unser Baumkataster?', a: 'Nein. RamosMap ist die <strong>Feldschicht</strong>. Euer Kataster bzw. GIS-System bleibt System of Record. Wir importieren, kontrollieren im Feld und exportieren zurück.' },
-  { q: 'Brauche ich nur den Browser?', a: 'Ja für den Einstieg: RamosMap läuft als Web-App im Browser auf Handy und Tablet. Kein App-Store-Zwang für den Feldalltag.' },
-  { q: 'Wie funktionieren Konten / Zugang?', a: 'Aktuell: App öffnen und loslegen. Registrierung und Team-/Rollen-Details folgen mit dem Produktausbau.' },
-  { q: 'Welche Exporte gibt es?', a: 'Excel-Export der Kontrolle und GeoPackage-Export für QGIS – gedacht für den Rückweg in euer Kataster bzw. GIS-System.' },
-  { q: 'Und QGIS / Desktop-GIS?', a: 'RamosMap ersetzt kein Desktop-GIS. Wenn ihr QGIS oder vergleichbare Tools für Analyse und Planung nutzt, bleibt das so – wir sind für den Feld-Loop da.' },
+  { q: 'Ersetzt RamosMap unser Baumkataster?', a: 'Nein. RamosMap ergänzt Ihr Baumkataster – und ersetzt es nicht. Ihr Kataster bleibt die maßgebliche Datenquelle. Wir importieren, kontrollieren im Feld und exportieren zurück.' },
+  { q: 'Reicht ein Browser?', a: 'Ja. RamosMap läuft als Web-App im Browser auf Smartphone und Tablet – ohne Installation aus dem App Store.' },
+  { q: 'Wie bekomme ich Zugang?', a: 'Aktuell: App öffnen und loslegen. Team- und Rollenverwaltung folgt.' },
+  { q: 'Welche Exporte gibt es?', a: 'Excel oder GeoPackage zurück in euer Kataster/QGIS.' },
+  { q: 'Und unser Desktop-GIS (z. B. QGIS)?', a: 'RamosMap ersetzt kein Desktop-GIS. Wenn ihr QGIS oder vergleichbare Tools für Analyse und Planung nutzt, bleibt das so.' },
+  { q: 'Datenschutz und Hosting?', a: '<!-- TODO Fredrik -->Antwort folgt.' },
+  { q: 'Was kostet RamosMap?', a: '<!-- TODO Fredrik -->Antwort folgt.' },
+  { q: 'Welche Formate werden unterstützt?', a: '<!-- TODO Fredrik -->Antwort folgt.' },
+  { q: 'Wie erreiche ich den Support?', a: '<!-- TODO Fredrik -->Antwort folgt.' },
 ];
 ---
 <BaseLayout title="FAQ" description="Häufige Fragen zu RamosMap: Baumkataster, Browser, Konten, Exporte, QGIS.">
-  <PageHero eyebrow="FAQ" title="Häufige Fragen" lead="Kurz und klar – ohne Marketingnebel." />
+  <PageHero eyebrow="FAQ" title="Häufige Fragen" lead="Kurze Antworten auf häufige Fragen." />
   <section class="body-wrap">
     <div class="container"><FaqAccordion items={items} /></div>
   </section>

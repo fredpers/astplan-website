@@ -1,0 +1,37 @@
+---
+// Clearly marked slot for a real app screenshot. Neutral frame, no fake UI.
+interface Props { caption?: string; label?: string; ratio?: 'phone' | 'wide' }
+const {
+  caption = 'Screenshot folgt',
+  label = 'Platzhalter für App-Screenshot',
+  ratio = 'wide',
+} = Astro.props;
+---
+<figure class:list={['shot', ratio]}>
+  <div class="frame" role="img" aria-label={label}></div>
+  <figcaption>{caption}</figcaption>
+</figure>
+<style>
+  .shot { margin: 0; display: flex; flex-direction: column; gap: var(--rm-space-3); width: 100%; }
+  .frame {
+    width: 100%;
+    border: 1px solid var(--rm-border);
+    border-radius: var(--rm-radius-xl);
+    background:
+      linear-gradient(180deg, var(--rm-surface-alt) 0%, var(--rm-surface-sunken) 100%);
+    box-shadow: var(--rm-shadow-sm);
+  }
+  .wide .frame { aspect-ratio: 16 / 10; }
+  .phone .frame { aspect-ratio: 9 / 16; max-width: 280px; margin: 0 auto; }
+  [data-theme="dark"] .frame {
+    background: linear-gradient(180deg, #0C1B37 0%, #08152C 100%);
+    border-color: var(--rm-border);
+  }
+  figcaption {
+    font: var(--rm-type-caption);
+    color: var(--rm-text-secondary);
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+</style>

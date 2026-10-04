@@ -1,6 +1,7 @@
 ---
-interface Props { eyebrow?: string; title: string; lead?: string }
-const { eyebrow, title, lead } = Astro.props;
+import CtaButtons from './CtaButtons.astro';
+interface Props { eyebrow?: string; title: string; lead?: string; showCta?: boolean }
+const { eyebrow, title, lead, showCta = true } = Astro.props;
 ---
 <section class="page-hero" data-theme="dark">
   <div class="glow ph1"></div>
@@ -8,8 +9,13 @@ const { eyebrow, title, lead } = Astro.props;
   <div class="stars"></div>
   <div class="container rel">
     {eyebrow && <span class="pill">{eyebrow}</span>}
-    <h1>{title}</h1>
+    <h1 set:html={title} />
     {lead && <p class="lead">{lead}</p>}
+    {showCta && (
+      <div class="hero-cta">
+        <CtaButtons variant="accent" align="center" />
+      </div>
+    )}
     <slot />
   </div>
 </section>
@@ -20,6 +26,7 @@ const { eyebrow, title, lead } = Astro.props;
   }
   .page-hero h1 { max-width: 900px; margin: 0 auto var(--rm-space-6); }
   .page-hero .lead { max-width: 640px; margin: 0 auto; }
+  .hero-cta { margin-top: var(--rm-space-8); }
   .ph1 { width: 460px; height: 420px; left: -260px; top: -40px; background: var(--site-glow-c); }
   .ph2 { width: 460px; height: 380px; right: -240px; top: 40px; background: var(--site-glow-a); }
 </style>

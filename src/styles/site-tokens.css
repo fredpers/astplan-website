@@ -23,8 +23,8 @@
   --site-glow-c: color-mix(in srgb, var(--rm-lime-300) 22%, transparent);
   --site-star: color-mix(in srgb, var(--rm-ink-0) 32%, transparent);
 
-  /* Translucent surfaces */
-  --site-header-bg: color-mix(in srgb, var(--rm-bg) 78%, transparent);
+  /* Header is always solid navy — never translucent over light sections. */
+  --site-header-bg: #051023;
   --site-glass: color-mix(in srgb, var(--rm-surface) 72%, transparent);
   --site-frame: color-mix(in srgb, var(--rm-ink-0) 14%, transparent);
 
@@ -44,14 +44,12 @@
 }
 
 /* ---- One-line brand swap ----------------------------------------------
-   tokens.css v0.1 repeats #5B45E0 in :root --rm-brand, :root --rm-brand-text
-   and the dark block's --rm-brand. Re-point the copies so the :root
-   --rm-brand line in tokens.css is the single source for every brand
-   fill/text on the site. (Designer shadows still embed rgb(91,69,224).) */
+   Re-point copies so the :root --rm-brand line in tokens.css is the
+   single source for every brand fill/text on the site. */
 :root {
-  --site-brand-source: var(--rm-brand);
+  --site-brand-base: var(--rm-brand);
   --rm-brand-text: var(--rm-brand);
 }
 [data-theme="dark"] {
-  --rm-brand: var(--site-brand-source);
+  --rm-brand: var(--site-brand-base);
 }
