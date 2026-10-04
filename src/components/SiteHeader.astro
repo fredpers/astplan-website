@@ -47,7 +47,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 <style>
   .site-header {
     position: fixed; inset: 0 0 auto 0; z-index: 100;
-    background: #051023;
+    background: var(--site-header-bg);
     border-bottom: 1px solid var(--rm-divider);
   }
   .header-inner { display: flex; align-items: center; gap: var(--rm-space-8); height: var(--site-header-h); }
@@ -74,11 +74,11 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .menu-toggle[aria-expanded='true'] .x { display: block; }
   .menu-backdrop {
     position: fixed; inset: 0; z-index: 98;
-    background: rgba(5, 16, 35, 0.62);
+    background: color-mix(in srgb, var(--rm-ink-950) 62%, transparent);
   }
   .mobile-panel {
     position: fixed; inset: 0; z-index: 99;
-    background: #051023;
+    background: var(--site-header-bg);
     overflow-y: auto;
     padding: calc(var(--site-header-h) + var(--rm-space-4)) 0 var(--rm-space-10);
   }

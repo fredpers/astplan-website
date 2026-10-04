@@ -1,16 +1,17 @@
-/* RamosMap tokens v0.1 (2026-10-04). Avaros-inspired; brand purple #5F3CD7. */
+/* RamosMap tokens v0.2 (2026-10-04). Avaros-inspired; brand purple #5F3CD7 (locked). */
+/* Fonts: self-hosted Montserrat + Inter via fonts.css (no Google Fonts). */
 :root{
-  --rm-purple-50: #F5F6FF;
-  --rm-purple-100: #EBEDFF;
-  --rm-purple-200: #D8DBFE;
-  --rm-purple-300: #BABDFF;
-  --rm-purple-400: #9393FE;
-  --rm-purple-500: #7469FB;
+  --rm-purple-50: #F6F6FF;
+  --rm-purple-100: #ECEDFF;
+  --rm-purple-200: #DADAFF;
+  --rm-purple-300: #BEBCFE;
+  --rm-purple-400: #9A90FF;
+  --rm-purple-500: #7D66F9;
   --rm-purple-600: #5F3CD7;
-  --rm-purple-700: #4933BB;
-  --rm-purple-800: #382892;
-  --rm-purple-900: #281C6B;
-  --rm-purple-950: #161042;
+  --rm-purple-700: #5030B9;
+  --rm-purple-800: #3D2591;
+  --rm-purple-900: #2C1B6A;
+  --rm-purple-950: #190F41;
   --rm-ink-0: #FFFFFF;
   --rm-ink-25: #F8FAFD;
   --rm-ink-50: #F3F5F9;
@@ -34,20 +35,23 @@
   --rm-surface-sunken: #E9EDF3;
   --rm-border: #DAE0E8;
   --rm-divider: #E9EDF3;
+  --rm-card-border: #BCC5D1;
+  --rm-input-border: #636E7F;
   --rm-border-strong: #828D9D;
   --rm-text-primary: #08152C;
   --rm-text-secondary: #324056;
-  --rm-text-muted: #636E7F;
+  --rm-text-data: #324056;
+  --rm-text-muted: #4C596C;
   --rm-text-on-brand: #FFFFFF;
   --rm-brand: #5F3CD7;
   --rm-brand-text: #5F3CD7;
-  --rm-brand-hover: #4933BB;
-  --rm-brand-strong: #382892;
-  --rm-brand-subtle: #F5F6FF;
-  --rm-brand-muted: #EBEDFF;
+  --rm-link: #5F3CD7;
+  --rm-brand-hover: #5030B9;
+  --rm-brand-strong: #3D2591;
+  --rm-brand-subtle: #F6F6FF;
+  --rm-brand-muted: #ECEDFF;
   --rm-accent: #C2F59E;
-  --rm-accent-strong: #307C1B;
-  --rm-focus: #7469FB;
+  --rm-focus: #7D66F9;
   --rm-success: #198044;
   --rm-success-bg: #E1F9E6;
   --rm-warning: #E8A317;
@@ -58,16 +62,16 @@
   --rm-danger-bg: #FFEDEB;
   --rm-info: #406CCF;
   --rm-info-bg: #EBF2FE;
-  --rm-tree-good: #2E9E4F;
-  --rm-tree-slight: #9BC53D;
-  --rm-tree-moderate: #F2B33D;
-  --rm-tree-severe: #E8682A;
-  --rm-tree-critical: #C62F3A;
-  --rm-tree-dead: #5A4A5E;
-  --rm-tree-unassessed: #8A94A6;
+  --rm-tree-good: #0CAA87; --rm-tree-good-on: #08152C;
+  --rm-tree-slight: #F3E253; --rm-tree-slight-on: #08152C;
+  --rm-tree-moderate: #E59A52; --rm-tree-moderate-on: #08152C;
+  --rm-tree-severe: #D4591B; --rm-tree-severe-on: #08152C;
+  --rm-tree-critical: #AC0D32; --rm-tree-critical-on: #FFFFFF;
+  --rm-tree-dead: #5D3653; --rm-tree-dead-on: #FFFFFF;
+  --rm-tree-unassessed: #BDBFC2; --rm-tree-unassessed-on: #08152C;
   --rm-font-display: 'Montserrat', system-ui, sans-serif;
   --rm-font-ui: 'Inter', system-ui, sans-serif;
-  --rm-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+  --rm-font-mono: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace;
   --rm-type-display: 500 56px/1.05 var(--rm-font-display); --rm-type-display-tracking: -0.04em;
   --rm-type-h1: 500 40px/1.1 var(--rm-font-display); --rm-type-h1-tracking: -0.03em;
   --rm-type-h2: 500 32px/1.15 var(--rm-font-display); --rm-type-h2-tracking: -0.03em;
@@ -101,7 +105,7 @@
   --rm-shadow-lg: 0 16px 32px rgba(8,21,44,0.12), 0 4px 8px rgba(8,21,44,0.06);
   --rm-shadow-sheet: 0 -8px 32px rgba(8,21,44,0.12);
   --rm-shadow-glow-dark: 0 0 40px 10px rgba(95,60,215,0.45), 0 20px 160px rgba(95,60,215,0.35);
-  --rm-shadow-inset-glow-dark: inset 0 1px 20px rgba(116,105,251,0.30);
+  --rm-shadow-inset-glow-dark: inset 0 1px 20px rgba(125,102,249,0.30);
 }
 /* Dark: opt-in via [data-theme="dark"] (Avaros is dark-first; use for marketing hero/sections) */
 [data-theme="dark"]{
@@ -112,8 +116,10 @@
   --rm-text-primary: #F9FDFF;
   --rm-text-secondary: #BCC5D1;
   --rm-text-muted: #828D9D;
+  --rm-btn-secondary-border: rgba(255,255,255,0.24);
+  --rm-link: #9A90FF;
   --rm-brand: #5F3CD7; /* fills stay logo purple */
-  --rm-brand-text: #9393FE; /* purple text/icons on dark */
+  --rm-brand-text: #9A90FF; /* purple text/icons on dark */
   --rm-text-on-brand: #FFFFFF;
   --rm-brand-hover: var(--rm-purple-700);
   --rm-divider: rgba(255,255,255,0.06);

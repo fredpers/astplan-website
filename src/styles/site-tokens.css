@@ -1,9 +1,8 @@
 /* ==========================================================================
-   Site extensions — values the marketing layout needs that are NOT in
-   Designer tokens v0.1. No new colours: everything derives from --rm-* via
-   var()/color-mix(), so a brand swap in tokens.css flows through.
-   Declared on both :root and [data-theme="dark"] so derived values
-   re-resolve inside dark sections.
+   Site extensions — marketing layout only. Colour, type, radius, shadow and
+   control tokens live in Designer tokens v0.2 (tokens.css). No brand/colour
+   overrides here: v0.2 already covers brand, hover, focus, link, muted,
+   data, card-border, danger-strong, and dark secondary/link roles.
    ========================================================================== */
 :root, [data-theme="dark"] {
   /* Layout */
@@ -24,32 +23,20 @@
   --site-star: color-mix(in srgb, var(--rm-ink-0) 32%, transparent);
 
   /* Header is always solid navy — never translucent over light sections. */
-  --site-header-bg: #051023;
+  --site-header-bg: var(--rm-ink-950);
   --site-glass: color-mix(in srgb, var(--rm-surface) 72%, transparent);
   --site-frame: color-mix(in srgb, var(--rm-ink-0) 14%, transparent);
 
-  /* Pill / badge (light) */
+  /* Pill / badge (light) — roles from v0.2 */
   --site-pill-bg: var(--rm-brand-muted);
   --site-pill-text: var(--rm-brand-strong);
   --site-pill-border: transparent;
-  --site-line-strong: var(--rm-border);
+  --site-line-strong: var(--rm-border-strong);
   --site-card-shadow: var(--rm-shadow-md);
 }
 [data-theme="dark"] {
   --site-pill-bg: color-mix(in srgb, var(--rm-brand) 20%, transparent);
   --site-pill-text: var(--rm-brand-text);
   --site-pill-border: color-mix(in srgb, var(--rm-brand-text) 30%, transparent);
-  --site-line-strong: color-mix(in srgb, var(--rm-ink-0) 20%, transparent);
-  --site-card-shadow: var(--rm-shadow-inset-glow-dark);
-}
-
-/* ---- One-line brand swap ----------------------------------------------
-   Re-point copies so the :root --rm-brand line in tokens.css is the
-   single source for every brand fill/text on the site. */
-:root {
-  --site-brand-base: var(--rm-brand);
-  --rm-brand-text: var(--rm-brand);
-}
-[data-theme="dark"] {
-  --rm-brand: var(--site-brand-base);
+  --site-line-strong: var(--rm-btn-secondary-border);
 }
