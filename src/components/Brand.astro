@@ -1,0 +1,23 @@
+---
+// Brand chrome: logo mark (asset) + optional plain-text site name.
+// The name is styled text, NOT part of the logo asset. Toggle via SHOW_NAME_TEXT
+// in src/config/brand.ts, or drop the <span> below.
+import { LOGO_SRC, LOGO_SRC_SMALL, SHOW_NAME_TEXT, SITE_NAME } from '../config/brand';
+interface Props { size?: number; href?: string | null }
+const { size = 32, href = '/' } = Astro.props;
+const Tag = href ? 'a' : 'span';
+const src = size < 48 ? LOGO_SRC_SMALL : LOGO_SRC;
+---
+<Tag class="brand" href={href ?? undefined} aria-label={href ? `${SITE_NAME} – Startseite` : undefined}>
+  <img class="brand-mark" src={src} width={size} height={size} alt={href ? '' : SITE_NAME} decoding="async" />
+  {SHOW_NAME_TEXT && <span class="brand-name" aria-hidden={href ? 'true' : undefined}>{SITE_NAME}</span>}
+</Tag>
+<style>
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important; flex-shrink: 0; }
+  .brand-mark { display: block; }
+  .brand-name {
+    font: 600 19px/1 var(--rm-font-display);
+    letter-spacing: -0.02em;
+    color: var(--rm-text-primary);
+  }
+</style>

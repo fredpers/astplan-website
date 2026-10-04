@@ -2,11 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegalStub from '../components/LegalStub.astro';
 ---
-
-<BaseLayout title="Impressum" description="Impressum RamosMap — Platzhalter (AST-87).">
-  <section class="page-hero">
+<BaseLayout title="Impressum" description="Impressum RamosMap – Platzhalter.">
+  <section class="legal-wrap">
     <div class="container">
       <LegalStub title="Impressum" kind="impressum" />
     </div>
   </section>
 </BaseLayout>
+<style>
+  .legal-wrap { padding: calc(var(--site-header-h) + clamp(56px, 7vw, 96px)) 0 var(--site-section-y); }
+</style>

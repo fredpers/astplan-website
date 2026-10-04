@@ -1,0 +1,22 @@
+---
+// Primary "App öffnen" + optional plain-text "Registrierung folgt in Kürze" (never a button).
+// Lime filled on dark sections (variant="accent"); purple filled on light (variant="primary").
+// Secondary, if used, is outline only.
+import Chevron from './Chevron.astro';
+import { APP_URL } from '../config/brand';
+interface Props { size?: 'sm' | 'md'; variant?: 'primary' | 'accent' | 'outline'; showRegister?: boolean; align?: 'start' | 'center' }
+const { size = 'md', variant = 'primary', showRegister = true, align = 'start' } = Astro.props;
+---
+<div class:list={['cta-row', `align-${align}`]}>
+  <a class:list={['btn', `btn-${variant}`, { 'btn-sm': size === 'sm' }]} href={APP_URL} rel="noopener">
+    App öffnen <Chevron />
+  </a>
+  {showRegister && (
+    <p class="register-note">Registrierung folgt in Kürze</p>
+  )}
+</div>
+<style>
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--rm-space-2) var(--rm-space-4); }
+  .align-center { justify-content: center; }
+  .align-center .register-note { width: 100%; text-align: center; }
+</style>

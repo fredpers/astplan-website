@@ -1,0 +1,52 @@
+---
+// Two-column Einordnung teaser — jargon-free, does not repeat the /einordnung H1.
+import Chevron from './Chevron.astro';
+---
+<section class="section band">
+  <div class="container">
+    <div class="section-head">
+      <span class="pill">Einordnung</span>
+      <h2>Wie passt RamosMap zu Ihrem <span class="hl">Kataster</span>?</h2>
+      <p>RamosMap ergänzt bestehende Baumkataster: schnell im Feld, sauber zurück.</p>
+    </div>
+    <div class="pair">
+      <article class="card side hl">
+        <span class="tag">RamosMap</span>
+        <h3>Feld-App</h3>
+        <ul>
+          <li>Kontrolle &amp; Ausführung im Gelände</li>
+          <li>Handy / Tablet zuerst</li>
+          <li>Import → Feld → Excel/GeoPackage-Export</li>
+        </ul>
+      </article>
+      <article class="card side">
+        <span class="tag">Baumkataster / GIS</span>
+        <h3>Führendes System</h3>
+        <ul>
+          <li>Bestand, Planung, Verwaltung</li>
+          <li>Desktop &amp; Fachverfahren</li>
+          <li>Ihr Kataster bleibt maßgeblich</li>
+        </ul>
+      </article>
+    </div>
+    <p class="more"><a href="/einordnung">Zur Einordnung <Chevron /></a></p>
+  </div>
+</section>
+<style>
+  .band { background: var(--rm-surface-alt); border-top: 1px solid var(--rm-divider); border-bottom: 1px solid var(--rm-divider); }
+  .pair { display: grid; gap: var(--rm-space-4); max-width: 920px; margin: 0 auto; }
+  .side { padding: var(--rm-space-8); }
+  .side.hl { border-color: var(--rm-purple-200); background: var(--rm-surface); }
+  .side:not(.hl) { box-shadow: none; background: transparent; }
+  .tag { display: inline-block; font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking); text-transform: uppercase; color: var(--rm-text-muted); margin-bottom: var(--rm-space-3); }
+  .hl .tag { color: var(--rm-brand-text); }
+  .side h3 { font: var(--rm-type-h3); font-size: 28px; letter-spacing: var(--rm-type-h3-tracking); }
+  ul { list-style: none; margin: var(--rm-space-4) 0 0; padding: 0; display: grid; gap: var(--rm-space-3); }
+  li { position: relative; padding-left: 28px; color: var(--rm-text-secondary); }
+  li::before { content: ''; position: absolute; left: 2px; top: 0.42em; width: 12px; height: 7px; border-left: 2px solid var(--rm-text-muted); border-bottom: 2px solid var(--rm-text-muted); transform: rotate(-45deg); }
+  .hl li::before { border-color: var(--rm-brand-text); }
+  .more { text-align: center; margin-top: var(--rm-space-10); }
+  .more a { display: inline-flex; align-items: center; gap: 6px; font: 600 15px/1 var(--rm-font-ui); }
+  .more :global(.chev) { width: 14px; height: 14px; }
+  @media (min-width: 760px) { .pair { grid-template-columns: 1fr 1fr; gap: var(--rm-space-6); } }
+</style>

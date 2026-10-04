@@ -35,49 +35,49 @@ const { rows } = Astro.props;
   </table>
 </div>
 
+<div class="compare-cards">
+  {rows.map((row) => (
+    <article class="card compare-card">
+      <h3>{row.label}</h3>
+      <dl>
+        <div>
+          <dt>RamosMap</dt>
+          <dd>{row.ramosmap}</dd>
+        </div>
+        <div>
+          <dt>Baumkataster / GIS</dt>
+          <dd>{row.kataster}</dd>
+        </div>
+      </dl>
+    </article>
+  ))}
+</div>
+
 <style>
   .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
+    overflow-x: auto; max-width: 920px; margin: 0 auto;
+    border: 1px solid var(--rm-card-border); border-radius: var(--rm-radius-xl);
+    background: var(--rm-surface); box-shadow: var(--rm-shadow-md);
   }
-  .compare {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 520px;
-    font-size: 15px;
-    line-height: 22px;
+  .compare { width: 100%; border-collapse: collapse; min-width: 560px; font: var(--rm-type-body); }
+  th, td { padding: 18px 22px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rm-divider); color: var(--rm-text-secondary); }
+  thead th { font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking); text-transform: uppercase; color: var(--rm-text-muted); background: var(--rm-surface-alt); }
+  tbody th { font-weight: 600; color: var(--rm-text-primary); width: 22%; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
+  .hl { background: var(--rm-brand-subtle); color: var(--rm-text-primary); font-weight: 500; }
+  thead th.hl { color: var(--rm-brand-strong); background: var(--rm-brand-muted); }
+
+  .compare-cards { display: none; gap: var(--rm-space-4); }
+  .compare-card h3 { font: var(--rm-type-h4); margin-bottom: var(--rm-space-4); }
+  .compare-card dl { margin: 0; display: grid; gap: var(--rm-space-4); }
+  .compare-card dt {
+    font: var(--rm-type-overline); letter-spacing: var(--rm-type-overline-tracking);
+    text-transform: uppercase; color: var(--rm-brand-text); margin-bottom: 4px;
   }
-  th,
-  td {
-    padding: 14px 16px;
-    text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid var(--border);
-  }
-  thead th {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-secondary);
-    background: var(--page);
-  }
-  tbody th {
-    font-weight: 600;
-    color: var(--ink-primary);
-    width: 22%;
-  }
-  tbody tr:last-child th,
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-  .hl {
-    background: var(--brand-purple-soft) !important;
-    color: var(--ink-primary);
-    font-weight: 500;
-  }
-  thead th.hl {
-    color: var(--brand-purple);
-    font-weight: 700;
+  .compare-card dd { margin: 0; color: var(--rm-text-secondary); }
+
+  @media (max-width: 720px) {
+    .table-wrap { display: none; }
+    .compare-cards { display: grid; }
   }
 </style>

@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Site extensions — marketing layout only. Colour, type, radius, shadow and
+   control tokens live in Designer tokens v0.2 (tokens.css). No brand/colour
+   overrides here: v0.2 already covers brand, hover, focus, link, muted,
+   data, card-border, danger-strong, and dark secondary/link roles.
+   ========================================================================== */
+:root, [data-theme="dark"] {
+  /* Layout */
+  --site-container: 1136px;
+  --site-gutter: 24px;
+  --site-header-h: 72px;
+  --site-section-y: clamp(80px, 10vw, 136px);
+
+  /* Fluid marketing type sizes (Designer scale is fixed px; these scale up for hero/sections) */
+  --site-fs-hero: clamp(40px, 5.4vw, 72px);
+  --site-fs-page: clamp(36px, 4.4vw, 56px);
+  --site-fs-section: clamp(32px, 3.4vw, 48px);
+
+  /* Atmosphere (dark sections) */
+  --site-glow-a: color-mix(in srgb, var(--rm-brand) 60%, transparent);
+  --site-glow-b: color-mix(in srgb, var(--rm-purple-500) 40%, transparent);
+  --site-glow-c: color-mix(in srgb, var(--rm-lime-300) 22%, transparent);
+  --site-star: color-mix(in srgb, var(--rm-ink-0) 32%, transparent);
+
+  /* Header is always solid navy — never translucent over light sections. */
+  --site-header-bg: var(--rm-ink-950);
+  --site-glass: color-mix(in srgb, var(--rm-surface) 72%, transparent);
+  --site-frame: color-mix(in srgb, var(--rm-ink-0) 14%, transparent);
+
+  /* Pill / badge (light) — roles from v0.2 */
+  --site-pill-bg: var(--rm-brand-muted);
+  --site-pill-text: var(--rm-brand-strong);
+  --site-pill-border: transparent;
+  --site-line-strong: var(--rm-border-strong);
+  --site-card-shadow: var(--rm-shadow-md);
+}
+[data-theme="dark"] {
+  --site-pill-bg: color-mix(in srgb, var(--rm-brand) 20%, transparent);
+  --site-pill-text: var(--rm-brand-text);
+  --site-pill-border: color-mix(in srgb, var(--rm-brand-text) 30%, transparent);
+  --site-line-strong: var(--rm-btn-secondary-border);
+}

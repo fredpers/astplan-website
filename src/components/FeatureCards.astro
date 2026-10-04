@@ -1,64 +1,62 @@
 ---
-interface Card {
-  title: string;
-  body: string;
-}
+// Glass cards with a highlighted lead phrase (avaros-style emphasis).
+interface Card { title: string; hl?: string; body: string; dashed?: boolean; tag?: string; icon?: 'map' | 'check' | 'export' | 'marker' | 'filter' | 'none' }
+interface Props { eyebrow?: string; title?: string; intro?: string; cards: Card[]; columns?: 2 | 3 }
+const { eyebrow, title, intro, cards, columns = 3 } = Astro.props;
+const showHead = Boolean(eyebrow || title);
+const gridClass = `cards cols-${columns}`;
+const icons: Record<string, string> = {
+  map: '<path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20V6.5Z"/><path d="M8.5 4v13.5M15.5 6.5V20"/>',
+  check: '<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/>',
+  'export': '<path d="M12 15V4m0 0L8 8m4-4 4 4"/><path d="M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/>',
+  marker: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>',
+  filter: '<path d="M4 5h16l-6 7.5V19l-4-1.5v-5L4 5Z"/>',
+};
 
-interface Props {
-  cards: Card[];
+function titleWithHl(text: string, hl?: string) {
+  if (!hl || !text.includes(hl)) return text;
+  const i = text.indexOf(hl);
+  return `${text.slice(0, i)}<span class="hl">${hl}</span>${text.slice(i + hl.length)}`;
 }
-
-const { cards } = Astro.props;
 ---
-
 <section class="section">
   <div class="container">
-    <div class="cards">
-      {
-        cards.map((card) => (
-          <article class="card feature-card">
-            <div class="icon" aria-hidden="true" />
-            <h3>{card.title}</h3>
-            <p>{card.body}</p>
-          </article>
-        ))
-      }
+    {showHead && (
+      <div class="section-head">
+        {eyebrow && <span class="pill">{eyebrow}</span>}
+        {title && <h2 set:html={title} />}
+        {intro && <p>{intro}</p>}
+      </div>
+    )}
+    <div class={gridClass}>
+      {cards.map((card) => (
+        <article class:list={['card', 'feature', { dashed: card.dashed }]}>
+          {card.icon !== 'none' && (
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><Fragment set:html={icons[card.icon ?? 'map']} /></svg>
+            </span>
+          )}
+          {card.tag && <span class="pill">{card.tag}</span>}
+          <h3 set:html={titleWithHl(card.title, card.hl)} />
+          <p>{card.body}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
-
 <style>
-  .cards {
-    display: grid;
-    gap: 16px;
-  }
-  .feature-card h3 {
-    margin-bottom: 8px;
-  }
-  .feature-card p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 26px;
-  }
+  .cards { display: grid; gap: var(--rm-space-4); }
+  .feature { min-height: 230px; display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease; }
+  .feature:hover { border-color: var(--rm-purple-200); }
   .icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--brand-purple-soft);
-    margin-bottom: 16px;
-    position: relative;
+    width: 44px; height: 44px; border-radius: var(--rm-radius-md);
+    display: grid; place-items: center; margin-bottom: var(--rm-space-8);
+    background: var(--rm-brand-subtle); color: var(--rm-brand-text); border: 1px solid var(--rm-brand-muted);
   }
-  .icon::after {
-    content: '';
-    position: absolute;
-    inset: 12px;
-    border-radius: 6px;
-    background: var(--brand-purple);
-  }
-  @media (min-width: 768px) {
-    .cards {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-  }
+  .icon svg { width: 22px; height: 22px; }
+  .feature h3 { margin-bottom: var(--rm-space-3); }
+  .feature h3 :global(.hl) { color: var(--rm-brand-text); }
+  .feature p { margin: 0; color: var(--rm-text-secondary); }
+  .feature.dashed { border-style: dashed; border-color: var(--rm-border-strong); background: var(--rm-surface-alt); box-shadow: none; }
+  .feature .pill { align-self: flex-start; margin-bottom: var(--rm-space-8); }
 </style>

@@ -1,82 +1,63 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureCards from '../components/FeatureCards.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PageHero from '../components/PageHero.astro';
+import ScreenshotSlot from '../components/ScreenshotSlot.astro';
 
 const sections = [
-  {
-    title: 'Karte + Sheet',
-    body: 'Die Karte ist der Einstieg. Tippt einen Baum an — das Sheet zeigt die relevanten Felder, ohne die Orientierung zu verlieren.',
-  },
-  {
-    title: 'Marker',
-    body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.',
-  },
-  {
-    title: 'Filter',
-    body: 'Nach Status, Maßnahme oder Gebiet filtern — der Rundgang bleibt übersichtlich.',
-  },
-  {
-    title: 'Offline / Sync',
-    body: 'Im Gelände oft kein Netz: lokal weiterarbeiten und später synchronisieren.',
-  },
-  {
-    title: 'Export',
-    body: 'Kontrolle abgeschlossen? Excel-Export — und zurück in euer Kataster als System of Record.',
-  },
-];
+  { icon: 'map', title: 'Karte und Detailansicht', hl: 'Karte', body: 'Die Karte ist der Einstieg. Tippen Sie auf einen Baum – die Detailansicht zeigt alle Kontrollfelder.' },
+  { icon: 'marker', title: 'Marker', hl: 'Marker', body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.' },
+  { icon: 'filter', title: 'Filter', hl: 'Filter', body: 'Nach Status, Maßnahme oder Gebiet filtern – der Rundgang bleibt übersichtlich.' },
+  { icon: 'check', title: 'Kontrolle', hl: 'Kontrolle', body: 'Status und Maßnahme setzen – direkt am Baum.' },
+  { icon: 'export', title: 'Export', hl: 'Export', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS.' },
+  { icon: 'none', dashed: true, tag: 'Was RamosMap nicht ist', title: 'Kein Ersatz fürs Kataster', hl: 'Kataster', body: 'RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Ihr Kataster bleibt die maßgebliche Datenquelle.' },
+] as const;
+const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
 ---
-
 <BaseLayout
   title="Produkt"
-  description="Der Feld-Loop: Import → Kontrolle → Ausführung → Excel. RamosMap als Feldschicht für Baumkontrolle."
+  description="Vom Baumbestand zur fertigen Kontrolle. Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP)."
 >
-  <section class="page-hero">
+  <PageHero
+    eyebrow="Produkt"
+    title="Vom Baumbestand zur fertigen <span class='hl'>Kontrolle</span>"
+    lead="Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP). Export als Excel oder GeoPackage zurück in Ihr Kataster/QGIS."
+  >
+    <ol class="loop" aria-label="Ablauf">
+      {loop.map((l, i) => (<li><span class="n">{i + 1}</span>{l}</li>))}
+    </ol>
+  </PageHero>
+
+  <section class="shots-wrap">
     <div class="container">
-      <span class="eyebrow">Produkt</span>
-      <h1>Der Feld-Loop: Import → Kontrolle → Ausführung → Excel</h1>
-      <p class="lead">
-        RamosMap deckt den Feldteil ab — von der Übernahme eurer Bäume bis zum Export zurück in euer System.
-      </p>
+      <div class="section-head">
+        <span class="pill">App</span>
+        <h2>Die App in <span class="hl">Bildern</span></h2>
+        <p>Echte Screenshots folgen. Die Rahmen markieren die vorgesehenen Slots.</p>
+      </div>
+      <div class="shots">
+        <ScreenshotSlot caption="Screenshot folgt – Karte" label="Platzhalter für Screenshot der Karte" />
+        <ScreenshotSlot caption="Screenshot folgt – Kontrolle" label="Platzhalter für Screenshot der Kontrolle" />
+        <ScreenshotSlot caption="Screenshot folgt – Export" label="Platzhalter für Screenshot des Exports" />
+      </div>
     </div>
   </section>
 
-  <section class="section-tight">
-    <div class="container stack">
-      {
-        sections.map((s) => (
-          <article class="card block">
-            <h2>{s.title}</h2>
-            <p>{s.body}</p>
-          </article>
-        ))
-      }
-      <article class="card block nicht">
-        <h2>Nicht-Ziele</h2>
-        <p>
-          RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Wir sind die
-          Feldschicht — euer Kataster bleibt SoR.
-        </p>
-      </article>
-    </div>
-  </section>
+  <FeatureCards cards={[...sections]} />
 
   <CtaBand />
 </BaseLayout>
-
 <style>
-  .stack {
-    display: grid;
-    gap: 14px;
-    max-width: 720px;
+  .loop { list-style: none; padding: 0; margin: var(--rm-space-10) auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--rm-space-3); }
+  .loop li {
+    display: inline-flex; align-items: center; gap: var(--rm-space-2);
+    padding: 6px 16px 6px 6px; border-radius: var(--rm-radius-pill);
+    border: 1px solid var(--site-line-strong); background: var(--site-glass);
+    font: 500 15px/1 var(--rm-font-ui); color: var(--rm-text-primary);
   }
-  .block h2 {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-  .block p {
-    margin: 0;
-  }
-  .nicht {
-    border-style: dashed;
-  }
+  .loop .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--site-pill-bg); color: var(--rm-brand-text); font: 600 12px/1 var(--rm-font-mono); }
+  .shots-wrap { padding: var(--site-section-y) 0 0; }
+  .shots { display: grid; gap: var(--rm-space-6); }
+  @media (min-width: 760px) { .shots { grid-template-columns: repeat(3, 1fr); } }
 </style>

@@ -1,41 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
+import PageHero from '../components/PageHero.astro';
 ---
-
-<BaseLayout
-  title="Preise"
-  description="Preise für RamosMap — kommt bald. Bis dahin App öffnen und ausprobieren."
->
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Preise</span>
-      <h1>Preise — kommt bald</h1>
-      <p class="lead">
-        Transparente Pakete folgen. Wir nennen hier keine erfundenen Euro-Beträge — bis die Preisgestaltung
-        freigegeben ist, könnt ihr die App schon öffnen und testen.
-      </p>
-      <div class="stub card">
-        <p>
-          <strong>Platzhalter.</strong> Sobald Modelle und Konditionen stehen, erscheinen sie auf dieser Seite.
-        </p>
-      </div>
-    </div>
-  </section>
-
+<BaseLayout title="Preise" description="Preise folgen in Kürze.">
+  <PageHero
+    eyebrow="Preise"
+    title="Preise folgen in Kürze."
+    lead="Transparente Pakete erscheinen hier, sobald die Preisgestaltung freigegeben ist."
+  />
   <CtaBand
-    title="Interesse an Zugang?"
-    body="App öffnen und starten — Preise und Registrierung folgen, sobald sie freigegeben sind."
+    title="Bereit für die nächste <span class='hl'>Baumkontrolle</span>?"
+    body="App öffnen und starten – Preise und Registrierung folgen, sobald sie freigegeben sind."
   />
 </BaseLayout>
-
-<style>
-  .stub {
-    margin-top: 28px;
-    max-width: 520px;
-    padding: 24px;
-  }
-  .stub p {
-    margin: 0;
-  }
-</style>
