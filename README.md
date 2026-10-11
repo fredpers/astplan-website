@@ -33,9 +33,11 @@ npm run preview  # preview production build
 | Build output directory | `dist` |
 | Node version | `20` |
 
-Live preview: `https://astplan-website.pages.dev` (repo still `fredpers/astplan-website`).
+Site: `https://ramosmap.com`. App: `https://app.ramosmap.com`.
 
-Canonical `site` in `astro.config.mjs` is `https://ramosmap.com` (SEO intent). Custom domain / DNS is pending — do not buy or attach DNS from this repo.
+Canonical `site` in `astro.config.mjs` is `https://ramosmap.com`. Do not add host-based redirects in this repo — `www` → apex is a Cloudflare rule.
+
+The GitHub repo is still `fredpers/astplan-website`. Cloudflare Pages preview hostnames stay on `*.pages.dev` until custom domains are attached.
 
 No paid secrets required. No waitlist / FormSubmit backend.
 
@@ -43,7 +45,7 @@ No paid secrets required. No waitlist / FormSubmit backend.
 
 | CTA | Behavior |
 |-----|----------|
-| **App öffnen** | Primary everywhere → `https://astplanapp.web.app` (lime filled on dark, purple filled on light) |
+| **App öffnen** | Primary everywhere → `https://app.ramosmap.com` (`APP_URL` in `src/config/brand.ts`; lime filled on dark, purple filled on light) |
 | **Registrierung** | Plain text only: "Registrierung folgt in Kürze" — not a button, not clickable |
 
 `/warteliste` redirects to `/`. No waitlist form or Pages Function in the user path.
