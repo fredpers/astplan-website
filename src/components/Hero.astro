@@ -76,5 +76,7 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
   @media (min-width: 980px) {
     .hero-grid { grid-template-columns: 1.08fr 0.92fr; gap: var(--rm-space-8); }
   }
-  @media (max-width: 979px) { .halo { width: 420px; height: 420px; } }
+  @media (max-width: 979px) {
+    .hero-visual { display: none; }
+  }
 </style>
