@@ -1,11 +1,11 @@
 ---
 import CtaButtons from './CtaButtons.astro';
 import { LOGO_SRC_SMALL } from '../config/brand';
-interface Props { title?: string; body?: string; showDisabledRegister?: boolean }
+interface Props { title?: string; body?: string; showAppLink?: boolean }
 const {
-  title = 'Bereit für die nächste <span class="hl">Baumkontrolle</span>?',
-  body = 'App öffnen und direkt im Feld starten – Registrierung folgt demnächst.',
-  showDisabledRegister = true,
+  title = 'Zugang zur geschlossenen <span class="hl">Testphase</span>',
+  body = 'RamosMap befindet sich in einer geschlossenen Testphase. Fragen Sie den Zugang an, wenn Sie die App prüfen möchten.',
+  showAppLink = true,
 } = Astro.props;
 ---
 <section class="section cta-section">
@@ -18,7 +18,7 @@ const {
         <img class="mark" src={LOGO_SRC_SMALL} width="64" height="64" alt="" decoding="async" />
         <h2 set:html={title} />
         <p>{body}</p>
-        <CtaButtons align="center" variant="accent" showRegister={showDisabledRegister} />
+        <CtaButtons align="center" variant="accent" showAppLink={showAppLink} />
       </div>
     </div>
   </div>

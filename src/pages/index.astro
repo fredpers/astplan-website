@@ -5,42 +5,33 @@ import FeatureCards from '../components/FeatureCards.astro';
 import StepRow from '../components/StepRow.astro';
 import PositionTeaser from '../components/PositionTeaser.astro';
 import CtaBand from '../components/CtaBand.astro';
-
-const cards = [
-  { icon: 'map', title: 'Für die Baumkontrolle im Gelände', hl: 'Baumkontrolle', body: 'RamosMap ist die Feld-App für die Baumkontrolle.' },
-  { icon: 'check', title: 'Zustand und Maßnahme erfassen', hl: 'Zustand', body: 'Baum auswählen, Zustand und Maßnahme erfassen, weiter zum nächsten.' },
-  { icon: 'export', title: 'Ergebnisse zurück ins Kataster', hl: 'Kataster', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS. RamosMap ergänzt Ihr Baumkataster – und ersetzt es nicht.' },
-] as const;
-
-const steps = [
-  { n: '1', title: 'Import', body: 'Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP).' },
-  { n: '2', title: 'Kontrolle', body: 'Auf der Karte arbeiten, Detailansicht öffnen, Status und Maßnahmen setzen.' },
-  { n: '3', title: 'Export', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS.' },
-];
+import { FEATURE_CARDS, HOME_DESCRIPTION, HOME_STEPS, HOME_TITLE } from '../config/copy';
 
 const floats = [
-  { label: 'Karte + Detailansicht', text: 'Tippen Sie auf einen Baum – die Detailansicht zeigt alle Kontrollfelder.' },
-  { label: 'Kontrolle', text: 'Status und Maßnahme direkt am Baum setzen' },
-  { label: 'Export', text: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS' },
+  { label: 'Baumbestand', text: 'Bäume auf der Karte' },
+  { label: 'Baumkontrolle', text: 'Geführte Kontrolle im Feld' },
+  { label: 'Import', text: 'Excel, CSV und GeoPackage' },
 ];
 ---
-<BaseLayout
-  title="RamosMap – Feld-Baumkontrolle"
-  description="Baumkontrolle im Feld – schnell, klar, exportfertig. Die Feld-App für die Baumkontrolle mit Export in Ihr Kataster."
->
+<BaseLayout title={HOME_TITLE} description={HOME_DESCRIPTION}>
   <Hero
-    eyebrow="Feld-Baumkontrolle"
-    title="Baumkontrolle im Feld – schnell, klar, exportfertig."
-    subtitle="RamosMap ist die Feld-App für die Baumkontrolle."
+    eyebrow="Geschlossene Testphase"
+    title='Baumkataster und <span class="hl">Baumkontrolle</span> für Baumpfleger'
+    subtitle="RamosMap richtet sich an Baumpfleger, Baumkontrolleure sowie Kommunen und Dienstleister. Die App zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. RamosMap befindet sich in einer geschlossenen Testphase und wird nur von Fredrik und eingeladenen Testern genutzt."
     floats={floats}
+  />
+  <FeatureCards
+    eyebrow="Funktionen"
+    title='Was RamosMap <span class="hl">leistet</span>'
+    intro="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle."
+    cards={[...FEATURE_CARDS]}
   />
   <StepRow
     eyebrow="So funktioniert’s"
-    title="Tagesablauf in <span class='hl'>drei</span> Schritten"
-    intro="RamosMap deckt den Feldteil ab – von der Übernahme Ihrer Bäume bis zum Export zurück in Ihr System."
-    steps={steps}
+    title="In <span class='hl'>drei</span> Schritten"
+    intro="Import, Kontrolle im Feld, Bestand im Team aktuell halten."
+    steps={[...HOME_STEPS]}
   />
-  <FeatureCards eyebrow="Warum RamosMap" title='Was Sie im <span class="hl">Feld</span> erfassen' cards={[...cards]} />
   <PositionTeaser />
   <CtaBand />
 </BaseLayout>

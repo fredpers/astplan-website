@@ -121,13 +121,6 @@ strong { color: var(--rm-text-primary); font-weight: 600; }
 [data-theme="dark"] .btn-accent { background: var(--rm-accent); color: var(--rm-ink-900); }
 [data-theme="dark"] .btn-accent:hover { background: var(--rm-lime-200); }
 
-/* Registrierung is plain text, never a button. */
-.register-note {
-  margin: 0;
-  font: var(--rm-type-body-sm);
-  color: var(--rm-text-secondary);
-}
-
 /* ---- Sections ---- */
 .section { padding: var(--site-section-y) 0; position: relative; }
 .section-head { text-align: center; max-width: 780px; margin: 0 auto var(--rm-space-14); }
@@ -174,7 +167,7 @@ main { display: block; }
 .rel { position: relative; z-index: 1; }
 body.menu-open { overflow: hidden; }
 
-/* Slim sticky App-öffnen bar — mobile only, hidden while the menu is open. */
+/* Slim sticky access-request bar — mobile only, hidden while the menu is open. */
 .sticky-cta {
   display: none;
 }
