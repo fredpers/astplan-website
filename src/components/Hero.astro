@@ -1,6 +1,5 @@
 ---
 import CtaButtons from './CtaButtons.astro';
-import ScreenshotSlot from './ScreenshotSlot.astro';
 interface Props { eyebrow?: string; title: string; subtitle?: string; floats?: { label: string; text: string }[] }
 const { eyebrow, title, subtitle, floats = [] } = Astro.props;
 ---
@@ -16,16 +15,19 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
       {subtitle && <p class="lead">{subtitle}</p>}
       <CtaButtons variant="accent" />
     </div>
-    <div class="hero-visual">
-      <div class="halo" aria-hidden="true"></div>
-      <ScreenshotSlot ratio="phone" caption="Screenshot folgt" label="Platzhalter für App-Screenshot" />
-      {floats.map((f, i) => (
-        <div class:list={['float', `f${i + 1}`]} aria-hidden="true">
-          <span class="float-label">{f.label}</span>
-          <span class="float-text">{f.text}</span>
-        </div>
-      ))}
-    </div>
+    {floats.length > 0 && (
+      <div class="hero-visual">
+        <div class="halo" aria-hidden="true"></div>
+        <ul class="float-stack">
+          {floats.map((f) => (
+            <li class="float">
+              <span class="float-label">{f.label}</span>
+              <span class="float-text">{f.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
   </div>
 </section>
 
@@ -44,7 +46,7 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
     letter-spacing: var(--rm-type-display-tracking);
     margin-bottom: var(--rm-space-6);
   }
-  .lead { color: var(--rm-text-secondary); max-width: 480px; margin-bottom: var(--rm-space-8); }
+  .lead { color: var(--rm-text-secondary); max-width: 540px; margin-bottom: var(--rm-space-8); }
   .hero-visual { position: relative; display: flex; justify-content: center; }
   .halo {
     position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%);
@@ -54,9 +56,15 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
       radial-gradient(circle, transparent 68%, var(--rm-border) 69%, transparent 70%);
     pointer-events: none;
   }
+  .float-stack {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; gap: var(--rm-space-4);
+    width: 100%; max-width: 360px;
+    position: relative;
+  }
   .float {
-    position: absolute; display: none; flex-direction: column; gap: 2px;
-    padding: 12px 16px; width: max-content; max-width: 230px;
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 16px 18px;
     background: var(--site-glass);
     border: 1px solid var(--site-pill-border);
     border-radius: var(--rm-radius-lg);
@@ -67,15 +75,8 @@ const { eyebrow, title, subtitle, floats = [] } = Astro.props;
   .float-text { font: var(--rm-type-body-sm); color: var(--rm-text-primary); }
   @media (min-width: 980px) {
     .hero-grid { grid-template-columns: 1.08fr 0.92fr; gap: var(--rm-space-8); }
-    .float { display: flex; }
-    .f1 { right: -16px; top: 12%; }
-    .f2 { right: -32px; top: 62%; }
-    .f3 { left: -8px; bottom: -10%; }
   }
-  @media (min-width: 1280px) {
-    .f1 { right: -96px; top: 14%; }
-    .f2 { right: -120px; top: 60%; }
-    .f3 { left: -40px; bottom: -10%; }
+  @media (max-width: 979px) {
+    .hero-visual { display: none; }
   }
-  @media (max-width: 979px) { .halo { width: 420px; height: 420px; } }
 </style>

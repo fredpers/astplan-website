@@ -5,28 +5,28 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 
 const rows = [
-  { label: 'Rolle', ramosmap: 'Feld-App für die Baumkontrolle', kataster: 'Baumkataster / GIS' },
-  { label: 'Fokus', ramosmap: 'Kontrolle & Ausführung im Gelände', kataster: 'Bestand, Planung, Verwaltung' },
-  { label: 'Gerät', ramosmap: 'Handy / Tablet zuerst', kataster: 'Desktop & Fachverfahren' },
-  { label: 'Datenfluss', ramosmap: 'Import → Feld → Excel/GeoPackage-Export', kataster: 'Führendes System' },
-  { label: 'Führendes System?', ramosmap: 'Nein, Ihr Kataster bleibt maßgeblich', kataster: 'Ja' },
+  { label: 'Aufgabe', ramosmap: 'Baumbestand auf der Karte, geführte Baumkontrolle', kataster: 'Bestand, Planung und Verwaltung' },
+  { label: 'Daten', ramosmap: 'Import aus Excel, CSV und GeoPackage', kataster: 'Führendes System für den Bestand' },
+  { label: 'Offline', ramosmap: 'Karten und Luftbilder für Bayern und Nordrhein-Westfalen', kataster: 'Abhängig vom jeweiligen System' },
+  { label: 'Team', ramosmap: 'Einladungen ins Team', kataster: 'Abhängig vom jeweiligen System' },
+  { label: 'Führendes System?', ramosmap: 'Nein. RamosMap ergänzt Ihr Kataster.', kataster: 'Ja' },
 ];
 ---
 <BaseLayout
-  title="Einordnung"
-  description="RamosMap ergänzt Ihr Baumkataster – und ersetzt es nicht. Ergänzung zu bestehenden Baumkataster- und GIS-Systemen."
+  title="Einordnung – RamosMap ergänzt Ihr Baumkataster"
+  description="RamosMap ergänzt Ihr Baumkataster und ersetzt es nicht. Die App dient der Arbeit im Feld; Ihr Kataster bleibt die maßgebliche Datenquelle."
 >
   <PageHero
     eyebrow="Einordnung"
-    title="RamosMap ergänzt Ihr <span class='hl'>Baumkataster</span> – und ersetzt es nicht."
-    lead="Wir ergänzen bestehende Baumkataster: schnell im Feld, sauber zurück."
+    title="RamosMap ergänzt Ihr <span class='hl'>Kataster</span>"
+    lead="RamosMap ersetzt Ihr Baumkataster nicht. Ihr Kataster bleibt die maßgebliche Datenquelle."
   />
   <section class="body-wrap">
     <div class="container">
       <CompareTable rows={rows} />
       <p class="note">
-        Kurzfassung: Ihr Kataster bleibt die maßgebliche Datenquelle. RamosMap liegt dazwischen –
-        Import, Kontrolle im Feld, Export zurück.
+        Kurzfassung: Ihr Kataster bleibt die maßgebliche Datenquelle. RamosMap ergänzt es
+        um Bestand auf der Karte, geführte Baumkontrolle und Teameinladungen.
       </p>
     </div>
   </section>

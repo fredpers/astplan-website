@@ -1,6 +1,6 @@
 ---
 // Glass cards with a highlighted lead phrase (avaros-style emphasis).
-interface Card { title: string; hl?: string; body: string; dashed?: boolean; tag?: string; icon?: 'map' | 'check' | 'export' | 'marker' | 'filter' | 'none' }
+interface Card { title: string; hl?: string; body: string; dashed?: boolean; tag?: string; icon?: 'map' | 'check' | 'export' | 'import' | 'offline' | 'team' | 'shield' | 'marker' | 'filter' | 'none' }
 interface Props { eyebrow?: string; title?: string; intro?: string; cards: Card[]; columns?: 2 | 3 }
 const { eyebrow, title, intro, cards, columns = 3 } = Astro.props;
 const showHead = Boolean(eyebrow || title);
@@ -9,6 +9,10 @@ const icons: Record<string, string> = {
   map: '<path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20V6.5Z"/><path d="M8.5 4v13.5M15.5 6.5V20"/>',
   check: '<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/>',
   'export': '<path d="M12 15V4m0 0L8 8m4-4 4 4"/><path d="M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/>',
+  'import': '<path d="M12 4v11m0 0L8 11m4 4 4-4"/><path d="M5 15v3.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V15"/>',
+  offline: '<rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M3.5 10h17"/><path d="M8 15h3M14 15h2"/>',
+  team: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.2-5 5.5-5s5.5 2 5.5 5"/><circle cx="16.5" cy="8.5" r="2.4"/><path d="M15.2 14.2c2.6.4 4.3 2.3 4.3 4.8"/>',
+  shield: '<path d="M12 3 5 6v6c0 4.5 3.2 7.4 7 8.5 3.8-1.1 7-4 7-8.5V6l-7-3Z"/>',
   marker: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>',
   filter: '<path d="M4 5h16l-6 7.5V19l-4-1.5v-5L4 5Z"/>',
 };
@@ -38,7 +42,7 @@ function titleWithHl(text: string, hl?: string) {
           )}
           {card.tag && <span class="pill">{card.tag}</span>}
           <h3 set:html={titleWithHl(card.title, card.hl)} />
-          <p>{card.body}</p>
+          <p set:html={card.body} />
         </article>
       ))}
     </div>
@@ -46,6 +50,12 @@ function titleWithHl(text: string, hl?: string) {
 </section>
 <style>
   .cards { display: grid; gap: var(--rm-space-4); }
+  @media (min-width: 760px) {
+    .cols-2, .cols-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 980px) {
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  }
   .feature { min-height: 230px; display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease; }
   .feature:hover { border-color: var(--rm-purple-200); }
   .icon {
@@ -57,6 +67,7 @@ function titleWithHl(text: string, hl?: string) {
   .feature h3 { margin-bottom: var(--rm-space-3); }
   .feature h3 :global(.hl) { color: var(--rm-brand-text); }
   .feature p { margin: 0; color: var(--rm-text-secondary); }
+  .feature p :global(a) { color: var(--rm-link); }
   .feature.dashed { border-style: dashed; border-color: var(--rm-border-strong); background: var(--rm-surface-alt); box-shadow: none; }
   .feature .pill { align-self: flex-start; margin-bottom: var(--rm-space-8); }
 </style>

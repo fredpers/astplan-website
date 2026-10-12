@@ -3,48 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureCards from '../components/FeatureCards.astro';
 import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
-import ScreenshotSlot from '../components/ScreenshotSlot.astro';
+import { FEATURE_CARDS } from '../config/copy';
 
-const sections = [
-  { icon: 'map', title: 'Karte und Detailansicht', hl: 'Karte', body: 'Die Karte ist der Einstieg. Tippen Sie auf einen Baum – die Detailansicht zeigt alle Kontrollfelder.' },
-  { icon: 'marker', title: 'Marker', hl: 'Marker', body: 'Neue oder geänderte Punkte direkt im Feld setzen. Klar sichtbar, filterbar, exportierbar.' },
-  { icon: 'filter', title: 'Filter', hl: 'Filter', body: 'Nach Status, Maßnahme oder Gebiet filtern – der Rundgang bleibt übersichtlich.' },
-  { icon: 'check', title: 'Kontrolle', hl: 'Kontrolle', body: 'Status und Maßnahme setzen – direkt am Baum.' },
-  { icon: 'export', title: 'Export', hl: 'Export', body: 'Excel oder GeoPackage zurück in Ihr Kataster/QGIS.' },
-  { icon: 'none', dashed: true, tag: 'Was RamosMap nicht ist', title: 'Kein Ersatz fürs Kataster', hl: 'Kataster', body: 'RamosMap ersetzt kein vollständiges Baumkataster und keine Desktop-GIS-Suite. Ihr Kataster bleibt die maßgebliche Datenquelle.' },
-] as const;
-const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
+const loop = ['Import', 'Kontrolle', 'Bestand'];
 ---
 <BaseLayout
-  title="Produkt"
-  description="Vom Baumbestand zur fertigen Kontrolle. Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP)."
+  title="Produkt – RamosMap für Baumkataster und Baumkontrolle"
+  description="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. Offline-Karten für Bayern und NRW."
 >
   <PageHero
     eyebrow="Produkt"
-    title="Vom Baumbestand zur fertigen <span class='hl'>Kontrolle</span>"
-    lead="Import aus Excel/CSV, GeoPackage, GeoJSON oder Shapefile (ZIP). Export als Excel oder GeoPackage zurück in Ihr Kataster/QGIS."
+    title="Baumbestand auf der Karte, geführte <span class='hl'>Baumkontrolle</span>"
+    lead="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. RamosMap befindet sich in einer geschlossenen Testphase."
   >
     <ol class="loop" aria-label="Ablauf">
       {loop.map((l, i) => (<li><span class="n">{i + 1}</span>{l}</li>))}
     </ol>
   </PageHero>
 
-  <section class="shots-wrap">
-    <div class="container">
-      <div class="section-head">
-        <span class="pill">App</span>
-        <h2>Die App in <span class="hl">Bildern</span></h2>
-        <p>Echte Screenshots folgen. Die Rahmen markieren die vorgesehenen Slots.</p>
-      </div>
-      <div class="shots">
-        <ScreenshotSlot caption="Screenshot folgt – Karte" label="Platzhalter für Screenshot der Karte" />
-        <ScreenshotSlot caption="Screenshot folgt – Kontrolle" label="Platzhalter für Screenshot der Kontrolle" />
-        <ScreenshotSlot caption="Screenshot folgt – Export" label="Platzhalter für Screenshot des Exports" />
-      </div>
-    </div>
-  </section>
-
-  <FeatureCards cards={[...sections]} />
+  <FeatureCards
+    eyebrow="Funktionen"
+    title='Was RamosMap <span class="hl">leistet</span>'
+    cards={[...FEATURE_CARDS]}
+  />
 
   <CtaBand />
 </BaseLayout>
@@ -57,7 +38,4 @@ const loop = ['Import', 'Kontrolle', 'Ausführung', 'Export'];
     font: 500 15px/1 var(--rm-font-ui); color: var(--rm-text-primary);
   }
   .loop .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--site-pill-bg); color: var(--rm-brand-text); font: 600 12px/1 var(--rm-font-mono); }
-  .shots-wrap { padding: var(--site-section-y) 0 0; }
-  .shots { display: grid; gap: var(--rm-space-6); }
-  @media (min-width: 760px) { .shots { grid-template-columns: repeat(3, 1fr); } }
 </style>
