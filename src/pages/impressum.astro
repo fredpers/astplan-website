@@ -1,14 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LegalStub from '../components/LegalStub.astro';
 ---
-<BaseLayout title="Impressum" description="Impressum RamosMap – Platzhalter.">
+<BaseLayout
+  title="Impressum – RamosMap"
+  description="Impressum von RamosMap: Angaben gemäß § 5 DDG, Kontakt und rechtliche Hinweise."
+>
   <section class="legal-wrap">
     <div class="container">
-      <LegalStub title="Impressum" kind="impressum" />
+      <article class="legal-content card">
+        <h1>Impressum</h1>
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p>Fredrik Persson<br>
+        Dollmannstraße 6<br>
+        81541 München<br>
+        Deutschland</p>
+        <h2>Kontakt</h2>
+        <p>Telefon: +49 178 4115914<br>
+        E-Mail: <a href="mailto:fredrik@ramosmap.com">fredrik@ramosmap.com</a></p>
+
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+        <p>Fredrik Persson<br>
+        Dollmannstraße 6<br>
+        81541 München</p>
+        <h2>Hinweis zum Angebot</h2>
+        <p>RamosMap (vormals AstPlan) ist eine Feld-App für die Baumkontrolle. Diese Website informiert über das Angebot. Die Web-App ist unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a> erreichbar.</p>
+        <h2>EU-Streitschlichtung</h2>
+        <p>Die Online-Streitbeilegungsplattform (OS-Plattform) der Europäischen Kommission wurde zum 20. Juli 2025 eingestellt. Ein Link auf die Plattform wird daher nicht mehr angegeben.</p>
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p>Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      </article>
     </div>
   </section>
 </BaseLayout>
 <style>
   .legal-wrap { padding: calc(var(--site-header-h) + clamp(56px, 7vw, 96px)) 0 var(--site-section-y); }
+  .legal-content { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .legal-content h1 { margin-bottom: var(--rm-space-6); }
+  .legal-content h2 { margin-top: var(--rm-space-10); margin-bottom: var(--rm-space-4); }
+  .legal-content h2:first-of-type { margin-top: 0; }
+  .legal-content ul { margin: 0 0 1em; padding-left: 1.25em; }
+  .legal-content li { margin-bottom: 0.35em; }
+  .legal-content a { overflow-wrap: anywhere; }
 </style>
