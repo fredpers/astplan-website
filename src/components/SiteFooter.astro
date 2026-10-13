@@ -1,12 +1,14 @@
 ---
 import Brand from './Brand.astro';
 import { APP_URL } from '../config/brand';
+import { FOOTER_SUPPORT_HTML } from '../config/copy';
 ---
 <footer class="site-footer" data-theme="dark">
   <div class="container footer-inner">
     <div class="footer-brand">
       <Brand size={28} />
       <p>Baumkataster und Baumkontrolle. Derzeit geschlossene Testphase.</p>
+      <p class="footer-support" set:html={FOOTER_SUPPORT_HTML} />
     </div>
     <nav class="footer-nav" aria-label="Fußzeile">
       <a href="/produkt">Produkt</a>
@@ -22,6 +24,7 @@ import { APP_URL } from '../config/brand';
   .site-footer { border-top: 1px solid var(--rm-divider); padding: var(--rm-space-10) 0; }
   .footer-inner { display: flex; flex-direction: column; gap: var(--rm-space-6); }
   .footer-brand p { margin: var(--rm-space-3) 0 0; font: var(--rm-type-body-sm); color: var(--rm-text-muted); }
+  .footer-support a { color: var(--rm-link); }
   .footer-nav { display: flex; flex-wrap: wrap; gap: 0 var(--rm-space-4); }
   .footer-nav a {
     font: var(--rm-type-body-sm); color: var(--rm-link);

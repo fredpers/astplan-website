@@ -59,6 +59,16 @@ export const HOME_STEPS = [
   },
 ] as const;
 
+export const SUPPORT_EMAIL = 'fredrik@ramosmap.com';
+export const SUPPORT_MAILTO = `mailto:${SUPPORT_EMAIL}`;
+export const FOOTER_SUPPORT_HTML = `Support: <a href="${SUPPORT_MAILTO}">${SUPPORT_EMAIL}</a>`;
+export const CTA_SUPPORT_HTML = `Support: Schreiben Sie an <a href="${SUPPORT_MAILTO}">${SUPPORT_EMAIL}</a>.`;
+
+export const FAQ_PAGE_DESCRIPTION =
+  'Antworten zu Testphase, Importformaten, Offline-Karten, Datenschutz, Preisen, Teamarbeit und Support bei RamosMap.';
+export const FAQ_PAGE_LEAD =
+  'Antworten zu Testphase, Formaten, Offline-Karten, Datenschutz, Preisen, Teamarbeit und Support.';
+
 export type FaqItem = { q: string; a: string };
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -85,6 +95,10 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Können mehrere Personen in RamosMap arbeiten?',
     a: 'RamosMap unterstützt Teameinladungen.',
+  },
+  {
+    q: 'Wie erreiche ich den Support?',
+    a: `Schreiben Sie an <a href="${SUPPORT_MAILTO}">${SUPPORT_EMAIL}</a>.`,
   },
 ];
 
