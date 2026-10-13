@@ -29,9 +29,9 @@ export const FEATURE_CARDS = [
   },
   {
     icon: 'team' as const,
-    title: 'Teameinladungen',
+    title: 'Arbeit im Team',
     hl: 'Team',
-    body: 'RamosMap unterstützt Einladungen ins Team.',
+    body: 'Laden Sie Kolleginnen und Kollegen in Ihr Team ein und arbeiten Sie gemeinsam am Baumbestand.',
   },
   {
     icon: 'shield' as const,
@@ -55,7 +55,7 @@ export const HOME_STEPS = [
   {
     n: '3',
     title: 'Bestand im Team aktuell halten',
-    body: 'Über Teameinladungen bleibt der Bestand für die beteiligten Personen aktuell.',
+    body: 'Laden Sie Kolleginnen und Kollegen in Ihr Team ein und halten Sie den Bestand gemeinsam aktuell.',
   },
 ] as const;
 
@@ -84,7 +84,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Können mehrere Personen in RamosMap arbeiten?',
-    a: 'RamosMap unterstützt Teameinladungen.',
+    a: 'In RamosMap laden Sie Kolleginnen und Kollegen in Ihr Team ein und arbeiten gemeinsam am Baumbestand.',
   },
 ];
 
