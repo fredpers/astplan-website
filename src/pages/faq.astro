@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
-import { FAQ_ITEMS, faqJsonLd } from '../config/copy';
+import { FAQ_ITEMS, FAQ_PAGE_DESCRIPTION, FAQ_PAGE_LEAD, faqJsonLd } from '../config/copy';
 
 const jsonLd = faqJsonLd(FAQ_ITEMS);
 ---
 <BaseLayout
   title="FAQ – RamosMap"
-  description="Antworten zu Testphase, Importformaten, Offline-Karten, Datenschutz, Preisen und Teamarbeit bei RamosMap."
+  description={FAQ_PAGE_DESCRIPTION}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
@@ -17,7 +17,7 @@ const jsonLd = faqJsonLd(FAQ_ITEMS);
   <PageHero
     eyebrow="FAQ"
     title="Häufige Fragen zu RamosMap"
-    lead="Antworten zu Testphase, Formaten, Offline-Karten, Datenschutz, Preisen und Teamarbeit."
+    lead={FAQ_PAGE_LEAD}
   />
   <section class="body-wrap">
     <div class="container"><FaqAccordion items={FAQ_ITEMS} /></div>
