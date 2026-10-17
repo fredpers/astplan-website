@@ -94,18 +94,18 @@ strong { color: var(--rm-text-primary); font-weight: 600; }
 .btn-primary { background: var(--rm-brand); color: var(--rm-text-on-brand); }
 .btn-primary:hover { background: var(--rm-brand-hover); }
 
-/* Lime accent CTA — dark sections only; ink text (never lime text). */
-.btn-accent { background: var(--rm-accent); color: var(--rm-ink-900); }
-.btn-accent:hover { background: var(--rm-lime-200); }
+/* Accent CTA = primary cobalt fill (palette B: dark uses light cobalt + dark text). */
+.btn-accent { background: var(--rm-accent); color: var(--rm-on-accent); }
+.btn-accent:hover { background: var(--rm-accent-hover); }
 
 .btn-outline { background: var(--rm-surface); color: var(--rm-text-primary); border-color: var(--rm-border-strong); }
 .btn-outline:hover { background: var(--rm-surface-alt); }
 
-/* Light secondary: #3D2591 on #ECEDFF */
-.btn-secondary { background: var(--rm-brand-muted); color: var(--rm-brand-strong); }
-.btn-secondary:hover { background: var(--rm-purple-200); }
+/* Light secondary: graphite tonal button (accent_secondary) */
+.btn-secondary { background: var(--rm-graphite); color: var(--rm-on-graphite); }
+.btn-secondary:hover { background: var(--rm-ink-700); }
 
-/* Dark sections: lime is the only fill; secondary is outline, white at 24%. */
+/* Dark sections: cobalt (accent) is the only fill; secondary is outline (border_input). */
 [data-theme="dark"] .btn-primary,
 [data-theme="dark"] .btn-secondary,
 [data-theme="dark"] .btn-outline {
@@ -118,8 +118,8 @@ strong { color: var(--rm-text-primary); font-weight: 600; }
 [data-theme="dark"] .btn-outline:hover {
   background: color-mix(in srgb, var(--rm-ink-0) 8%, transparent);
 }
-[data-theme="dark"] .btn-accent { background: var(--rm-accent); color: var(--rm-ink-900); }
-[data-theme="dark"] .btn-accent:hover { background: var(--rm-lime-200); }
+[data-theme="dark"] .btn-accent { background: var(--rm-accent); color: var(--rm-on-accent); }
+[data-theme="dark"] .btn-accent:hover { background: var(--rm-accent-hover); }
 
 /* ---- Sections ---- */
 .section { padding: var(--site-section-y) 0; position: relative; }
