@@ -5,14 +5,16 @@ import SiteFooter from '../components/SiteFooter.astro';
 import { ACCESS_CTA, ACCESS_MAILTO } from '../config/brand';
 import { HOME_DESCRIPTION } from '../config/copy';
 
-interface Props { title: string; description?: string }
+interface Props { title: string; description?: string; noindex?: boolean }
 const {
   title,
   description = HOME_DESCRIPTION,
+  noindex = false,
 } = Astro.props;
 const fullTitle = title.includes('RamosMap') ? title : `${title} · RamosMap`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
-const ogImage = Astro.site ? new URL('/apple-touch-icon.png', Astro.site).href : '/apple-touch-icon.png';
+const ogImage = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og-image.png';
+const ogImageAlt = 'RamosMap – Baumkontrolle, die auch draußen funktioniert.';
 ---
 <!doctype html>
 <html lang="de">
@@ -22,17 +24,24 @@ const ogImage = Astro.site ? new URL('/apple-touch-icon.png', Astro.site).href :
     <meta name="description" content={description} />
     <meta name="theme-color" content="#051023" />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="RamosMap" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />

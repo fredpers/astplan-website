@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout
+  title="Seite nicht gefunden"
+  description="Die angeforderte Seite wurde auf ramosmap.com nicht gefunden."
+  noindex={true}
+>
+  <PageHero
+    eyebrow="Fehler 404"
+    title="Seite nicht gefunden"
+    lead="Die von Ihnen aufgerufene Seite existiert nicht oder wurde verschoben."
+    showCta={false}
+  >
+    <div class="nf-cta">
+      <a class="btn btn-accent" href="/">Zur Startseite</a>
+    </div>
+  </PageHero>
+</BaseLayout>
+<style>
+  .nf-cta { margin-top: var(--rm-space-8); display: flex; justify-content: center; }
+</style>
