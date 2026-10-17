@@ -1,5 +1,5 @@
 // Single switch-board for the brand chrome.
-//  - Logo files: Designer icon-only set v0.2 (2026-10-04).
+//  - Logo files: Palette B icon set B-1.0 (2026-10-17).
 //    LOGO_SRC = master (use at >= 48px); LOGO_SRC_SMALL = favicon-optimised (use below ~48px).
 //  - Name text: set SHOW_NAME_TEXT = false to show the mark only (text is NOT part of the logo asset).
 //    The wordmark is plain one-colour "RamosMap" — never a two-tone Ramos/Map lockup.

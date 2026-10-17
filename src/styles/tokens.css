@@ -1,74 +1,72 @@
-/* RamosMap tokens v0.2 (2026-10-04). Avaros-inspired; brand purple #5F3CD7 (locked). */
+/* RamosMap tokens — Palette B „Stein & Kobalt“ B-1.0 (2026-10-17). Source: ramos-brand-input/palette-b-final/tokens.md. */
 /* Fonts: self-hosted Montserrat + Inter via fonts.css (no Google Fonts). */
 :root{
-  --rm-purple-50: #F6F6FF;
-  --rm-purple-100: #ECEDFF;
-  --rm-purple-200: #DADAFF;
-  --rm-purple-300: #BEBCFE;
-  --rm-purple-400: #9A90FF;
-  --rm-purple-500: #7D66F9;
-  --rm-purple-600: #5F3CD7;
-  --rm-purple-700: #5030B9;
-  --rm-purple-800: #3D2591;
-  --rm-purple-900: #2C1B6A;
-  --rm-purple-950: #190F41;
+  /* Cobalt (primary) */
+  --rm-cobalt-500: #3D7BF0; /* focus light */
+  --rm-cobalt-600: #1E59CD; /* primary light */
+  --rm-cobalt-700: #1148B3; /* primary hover light */
+  --rm-cobalt-800: #093995; /* primary pressed light */
+  --rm-cobalt-300: #7DAAFD; /* primary dark */
+  --rm-cobalt-250: #94B9FE; /* primary hover dark */
+  --rm-cobalt-200: #AAC7FF; /* primary pressed dark */
+  --rm-cobalt-150: #B3CCFF; /* focus dark */
+  /* Stone neutrals (light → dark) */
   --rm-ink-0: #FFFFFF;
-  --rm-ink-25: #F8FAFD;
-  --rm-ink-50: #F3F5F9;
-  --rm-ink-100: #E9EDF3;
-  --rm-ink-200: #DAE0E8;
-  --rm-ink-300: #BCC5D1;
-  --rm-ink-400: #828D9D;
-  --rm-ink-500: #636E7F;
-  --rm-ink-600: #4C596C;
-  --rm-ink-700: #324056;
-  --rm-ink-800: #1A2940;
-  --rm-ink-900: #08152C;
-  --rm-ink-950: #051023;
-  --rm-lime-200: #D3FEB9;
-  --rm-lime-300: #C2F59E;
-  --rm-lime-500: #82D850;
-  --rm-lime-700: #307C1B;
-  --rm-bg: #F8FAFD;
+  --rm-ink-25: #F6F4F1;
+  --rm-ink-50: #EEEBE6;
+  --rm-ink-100: #EEEBE6;
+  --rm-ink-200: #D3CCC2;
+  --rm-ink-300: #D3CCC2;
+  --rm-ink-400: #857F76;
+  --rm-ink-500: #736B61;
+  --rm-ink-600: #5E5851;
+  --rm-ink-700: #47423C;
+  --rm-ink-800: #3A3631; /* graphite accent_secondary */
+  --rm-ink-900: #1F1D1A;
+  --rm-ink-950: #161513;
+  --rm-bg: #F6F4F1;
   --rm-surface: #FFFFFF;
-  --rm-surface-alt: #F3F5F9;
-  --rm-surface-sunken: #E9EDF3;
-  --rm-border: #DAE0E8;
-  --rm-divider: #E9EDF3;
-  --rm-card-border: #BCC5D1;
-  --rm-input-border: #636E7F;
-  --rm-border-strong: #828D9D;
-  --rm-text-primary: #08152C;
-  --rm-text-secondary: #324056;
-  --rm-text-data: #324056;
-  --rm-text-muted: #4C596C;
+  --rm-surface-alt: #EEEBE6;
+  --rm-surface-sunken: #EEEBE6;
+  --rm-border: #D3CCC2;
+  --rm-divider: #EEEBE6;
+  --rm-card-border: #D3CCC2;
+  --rm-input-border: #736B61;
+  --rm-border-strong: #736B61;
+  --rm-text-primary: #1F1D1A;
+  --rm-text-secondary: #47423C;
+  --rm-text-data: #47423C;
+  --rm-text-muted: #5E5851;
   --rm-text-on-brand: #FFFFFF;
-  --rm-brand: #5F3CD7;
-  --rm-brand-text: #5F3CD7;
-  --rm-link: #5F3CD7;
-  --rm-brand-hover: #5030B9;
-  --rm-brand-strong: #3D2591;
-  --rm-brand-subtle: #F6F6FF;
-  --rm-brand-muted: #ECEDFF;
-  --rm-accent: #C2F59E;
-  --rm-focus: #7D66F9;
-  --rm-success: #198044;
-  --rm-success-bg: #E1F9E6;
-  --rm-warning: #E8A317;
-  --rm-warning-text: #8A5601;
-  --rm-warning-bg: #FEF4DF;
-  --rm-danger: #D13F3F;
-  --rm-danger-strong: #B93333;
-  --rm-danger-bg: #FFEDEB;
-  --rm-info: #406CCF;
-  --rm-info-bg: #EBF2FE;
-  --rm-tree-good: #0CAA87; --rm-tree-good-on: #08152C;
-  --rm-tree-slight: #F3E253; --rm-tree-slight-on: #08152C;
-  --rm-tree-moderate: #E59A52; --rm-tree-moderate-on: #08152C;
-  --rm-tree-severe: #D4591B; --rm-tree-severe-on: #08152C;
-  --rm-tree-critical: #AC0D32; --rm-tree-critical-on: #FFFFFF;
-  --rm-tree-dead: #5D3653; --rm-tree-dead-on: #FFFFFF;
-  --rm-tree-unassessed: #BDBFC2; --rm-tree-unassessed-on: #08152C;
+  --rm-brand: #1E59CD;
+  --rm-brand-text: #1E59CD;
+  --rm-link: #1E59CD;
+  --rm-brand-hover: #1148B3;
+  --rm-brand-strong: #093995;
+  --rm-brand-subtle: #EEEBE6;
+  --rm-brand-muted: #EEEBE6;
+  --rm-accent: #1E59CD;
+  --rm-accent-hover: #1148B3;
+  --rm-on-accent: #FFFFFF;
+  --rm-graphite: #3A3631;
+  --rm-on-graphite: #FFFFFF;
+  --rm-focus: #3D7BF0;
+  --rm-success: #006B44;
+  --rm-success-bg: #E0FBEC;
+  --rm-warning: #FDD430;
+  --rm-warning-text: #6F5800;
+  --rm-warning-bg: #FBF4DA;
+  --rm-danger: #DC2F2A;
+  --rm-danger-strong: #A13029;
+  --rm-danger-bg: #FFEDE9;
+  --rm-info: #375997;
+  --rm-info-bg: #EAF4FF;
+  --rm-status-offen: #EAE9E8;
+  --rm-status-kontrolliert: #00C789;
+  --rm-status-bald: #FDD430;
+  --rm-status-ueberfaellig: #7C1322;
+  --rm-status-sofort: #DC2F2A;
+  --rm-status-info: #6085C7;
   --rm-font-display: 'Montserrat', system-ui, sans-serif;
   --rm-font-ui: 'Inter', system-ui, sans-serif;
   --rm-font-mono: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace;
@@ -100,28 +98,33 @@
   --rm-radius-xl: 20px;
   --rm-radius-2xl: 24px;
   --rm-radius-pill: 999px;
-  --rm-shadow-sm: 0 1px 2px rgba(8,21,44,0.06), 0 0 8px rgba(8,21,44,0.04);
-  --rm-shadow-md: 0 2px 10px rgba(95,60,215,0.04), 0 6px 28px rgba(95,60,215,0.06), 0 18px 90px rgba(95,60,215,0.08);
-  --rm-shadow-lg: 0 16px 32px rgba(8,21,44,0.12), 0 4px 8px rgba(8,21,44,0.06);
-  --rm-shadow-sheet: 0 -8px 32px rgba(8,21,44,0.12);
-  --rm-shadow-glow-dark: 0 0 40px 10px rgba(95,60,215,0.45), 0 20px 160px rgba(95,60,215,0.35);
-  --rm-shadow-inset-glow-dark: inset 0 1px 20px rgba(125,102,249,0.30);
+  --rm-shadow-sm: 0 1px 2px rgba(22,21,19,0.06), 0 0 8px rgba(22,21,19,0.04);
+  --rm-shadow-md: 0 2px 10px rgba(22,21,19,0.04), 0 6px 28px rgba(22,21,19,0.06), 0 18px 90px rgba(22,21,19,0.06);
+  --rm-shadow-lg: 0 16px 32px rgba(22,21,19,0.12), 0 4px 8px rgba(22,21,19,0.06);
+  --rm-shadow-sheet: 0 -8px 32px rgba(22,21,19,0.12);
+  --rm-shadow-inset-glow-dark: inset 0 1px 0 rgba(245,243,239,0.06);
 }
-/* Dark: opt-in via [data-theme="dark"] (Avaros is dark-first; use for marketing hero/sections) */
+/* Dark: opt-in via [data-theme="dark"] (marketing hero/sections). Palette B dark values. */
 [data-theme="dark"]{
-  --rm-bg: #051023;
-  --rm-surface: #08152C;
-  --rm-surface-alt: #0C1B37;
-  --rm-border: rgba(255,255,255,0.10);
-  --rm-text-primary: #F9FDFF;
-  --rm-text-secondary: #BCC5D1;
-  --rm-text-muted: #828D9D;
-  --rm-btn-secondary-border: rgba(255,255,255,0.24);
-  --rm-link: #9A90FF;
-  --rm-brand: #5F3CD7; /* fills stay logo purple */
-  --rm-brand-text: #9A90FF; /* purple text/icons on dark */
-  --rm-text-on-brand: #FFFFFF;
-  --rm-brand-hover: var(--rm-purple-700);
-  --rm-divider: rgba(255,255,255,0.06);
+  --rm-bg: #161513;
+  --rm-surface: #201E1B;
+  --rm-surface-alt: #2A2824;
+  --rm-border: #3E3A35;
+  --rm-text-primary: #F5F3EF;
+  --rm-text-secondary: #CBC5BC;
+  --rm-text-muted: #A39C92;
+  --rm-btn-secondary-border: #857F76;
+  --rm-link: #7DAAFD;
+  --rm-brand: #7DAAFD;
+  --rm-brand-text: #7DAAFD;
+  --rm-text-on-brand: #161513;
+  --rm-brand-hover: #94B9FE;
+  --rm-accent: #7DAAFD;
+  --rm-accent-hover: #94B9FE;
+  --rm-on-accent: #161513;
+  --rm-on-graphite: #F5F3EF;
+  --rm-focus: #B3CCFF;
+  --rm-danger-strong: #FF8A80;
+  --rm-divider: #3E3A35;
   --rm-shadow-md: var(--rm-shadow-inset-glow-dark);
 }
