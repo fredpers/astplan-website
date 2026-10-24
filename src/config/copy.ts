@@ -59,7 +59,7 @@ export const HOME_STEPS = [
   },
 ] as const;
 
-export const SUPPORT_EMAIL = 'fredrik@ramosmap.com';
+export const SUPPORT_EMAIL = 'info@ramosmap.com';
 export const SUPPORT_MAILTO = `mailto:${SUPPORT_EMAIL}`;
 export const FOOTER_SUPPORT_HTML = `Support: <a href="${SUPPORT_MAILTO}">${SUPPORT_EMAIL}</a>`;
 export const CTA_SUPPORT_HTML = `Support: Schreiben Sie an <a href="${SUPPORT_MAILTO}">${SUPPORT_EMAIL}</a>.`;
@@ -74,7 +74,7 @@ export type FaqItem = { q: string; a: string };
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Wie erhalte ich Zugang zu RamosMap?',
-    a: 'RamosMap befindet sich in einer geschlossenen Testphase. Nur Fredrik und eingeladene Tester nutzen die App. Den Zugang zur Testphase können Sie per E-Mail an <a href="mailto:fredrik@ramosmap.com?subject=Zugang%20Testphase%20RamosMap">fredrik@ramosmap.com</a> anfragen.',
+    a: 'RamosMap befindet sich in einer geschlossenen Testphase. Nur Fredrik und eingeladene Tester nutzen die App. Den Zugang zur Testphase können Sie per E-Mail an <a href="mailto:info@ramosmap.com?subject=Zugang%20Testphase%20RamosMap">info@ramosmap.com</a> anfragen.',
   },
   {
     q: 'Welche Formate kann RamosMap importieren?',
