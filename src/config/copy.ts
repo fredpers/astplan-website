@@ -1,6 +1,6 @@
 export const HOME_TITLE = 'RamosMap – Baumkataster & Baumkontrolle App für Baumpfleger';
 export const HOME_DESCRIPTION =
-  'RamosMap für Baumpfleger, Baumkontrolleure, Kommunen und Dienstleister: Baumbestand auf der Karte und geführte Baumkontrolle. 7 Tage kostenlos testen, danach Abonnement.';
+  'RamosMap für Baumpfleger, Baumkontrolleure, Kommunen und Dienstleister: Baumbestand auf der Karte und geführte Baumkontrolle. 7 Tage kostenlos testen, ohne Zahlungsdaten, endet automatisch.';
 
 export const FEATURE_CARDS = [
   {
@@ -19,7 +19,7 @@ export const FEATURE_CARDS = [
     icon: 'import' as const,
     title: 'Import aus Excel, CSV und GeoPackage',
     hl: 'Import',
-    body: 'Getestet sind Excel, CSV und GeoPackage, zum Beispiel aus gängigen Katasterprogrammen.',
+    body: 'Getestet sind Excel, CSV und GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     icon: 'offline' as const,
@@ -45,7 +45,7 @@ export const HOME_STEPS = [
   {
     n: '1',
     title: 'Import',
-    body: 'RamosMap übernimmt den Bestand aus Excel, CSV oder GeoPackage, zum Beispiel aus gängigen Katasterprogrammen.',
+    body: 'RamosMap übernimmt den Bestand aus Excel, CSV oder GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     n: '2',
@@ -74,11 +74,11 @@ export type FaqItem = { q: string; a: string };
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Wie erhalte ich Zugang zu RamosMap?',
-    a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage kostenlos testen. Die Testphase endet automatisch. Danach können Sie ein Abonnement abschließen.',
+    a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage kostenlos testen, ohne Zahlungsdaten. Die Testphase endet automatisch. Danach können Sie ein Abonnement abschließen.',
   },
   {
     q: 'Welche Formate kann RamosMap importieren?',
-    a: 'Getestet sind Excel, CSV und GeoPackage, zum Beispiel aus gängigen Katasterprogrammen.',
+    a: 'Getestet sind Excel, CSV und GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     q: 'Gibt es Offline-Karten?',
