@@ -5,10 +5,10 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 
 const rows = [
-  { label: 'Aufgabe', ramosmap: 'Baumbestand auf der Karte, geführte Baumkontrolle', kataster: 'Bestand, Planung und Verwaltung' },
-  { label: 'Daten', ramosmap: 'Import aus Excel, CSV und GeoPackage', kataster: 'Führendes System für den Bestand' },
+  { label: 'Aufgabe', ramosmap: 'Baumkataster und Baumkontrolle, Maßnahmen im Feld', kataster: 'Bestand, Planung und Verwaltung' },
+  { label: 'Daten', ramosmap: 'Import Excel, CSV, GeoPackage; Export Excel und PDF (vorerst)', kataster: 'Führendes System für den Bestand' },
   { label: 'Offline', ramosmap: 'Karten und Luftbilder für Bayern und Nordrhein-Westfalen', kataster: 'Abhängig vom jeweiligen System' },
-  { label: 'Team', ramosmap: 'Einladungen ins Team', kataster: 'Abhängig vom jeweiligen System' },
+  { label: 'Team', ramosmap: 'Kolleginnen und Kollegen ins Team einladen', kataster: 'Abhängig vom jeweiligen System' },
   { label: 'Führendes System?', ramosmap: 'Nein. RamosMap ergänzt Ihr Kataster.', kataster: 'Ja' },
 ];
 ---
@@ -26,7 +26,7 @@ const rows = [
       <CompareTable rows={rows} />
       <p class="note">
         Kurzfassung: Ihr Kataster bleibt die maßgebliche Datenquelle. RamosMap ergänzt es
-        um Bestand auf der Karte, geführte Baumkontrolle und Teameinladungen.
+        um Baumkataster und Baumkontrolle auf der Karte, Maßnahmen im Feld sowie Import und Export.
       </p>
     </div>
   </section>

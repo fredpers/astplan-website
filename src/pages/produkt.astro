@@ -5,16 +5,16 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 import { FEATURE_CARDS } from '../config/copy';
 
-const loop = ['Import', 'Kontrolle', 'Bestand'];
+const loop = ['Import', 'Kontrolle und Maßnahmen', 'Export'];
 ---
 <BaseLayout
   title="Produkt – RamosMap für Baumkataster und Baumkontrolle"
-  description="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. Offline-Karten für Bayern und NRW."
+  description="RamosMap für Baumkataster und Baumkontrolle: Bestand auf der Karte, Maßnahmen im Feld, Suche und Filter. Import aus Excel, CSV und GeoPackage. Export nach Excel und PDF (vorerst)."
 >
   <PageHero
     eyebrow="Produkt"
-    title="Baumbestand auf der Karte, geführte <span class='hl'>Baumkontrolle</span>"
-    lead="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. RamosMap befindet sich in einer geschlossenen Testphase."
+    title="Baumkataster und geführte <span class='hl'>Baumkontrolle</span>"
+    lead="RamosMap dient Baumkataster und Baumkontrolle. Sie sehen Bäume und Maßnahmen auf der Karte, erfassen Kontrolle und Maßnahmen im Feld und exportieren vorerst nach Excel und PDF. Import aus Excel, CSV und GeoPackage. RamosMap befindet sich in einer geschlossenen Testphase."
   >
     <ol class="loop" aria-label="Ablauf">
       {loop.map((l, i) => (<li><span class="n">{i + 1}</span>{l}</li>))}
@@ -24,6 +24,7 @@ const loop = ['Import', 'Kontrolle', 'Bestand'];
   <FeatureCards
     eyebrow="Funktionen"
     title='Was RamosMap <span class="hl">leistet</span>'
+    intro="Funktionen für Baumkataster und Baumkontrolle, von Import bis Export."
     cards={[...FEATURE_CARDS]}
   />
 
