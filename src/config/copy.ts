@@ -1,13 +1,13 @@
 export const HOME_TITLE = 'RamosMap – Baumkataster & Baumkontrolle App für Baumpfleger';
 export const HOME_DESCRIPTION =
-  'RamosMap für Baumpfleger, Baumkontrolleure, Kommunen und Dienstleister: Baumkataster und Baumkontrolle auf der Karte, Maßnahmen im Feld, Import und Export. Derzeit geschlossene Testphase.';
+  'RamosMap ist Baumkataster und Baumkontrolle in einer App. Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. 7 Tage testen, danach Abonnement.';
 
 export const FEATURE_CARDS = [
   {
     icon: 'map' as const,
-    title: 'Baumkataster auf der Karte',
+    title: 'Baumkataster: eigener Bestand oder Import',
     hl: 'Baumkataster',
-    body: 'RamosMap zeigt Ihren Baumbestand als Baumkataster auf der Karte.',
+    body: 'Sie können den Baumbestand direkt in RamosMap führen oder einen bestehenden Bestand importieren und auf der Karte nutzen.',
   },
   {
     icon: 'check' as const,
@@ -25,55 +25,61 @@ export const FEATURE_CARDS = [
     icon: 'import' as const,
     title: 'Import aus Excel, CSV und GeoPackage',
     hl: 'Import',
-    body: 'Getestet sind Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen. So sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
+    body: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen.',
   },
   {
     icon: 'marker' as const,
     title: 'Bäume suchen',
     hl: 'suchen',
-    body: 'Im Bestand finden Sie einzelne Bäume über die Suche.',
+    body: 'Im Bestand finden Sie Bäume nach Baumnummer und Baumart.',
   },
   {
     icon: 'filter' as const,
     title: 'Maßnahmen filtern',
     hl: 'filtern',
-    body: 'Maßnahmen lassen sich filtern, damit offene und erledigte Punkte im Überblick bleiben.',
+    body: 'Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit, und nach weiteren Kriterien.',
   },
   {
     icon: 'export' as const,
     title: 'Export nach Excel und PDF',
     hl: 'Export',
-    body: 'Vorerst exportiert RamosMap nach Excel und PDF. Weitere Formate sind geplant.',
+    body: 'RamosMap exportiert nach Excel und PDF.',
   },
   {
     icon: 'offline' as const,
     title: 'Offline-Karten für Bayern und NRW',
     hl: 'Offline-Karten',
-    body: 'Für Bayern und Nordrhein-Westfalen stehen Offline-Karten und Luftbilder zur Verfügung.',
+    body: 'Offline-Karten und Luftbilder stehen nur für Bayern und Nordrhein-Westfalen zur Verfügung.',
+  },
+  {
+    icon: 'team' as const,
+    title: 'Arbeit im Team',
+    hl: 'Team',
+    body: 'Laden Sie Kolleginnen und Kollegen per Einladung ein. Rollen: Mitarbeiter und Betrachter (Lesezugang).',
   },
   {
     icon: 'shield' as const,
     title: 'Daten in der EU, Absturzberichte abschaltbar',
     hl: 'EU',
-    body: 'Projektdaten speichert RamosMap in Rechenzentren in der EU. Die Anmeldung läuft über Google Firebase. Absturzberichte können Sie abschalten. Hinweise stehen in der <a href="/datenschutz-app/">Datenschutzerklärung der App</a>.',
+    body: 'Projektdaten speichert RamosMap in Rechenzentren in der EU. Absturzberichte können Sie abschalten. Hinweise stehen in der <a href="/datenschutz-app/">Datenschutzerklärung der App</a>.',
   },
 ];
 
 export const HOME_STEPS = [
   {
     n: '1',
-    title: 'Import',
-    body: 'RamosMap übernimmt Bäume und zugehörige Maßnahmen aus Excel, CSV oder GeoPackage, aus gängigen Katasterprogrammen.',
+    title: 'Bestand anlegen oder importieren',
+    body: 'Führen Sie den Bestand in RamosMap oder importieren Sie Bäume und Maßnahmen aus Excel, CSV oder GeoPackage, aus gängigen Katasterprogrammen.',
   },
   {
     n: '2',
     title: 'Kontrolle und Maßnahmen im Feld',
-    body: 'RamosMap führt durch die Baumkontrolle. Maßnahmen erfassen Sie direkt am Baum. Über Suche und Filter behalten Sie den Überblick.',
+    body: 'RamosMap führt durch die Baumkontrolle. Maßnahmen erfassen Sie direkt am Baum. Suche nach Baumnummer und Baumart sowie Filter nach Maßnahme und Dringlichkeit halten den Überblick.',
   },
   {
     n: '3',
-    title: 'Export und Bestand aktuell halten',
-    body: 'Vorerst exportiert RamosMap nach Excel und PDF. Über Teameinladungen bleibt der Bestand für die beteiligten Personen aktuell.',
+    title: 'Export und Team',
+    body: 'Exportieren Sie nach Excel und PDF. Über Teameinladungen mit den Rollen Mitarbeiter und Betrachter bleibt der Bestand für die beteiligten Personen aktuell.',
   },
 ] as const;
 
@@ -92,27 +98,27 @@ export type FaqItem = { q: string; a: string };
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Wie erhalte ich Zugang zu RamosMap?',
-    a: 'RamosMap befindet sich in einer geschlossenen Testphase. Nur Fredrik und eingeladene Tester nutzen die App. Den Zugang zur Testphase können Sie per E-Mail an <a href="mailto:info@ramosmap.com?subject=Zugang%20Testphase%20RamosMap">info@ramosmap.com</a> anfragen.',
+    a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage testen. Danach können Sie ein Abonnement abschließen.',
   },
   {
     q: 'Wofür ist RamosMap gedacht?',
-    a: 'RamosMap dient Baumkataster und Baumkontrolle: Bestand auf der Karte, geführte Kontrolle, Maßnahmen im Feld, Suche und Filter sowie Import und Export.',
+    a: 'RamosMap ist Baumkataster und Baumkontrolle in einer App. Sie können den Bestand direkt in RamosMap führen oder einen bestehenden Bestand importieren und Kontrollen sowie Maßnahmen im Feld erledigen.',
   },
   {
     q: 'Welche Formate kann RamosMap importieren?',
-    a: 'Getestet sind Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen. Nach dem Import sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
+    a: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen.',
   },
   {
     q: 'Welche Formate kann RamosMap exportieren?',
-    a: 'Vorerst exportiert RamosMap nach Excel und PDF. Weitere Formate sind geplant.',
+    a: 'RamosMap exportiert nach Excel und PDF.',
   },
   {
     q: 'Kann ich Maßnahmen im Feld erfassen und filtern?',
-    a: 'Ja. Kontrolle und Maßnahmen dokumentieren Sie direkt am Baum. Maßnahmen lassen sich filtern. Einzelne Bäume finden Sie über die Suche.',
+    a: 'Ja. Kontrolle und Maßnahmen dokumentieren Sie direkt am Baum. Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit, und nach weiteren Kriterien. Bäume finden Sie nach Baumnummer und Baumart.',
   },
   {
     q: 'Gibt es Offline-Karten?',
-    a: 'Für Bayern und Nordrhein-Westfalen stehen Offline-Karten und Luftbilder zur Verfügung.',
+    a: 'Offline-Karten und Luftbilder stehen nur für Bayern und Nordrhein-Westfalen zur Verfügung.',
   },
   {
     q: 'Wie steht es um Datenschutz und Hosting?',
@@ -120,11 +126,11 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Was kostet RamosMap?',
-    a: 'Die Preise stehen noch nicht fest. RamosMap befindet sich in einer geschlossenen Testphase.',
+    a: 'Solo kostet 20 EUR pro Monat oder 220 EUR pro Jahr, ein Team-Paket für 5 Mitarbeiter 49 EUR pro Monat oder 539 EUR pro Jahr, jeweils netto. Betrachter sind kostenlos. Alle Einzelheiten finden Sie auf der <a href="/preise">Preisseite</a>.',
   },
   {
     q: 'Können mehrere Personen in RamosMap arbeiten?',
-    a: 'Laden Sie Kolleginnen und Kollegen in Ihr Team ein. RamosMap unterstützt Teameinladungen.',
+    a: 'Laden Sie Kolleginnen und Kollegen per Einladung ein. Rollen: Mitarbeiter und Betrachter (Lesezugang).',
   },
   {
     q: 'Wie erreiche ich den Support?',
