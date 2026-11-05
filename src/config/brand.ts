@@ -8,6 +8,11 @@ export const LOGO_SRC_SMALL = '/brand/ramosmap-favicon.svg';
 export const SHOW_NAME_TEXT = true;
 export const SITE_NAME = 'RamosMap';
 export const APP_URL = 'https://app.ramosmap.com';
-export const ACCESS_MAILTO = 'mailto:info@ramosmap.com?subject=Zugang%20Testphase%20RamosMap';
-export const ACCESS_CTA = 'Zugang zur Testphase anfragen';
+export const TRIAL_URL = APP_URL;
+export const TRIAL_CTA = '7 Tage testen';
+export const CONTACT_MAILTO = 'mailto:info@ramosmap.com?subject=Frage%20zu%20RamosMap';
+export const CONTACT_CTA = 'Kontakt aufnehmen';
 export const APP_CTA = 'App öffnen';
+// Back-compat aliases: primary CTA = 7-day trial in the app.
+export const ACCESS_MAILTO = TRIAL_URL;
+export const ACCESS_CTA = TRIAL_CTA;
