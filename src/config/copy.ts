@@ -1,6 +1,6 @@
 export const HOME_TITLE = 'RamosMap – Baumkataster & Baumkontrolle App für Baumpfleger';
 export const HOME_DESCRIPTION =
-  'RamosMap ist Baumkataster und Baumkontrolle in einer App. Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. 7 Tage testen, danach Abonnement.';
+  'RamosMap ist Baumkataster und Baumkontrolle in einer App. Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. 7 Tage kostenlos testen, ohne Zahlungsdaten, endet automatisch.';
 
 export const FEATURE_CARDS = [
   {
@@ -25,7 +25,7 @@ export const FEATURE_CARDS = [
     icon: 'import' as const,
     title: 'Import aus Excel, CSV und GeoPackage',
     hl: 'Import',
-    body: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen.',
+    body: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     icon: 'marker' as const,
@@ -37,7 +37,7 @@ export const FEATURE_CARDS = [
     icon: 'filter' as const,
     title: 'Maßnahmen filtern',
     hl: 'filtern',
-    body: 'Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit, und nach weiteren Kriterien.',
+    body: 'Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit.',
   },
   {
     icon: 'export' as const,
@@ -69,7 +69,7 @@ export const HOME_STEPS = [
   {
     n: '1',
     title: 'Bestand anlegen oder importieren',
-    body: 'Führen Sie den Bestand in RamosMap oder importieren Sie Bäume und Maßnahmen aus Excel, CSV oder GeoPackage, aus gängigen Katasterprogrammen.',
+    body: 'Führen Sie den Bestand in RamosMap oder importieren Sie Bäume und Maßnahmen aus Excel, CSV oder GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     n: '2',
@@ -98,7 +98,7 @@ export type FaqItem = { q: string; a: string };
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Wie erhalte ich Zugang zu RamosMap?',
-    a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage testen. Danach können Sie ein Abonnement abschließen.',
+    a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage kostenlos testen, ohne Zahlungsdaten. Die Testphase endet automatisch. Danach können Sie ein Abonnement abschließen.',
   },
   {
     q: 'Wofür ist RamosMap gedacht?',
@@ -106,7 +106,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Welche Formate kann RamosMap importieren?',
-    a: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen.',
+    a: 'Sie importieren Bäume einschließlich Maßnahmen direkt aus Excel, CSV und GeoPackage, z. B. aus gängigen Katasterprogrammen.',
   },
   {
     q: 'Welche Formate kann RamosMap exportieren?',
@@ -114,7 +114,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Kann ich Maßnahmen im Feld erfassen und filtern?',
-    a: 'Ja. Kontrolle und Maßnahmen dokumentieren Sie direkt am Baum. Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit, und nach weiteren Kriterien. Bäume finden Sie nach Baumnummer und Baumart.',
+    a: 'Ja. Kontrolle und Maßnahmen dokumentieren Sie direkt am Baum. Maßnahmen filtern Sie vor allem nach Maßnahme und Dringlichkeit. Bäume finden Sie nach Baumnummer und Baumart.',
   },
   {
     q: 'Gibt es Offline-Karten?',
