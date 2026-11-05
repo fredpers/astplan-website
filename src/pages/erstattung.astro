@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Erstattung - RamosMap"
+  description="Erstattungsrichtlinie von RamosMap für Unternehmer: Abonnements über Paddle als Merchant of Record, Kündigung und Erstattungsanfragen."
+>
+  <section class="legal-wrap">
+    <div class="container">
+      <article class="legal-content card">
+        <h1>Erstattung</h1>
+        <p>Stand: November 2026</p>
+        <h2>Verkauf über Paddle</h2>
+        <p>Kostenpflichtige Abonnements für RamosMap werden über Paddle.com Market Limited bzw. die jeweils zuständige Paddle-Gesellschaft („Paddle“) verkauft. Paddle tritt dabei als Wiederverkäufer und Verkäufer gegenüber dem Kunden auf (Merchant of Record).</p>
+        <p>Kaufvertrag über das Abonnement, Zahlung, Rechnungsstellung, Umsatzsteuer und Erstattungen richten sich nach den Bedingungen von Paddle:</p>
+        <ul>
+          <li>Käuferbedingungen: <a href="https://www.paddle.com/legal/buyer-terms" rel="noopener">https://www.paddle.com/legal/buyer-terms</a></li>
+          <li>Erstattungsrichtlinie: <a href="https://www.paddle.com/legal/refund-policy" rel="noopener">https://www.paddle.com/legal/refund-policy</a></li>
+        </ul>
+        <p>Für die Nutzung des Dienstes besteht daneben ein Nutzungsvertrag mit Fredrik Persson, RamosMap, nach den <a href="/agb">Allgemeinen Geschäftsbedingungen (AGB)</a>.</p>
+        <h2>Nur für Unternehmer</h2>
+        <p>Das Angebot von RamosMap richtet sich ausschließlich an Unternehmer im Sinne des § 14 BGB, juristische Personen des öffentlichen Rechts und öffentlich-rechtliche Sondervermögen. Verträge mit Verbrauchern werden nicht geschlossen.</p>
+        <h2>Kündigung während der Abrechnungsperiode</h2>
+        <p>Bei einer Kündigung oder Reduzierung von Zugängen während der laufenden Abrechnungsperiode bleibt der Dienst bis zum Ende dieser Periode nutzbar. Eine anteilige Erstattung bereits gezahlter Entgelte erfolgt nicht, außer in den in den AGB ausdrücklich vorgesehenen Fällen:</p>
+        <ul>
+          <li>wesentliche Einschränkung des Dienstes mit außerordentlicher Kündigung (§ 6 Abs. 5 AGB),</li>
+          <li>Einstellung des Dienstes durch RamosMap (§ 13 Abs. 5 AGB)</li>
+        </ul>
+        <p>sowie soweit zwingende gesetzliche Ansprüche bestehen. Anteilige Erstattungen in diesen Fällen veranlasst RamosMap über Paddle.</p>
+        <h2>Erstattung beantragen</h2>
+        <p>Für Fragen zu Zahlungen, Rechnungen und Erstattungen können Sie sich direkt an Paddle wenden, z. B. über <a href="https://paddle.net" rel="noopener">paddle.net</a> oder den Link zur Verwaltung in Ihrer Zahlungsbestätigung. Alternativ schreiben Sie an <a href="mailto:info@ramosmap.com">info@ramosmap.com</a>. RamosMap leitet Ihre Anfrage bei Bedarf an Paddle weiter.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .legal-wrap { padding: calc(var(--site-header-h) + clamp(56px, 7vw, 96px)) 0 var(--site-section-y); }
+  .legal-content { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .legal-content h1 { margin-bottom: var(--rm-space-6); }
+  .legal-content h2 { margin-top: var(--rm-space-10); margin-bottom: var(--rm-space-4); }
+  .legal-content h2:first-of-type { margin-top: 0; }
+  .legal-content ul { margin: 0 0 1em; padding-left: 1.25em; }
+  .legal-content li { margin-bottom: 0.35em; }
+  .legal-content a { overflow-wrap: anywhere; }
+</style>
