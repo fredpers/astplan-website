@@ -25,7 +25,7 @@ export const FEATURE_CARDS = [
     icon: 'import' as const,
     title: 'Import aus Excel, CSV und GeoPackage',
     hl: 'Import',
-    body: 'Getestet sind Excel, CSV und GeoPackage, zum Beispiel aus Baumsicht. So sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
+    body: 'Getestet sind Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen. So sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
   },
   {
     icon: 'marker' as const,
@@ -63,7 +63,7 @@ export const HOME_STEPS = [
   {
     n: '1',
     title: 'Import',
-    body: 'RamosMap übernimmt Bäume und zugehörige Maßnahmen aus Excel, CSV oder GeoPackage, zum Beispiel aus Baumsicht.',
+    body: 'RamosMap übernimmt Bäume und zugehörige Maßnahmen aus Excel, CSV oder GeoPackage, aus gängigen Katasterprogrammen.',
   },
   {
     n: '2',
@@ -100,7 +100,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Welche Formate kann RamosMap importieren?',
-    a: 'Getestet sind Excel, CSV und GeoPackage, zum Beispiel aus Baumsicht. Nach dem Import sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
+    a: 'Getestet sind Excel, CSV und GeoPackage, aus gängigen Katasterprogrammen. Nach dem Import sehen Sie Bäume gemeinsam mit den zugehörigen Maßnahmen.',
   },
   {
     q: 'Welche Formate kann RamosMap exportieren?',
