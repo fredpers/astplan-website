@@ -43,7 +43,7 @@ export const FEATURE_CARDS = [
     icon: 'export' as const,
     title: 'Export nach Excel und PDF',
     hl: 'Export',
-    body: 'RamosMap exportiert nach Excel und PDF.',
+    body: 'Sie exportieren alle Bäume mit ihren Angaben als Excel-Datei und einzelne Bäume als Kontrollblatt im PDF-Format.',
   },
   {
     icon: 'offline' as const,
@@ -79,7 +79,7 @@ export const HOME_STEPS = [
   {
     n: '3',
     title: 'Export und Team',
-    body: 'Exportieren Sie nach Excel und PDF. Über Teameinladungen mit den Rollen Mitarbeiter und Betrachter bleibt der Bestand für die beteiligten Personen aktuell.',
+    body: 'Exportieren Sie alle Bäume mit ihren Angaben als Excel-Datei und einzelne Bäume als Kontrollblatt im PDF-Format. Über Teameinladungen mit den Rollen Mitarbeiter und Betrachter bleibt der Bestand für die beteiligten Personen aktuell.',
   },
 ] as const;
 
@@ -110,7 +110,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Welche Formate kann RamosMap exportieren?',
-    a: 'RamosMap exportiert nach Excel und PDF.',
+    a: 'Sie exportieren alle Bäume mit ihren Angaben als Excel-Datei und einzelne Bäume als Kontrollblatt im PDF-Format.',
   },
   {
     q: 'Kann ich Maßnahmen im Feld erfassen und filtern?',
