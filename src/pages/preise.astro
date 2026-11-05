@@ -4,16 +4,41 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 <BaseLayout
-  title="Preise – RamosMap"
-  description="Die Preise für RamosMap stehen noch nicht fest. Die App befindet sich in einer geschlossenen Testphase."
+  title="Preise - RamosMap"
+  description="Preise für RamosMap: Solo 20 EUR pro Monat, Team-Paket 49 EUR pro Monat für 5 Mitarbeiter, Betrachter kostenlos. 7 Tage kostenlos testen, ohne Zahlungsdaten."
 >
   <PageHero
     eyebrow="Preise"
     title="Preise"
-    lead="Die Preise stehen noch nicht fest. RamosMap befindet sich in einer geschlossenen Testphase."
+    lead="Testen Sie RamosMap 7 Tage kostenlos, ohne Zahlungsdaten. Die Testphase endet automatisch. Danach wählen Sie ein Abonnement, monatlich oder jährlich."
   />
-  <CtaBand
-    title="Zugang zur <span class='hl'>Testphase</span> anfragen"
-    body="Die Preise stehen noch nicht fest. RamosMap befindet sich in einer geschlossenen Testphase."
-  />
+  <section class="section price-wrap">
+    <div class="container">
+      <div class="card price-card">
+        <table class="price-table">
+          <thead><tr><th>Bestandteil</th><th>Monatlich</th><th>Jährlich</th></tr></thead>
+          <tbody>
+            <tr><td>Solo</td><td>20 EUR</td><td>220 EUR</td></tr>
+            <tr><td>Team-Paket (je 5 Mitarbeiter)</td><td>49 EUR</td><td>539 EUR</td></tr>
+            <tr><td>Zusätzlicher Projektersteller</td><td>20 EUR</td><td>220 EUR</td></tr>
+            <tr><td>Betrachter</td><td colspan="2">kostenlos</td></tr>
+          </tbody>
+        </table>
+        <ul class="price-notes">
+          <li>Alle Preise verstehen sich netto zuzüglich der gesetzlichen Umsatzsteuer, soweit diese von Paddle berechnet wird.</li>
+          <li>Jeder Bestandteil kann monatlich oder jährlich gebucht werden. Die jährliche Zahlweise umfasst 12 Monate zum Preis von 11 Monaten.</li>
+          <li>Die Bestandteile werden addiert. Beispiel: Solo jährlich und ein Team-Paket jährlich ergeben 759 EUR pro Jahr.</li>
+          <li>Die Testphase dauert 7 Tage und endet automatisch. Für die Testphase sind keine Zahlungsdaten erforderlich. Ein Abonnement entsteht nur, wenn Sie es ausdrücklich bestellen.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <CtaBand />
 </BaseLayout>
+<style>
+  .price-card { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .price-table { width: 100%; border-collapse: collapse; margin-bottom: var(--rm-space-6); }
+  .price-table th, .price-table td { text-align: left; padding: var(--rm-space-3) var(--rm-space-2); border-bottom: 1px solid var(--rm-border); }
+  .price-notes { padding-left: 1.25em; margin: 0; }
+  .price-notes li { margin-bottom: 0.5em; }
+</style>

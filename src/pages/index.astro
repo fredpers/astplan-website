@@ -8,28 +8,28 @@ import CtaBand from '../components/CtaBand.astro';
 import { FEATURE_CARDS, HOME_DESCRIPTION, HOME_STEPS, HOME_TITLE } from '../config/copy';
 
 const floats = [
-  { label: 'Baumbestand', text: 'Bäume auf der Karte' },
-  { label: 'Baumkontrolle', text: 'Geführte Kontrolle im Feld' },
-  { label: 'Import', text: 'Excel, CSV und GeoPackage' },
+  { label: 'Baumkataster', text: 'Eigener Bestand oder Import' },
+  { label: 'Baumkontrolle', text: 'Kontrolle und Maßnahmen im Feld' },
+  { label: 'Import und Export', text: 'Excel, CSV, GeoPackage; Export Excel und PDF' },
 ];
 ---
 <BaseLayout title={HOME_TITLE} description={HOME_DESCRIPTION}>
   <Hero
-    eyebrow="Geschlossene Testphase"
+    eyebrow="7 Tage kostenlos testen"
     title='Baumkataster und <span class="hl">Baumkontrolle</span> für Baumpfleger'
-    subtitle="RamosMap richtet sich an Baumpfleger, Baumkontrolleure sowie Kommunen und Dienstleister. Die App zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. RamosMap befindet sich in einer geschlossenen Testphase und wird nur von Fredrik und eingeladenen Testern genutzt."
+    subtitle="RamosMap ist Baumkataster und Baumkontrolle in einer App. Sie können den Bestand direkt in RamosMap führen oder einen bestehenden Bestand importieren und Kontrollen sowie Maßnahmen im Feld erledigen. Für Baumpfleger, Baumkontrolleure sowie Kommunen und Dienstleister."
     floats={floats}
   />
   <FeatureCards
     eyebrow="Funktionen"
     title='Was RamosMap <span class="hl">leistet</span>'
-    intro="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle."
+    intro="Baumkataster und Baumkontrolle: Bestand führen oder importieren, Maßnahmen im Feld, Suche, Filter, Export und Team."
     cards={[...FEATURE_CARDS]}
   />
   <StepRow
     eyebrow="So funktioniert’s"
     title="In <span class='hl'>drei</span> Schritten"
-    intro="Import, Kontrolle im Feld, Bestand im Team aktuell halten."
+    intro="Bestand anlegen oder importieren, Kontrolle und Maßnahmen im Feld, Export und Team."
     steps={[...HOME_STEPS]}
   />
   <PositionTeaser />
