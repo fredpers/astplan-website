@@ -9,8 +9,12 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [
     sitemap({
-      // Exclude the 404 page and redirect stubs from the sitemap.
-      filter: (page) => !/\/404\/?$/.test(page) && !/\/warteliste\/?$/.test(page),
+      // Exclude the 404 page, redirect stubs, and unpublished legal drafts.
+      filter: (page) =>
+        !/\/404\/?$/.test(page) &&
+        !/\/warteliste\/?$/.test(page) &&
+        !/\/agb\/?$/.test(page) &&
+        !/\/erstattung\/?$/.test(page),
     }),
   ],
   redirects: {
