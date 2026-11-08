@@ -5,25 +5,40 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 import { FEATURE_CARDS } from '../config/copy';
 
-const loop = ['Import', 'Kontrolle', 'Bestand'];
+const loop = ['Bestand oder Import', 'Kontrolle und Maßnahmen', 'Export und Team'];
 ---
 <BaseLayout
   title="Produkt – RamosMap für Baumkataster und Baumkontrolle"
-  description="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. Offline-Karten für Bayern und NRW."
+  description="RamosMap ist webbasierte Software im Abo für Baumkataster und Baumkontrolle. Bestand führen oder importieren, Maßnahmen im Feld, 7 Tage kostenlos testen."
 >
   <PageHero
     eyebrow="Produkt"
-    title="Baumbestand auf der Karte, geführte <span class='hl'>Baumkontrolle</span>"
-    lead="RamosMap zeigt den Baumbestand auf der Karte und führt durch die Baumkontrolle. Import aus Excel, CSV und GeoPackage. Sie können RamosMap 7 Tage kostenlos testen, ohne Zahlungsdaten."
+    title="Baumkataster und geführte <span class='hl'>Baumkontrolle</span>"
+    lead="Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. Webbasiert im Abo."
   >
     <ol class="loop" aria-label="Ablauf">
       {loop.map((l, i) => (<li><span class="n">{i + 1}</span>{l}</li>))}
     </ol>
   </PageHero>
 
+  <section class="section sold-wrap">
+    <div class="container">
+      <div class="card sold-card">
+        <h2>Was Sie erwerben</h2>
+        <p>
+          RamosMap ist webbasierte Software im Abo (SaaS) für Baumkontrolle und Baumkataster.
+          Das Abonnement ist monatlich oder jährlich buchbar. Sie können RamosMap 7 Tage kostenlos testen, ohne Zahlungsdaten. Die Testphase endet automatisch.
+          Die App richtet sich an Baumpfleger, Baumkontrolleure, Kommunen und Dienstleister.
+          Die aktuellen Preise stehen auf der <a href="/preise">Preisseite</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <FeatureCards
     eyebrow="Funktionen"
     title='Was RamosMap <span class="hl">leistet</span>'
+    intro="Funktionen für Baumkataster und Baumkontrolle, von Import bis Team."
     cards={[...FEATURE_CARDS]}
   />
 
@@ -38,4 +53,9 @@ const loop = ['Import', 'Kontrolle', 'Bestand'];
     font: 500 15px/1 var(--rm-font-ui); color: var(--rm-text-primary);
   }
   .loop .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--site-pill-bg); color: var(--rm-brand-text); font: 600 12px/1 var(--rm-font-mono); }
+  .sold-wrap { padding-top: var(--site-section-y); padding-bottom: 0; }
+  .sold-card { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .sold-card h2 { margin: 0 0 var(--rm-space-4); font: var(--rm-type-h3); font-size: 28px; }
+  .sold-card p { margin: 0; color: var(--rm-text-secondary); }
+  .sold-card a { color: var(--rm-link); }
 </style>
