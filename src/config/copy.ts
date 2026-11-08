@@ -1,6 +1,6 @@
 export const HOME_TITLE = 'RamosMap – Baumkataster & Baumkontrolle App für Baumpfleger';
 export const HOME_DESCRIPTION =
-  'RamosMap ist Baumkataster und Baumkontrolle in einer App. Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. 7 Tage kostenlos testen, ohne Zahlungsdaten, endet automatisch.';
+  'RamosMap ist webbasierte Software im Abo. Baumkataster und Baumkontrolle in einer App. Bestand führen oder importieren, Kontrollen und Maßnahmen im Feld. 7 Tage kostenlos testen, ohne Zahlungsdaten, endet automatisch.';
 
 export const FEATURE_CARDS = [
   {
@@ -99,6 +99,10 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Wie erhalte ich Zugang zu RamosMap?',
     a: 'Registrieren Sie sich unter <a href="https://app.ramosmap.com" rel="noopener">app.ramosmap.com</a>. Sie können RamosMap 7 Tage kostenlos testen, ohne Zahlungsdaten. Die Testphase endet automatisch. Danach können Sie ein Abonnement abschließen.',
+  },
+  {
+    q: 'Für wen ist RamosMap gedacht?',
+    a: 'RamosMap richtet sich an Baumpfleger, Baumkontrolleure sowie Kommunen und Dienstleister.',
   },
   {
     q: 'Wofür ist RamosMap gedacht?',

@@ -3,7 +3,7 @@ import Brand from './Brand.astro';
 import CtaButtons from './CtaButtons.astro';
 const nav = [
   { href: '/produkt', label: 'Produkt' },
-  { href: '/einordnung', label: 'Einordnung' },
+  { href: '/einordnung', label: 'Als Baumkataster oder neben Ihrem Kataster' },
   { href: '/preise', label: 'Preise' },
   { href: '/faq', label: 'FAQ' },
 ];
@@ -57,6 +57,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     font: var(--rm-type-body-sm); color: var(--rm-text-secondary);
     text-decoration: none !important;
     transition: color .2s ease, background .2s ease;
+    max-width: 16.5rem; line-height: 1.25; text-align: center;
   }
   .nav-link:hover { color: var(--rm-text-primary); background: var(--rm-surface-alt); }
   .nav-link[aria-current='page'] { color: var(--rm-text-primary); background: var(--site-pill-bg); }

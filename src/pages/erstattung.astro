@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Erstattung - RamosMap"
+  description="Erstattungsrichtlinie von RamosMap für Unternehmer: Abonnements über Paddle als Merchant of Record, Kündigung und Erstattungsanfragen."
+>
+  <section class="legal-wrap">
+    <div class="container">
+      <article class="legal-content card">
+        <h1>Erstattung</h1>
+        <p><strong>Stand: [OFFEN: Datum der Veröffentlichung, geplant 16.11.2026]</strong></p>
+        <h2>1. Paddle als Verkäufer (Merchant of Record)</h2>
+        <p>Kostenpflichtige Abonnements für RamosMap werden über Paddle.com Market Limited bzw. die jeweils zuständige Paddle-Gesellschaft („Paddle“) verkauft. Paddle ist Verkäufer gegenüber dem Kunden (Merchant of Record). Erstattungen richten sich nach der <a href="https://www.paddle.com/legal/refund-policy" rel="noopener">Erstattungsrichtlinie von Paddle</a> und den <a href="https://www.paddle.com/legal/buyer-terms" rel="noopener">Käuferbedingungen von Paddle</a>.</p>
+        <h2>2. Nutzungsvertrag mit RamosMap</h2>
+        <p>Für die Nutzung des Dienstes besteht daneben ein Nutzungsvertrag mit Fredrik Persson, RamosMap, nach den <a href="/agb">Allgemeinen Geschäftsbedingungen (AGB)</a>. Das Angebot richtet sich ausschließlich an Unternehmer im Sinne des § 14 BGB, juristische Personen des öffentlichen Rechts und öffentlich-rechtliche Sondervermögen.</p>
+        <h2>3. Kündigung während der Abrechnungsperiode</h2>
+        <p>Nach einer Kündigung oder Reduzierung während der laufenden Abrechnungsperiode bleibt der Dienst bis zum Ende der bezahlten Abrechnungsperiode nutzbar. Bereits gezahlte Entgelte werden nicht anteilig erstattet, soweit die Erstattungsrichtlinie von Paddle oder zwingendes Recht nichts anderes vorsieht. Abweichend davon erstattet RamosMap anteilig, wenn RamosMap den Dienst wesentlich einschränkt (§ 6 Abs. 5 AGB) oder einstellt (§ 13 Abs. 5 AGB). Auch diese Erstattungen veranlasst RamosMap über Paddle.</p>
+        <h2>4. Erstattung beantragen</h2>
+        <p>Wenden Sie sich an Paddle über <a href="https://paddle.net" rel="noopener">paddle.net</a> oder den Link in Ihrer Zahlungsbestätigung. Sie können auch an <a href="mailto:info@ramosmap.com">info@ramosmap.com</a> schreiben. RamosMap leitet Ihre Anfrage bei Bedarf an Paddle weiter.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .legal-wrap { padding: calc(var(--site-header-h) + clamp(56px, 7vw, 96px)) 0 var(--site-section-y); }
+  .legal-content { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .legal-content h1 { margin-bottom: var(--rm-space-6); }
+  .legal-content h2 { margin-top: var(--rm-space-10); margin-bottom: var(--rm-space-4); }
+  .legal-content h2:first-of-type { margin-top: 0; }
+  .legal-content ul { margin: 0 0 1em; padding-left: 1.25em; }
+  .legal-content li { margin-bottom: 0.35em; }
+  .legal-content a { overflow-wrap: anywhere; }
+</style>
