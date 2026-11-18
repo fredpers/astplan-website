@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Lizenzen – RamosMap"
+  description="Open-Source-Lizenzen und Kartendaten von RamosMap: App, Website und Quellen Dritter."
+>
+  <section class="legal-wrap">
+    <div class="container">
+      <article class="legal-content card">
+        <h1>Lizenzen</h1>
+        <p>RamosMap verwendet Open-Source-Software und Kartendaten Dritter. Diese Seite nennt die wichtigsten direkten Abhängigkeiten und Datenquellen. Die vollständige Paketliste finden Sie in der App unter Einstellungen → Kartenquellen &amp; Lizenzen → Open-Source-Lizenzen.</p>
+        <h2>Kartendaten</h2>
+        <ul>
+          <li>Google Maps</li>
+          <li>© OpenStreetMap-Mitwirkende (ODbL)</li>
+          <li>© Bayerische Vermessungsverwaltung – www.geodaten.bayern.de (CC BY 4.0)</li>
+          <li>Geobasis NRW (DL-DE-Zero-2.0)</li>
+          <li>OpenFreeMap / MapLibre (BSD-3-Clause)</li>
+        </ul>
+        <h2>App</h2>
+        <p>Direkte Abhängigkeiten der RamosMap-App (Flutter), jeweils mit der auf pub.dev angegebenen Lizenz:</p>
+        <ul>
+          <li>Flutter und Dart (BSD-3-Clause)</li>
+          <li>FlutterFire (BSD-3-Clause): Firebase Auth, Cloud Firestore, Cloud Functions, Cloud Storage sowie firebase_core</li>
+          <li>google_maps_flutter (BSD-3-Clause)</li>
+          <li>sentry_flutter (MIT)</li>
+          <li>flutter_riverpod (MIT)</li>
+          <li>pdf (Apache-2.0)</li>
+          <li>sqlite3 (MIT)</li>
+          <li>file_picker (MIT)</li>
+          <li>archive (MIT)</li>
+          <li>xml (MIT)</li>
+          <li>image (MIT)</li>
+          <li>location (MIT)</li>
+          <li>crypto (BSD-3-Clause)</li>
+          <li>web (BSD-3-Clause)</li>
+          <li>proj4dart (MIT)</li>
+          <li>shared_preferences (BSD-3-Clause)</li>
+        </ul>
+        <h2>Website</h2>
+        <p>Direkte Abhängigkeiten dieser Website (package.json):</p>
+        <ul>
+          <li>Astro (MIT)</li>
+          <li>@astrojs/sitemap (MIT)</li>
+          <li>@fontsource/inter (OFL-1.1)</li>
+          <li>@fontsource/montserrat (OFL-1.1)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .legal-wrap { padding: calc(var(--site-header-h) + clamp(56px, 7vw, 96px)) 0 var(--site-section-y); }
+  .legal-content { max-width: 720px; margin: 0 auto; padding: var(--rm-space-10); }
+  .legal-content h1 { margin-bottom: var(--rm-space-6); }
+  .legal-content h2 { margin-top: var(--rm-space-10); margin-bottom: var(--rm-space-4); }
+  .legal-content h2:first-of-type { margin-top: 0; }
+  .legal-content ul { margin: 0 0 1em; padding-left: 1.25em; }
+  .legal-content li { margin-bottom: 0.35em; }
+  .legal-content a { overflow-wrap: anywhere; }
+</style>
