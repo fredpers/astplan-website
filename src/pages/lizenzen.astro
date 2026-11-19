@@ -9,20 +9,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <article class="legal-content card">
         <h1>Lizenzen</h1>
-        <p>RamosMap verwendet Open-Source-Software und Kartendaten Dritter. Diese Seite nennt die wichtigsten direkten Abhängigkeiten und Datenquellen. Die vollständige Paketliste finden Sie in der App unter Einstellungen → Kartenquellen &amp; Lizenzen → Open-Source-Lizenzen.</p>
+        <p>RamosMap verwendet Open-Source-Software und Kartendaten Dritter. Diese Seite nennt die wichtigsten direkten Abhängigkeiten und Datenquellen. Die vollständige Paketliste der App finden Sie unter Einstellungen → Kartenquellen &amp; Lizenzen → Open-Source-Lizenzen.</p>
         <h2>Kartendaten</h2>
         <ul>
           <li>Google Maps</li>
-          <li>© OpenStreetMap-Mitwirkende (ODbL)</li>
-          <li>© Bayerische Vermessungsverwaltung – www.geodaten.bayern.de (CC BY 4.0)</li>
-          <li>Geobasis NRW (DL-DE-Zero-2.0)</li>
+          <li>OpenStreetMap: © OpenStreetMap-Mitwirkende (<a href="https://opendatacommons.org/licenses/odbl/" rel="noopener">ODbL</a>)</li>
+          <li>BayernAtlas DOP: © Bayerische Vermessungsverwaltung – <a href="https://www.geodaten.bayern.de" rel="noopener">www.geodaten.bayern.de</a> (<a href="https://creativecommons.org/licenses/by/4.0/deed.de" rel="noopener">CC BY 4.0</a>)</li>
+          <li>Geobasis NRW (<a href="https://www.govdata.de/dl-de/zero-2-0" rel="noopener">DL-DE-Zero-2.0</a>)</li>
           <li>OpenFreeMap / MapLibre (BSD-3-Clause)</li>
         </ul>
         <h2>App</h2>
         <p>Direkte Abhängigkeiten der RamosMap-App (Flutter), jeweils mit der auf pub.dev angegebenen Lizenz:</p>
         <ul>
           <li>Flutter und Dart (BSD-3-Clause)</li>
-          <li>FlutterFire (BSD-3-Clause): Firebase Auth, Cloud Firestore, Cloud Functions, Cloud Storage sowie firebase_core</li>
+          <li>firebase_core (BSD-3-Clause)</li>
+          <li>firebase_auth (BSD-3-Clause)</li>
+          <li>cloud_firestore (BSD-3-Clause)</li>
+          <li>cloud_functions (BSD-3-Clause)</li>
+          <li>firebase_storage (BSD-3-Clause)</li>
           <li>google_maps_flutter (BSD-3-Clause)</li>
           <li>sentry_flutter (MIT)</li>
           <li>flutter_riverpod (MIT)</li>
@@ -37,6 +41,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>web (BSD-3-Clause)</li>
           <li>proj4dart (MIT)</li>
           <li>shared_preferences (BSD-3-Clause)</li>
+        </ul>
+        <p>In der App eingebettete Schriften:</p>
+        <ul>
+          <li>Inter (OFL-1.1)</li>
+          <li>Montserrat (OFL-1.1)</li>
+        </ul>
+        <h2>Cloud Functions</h2>
+        <p>Direkte Abhängigkeiten der Cloud Functions (package.json und requirements.txt):</p>
+        <ul>
+          <li>firebase-admin (Node.js und Python, Apache-2.0)</li>
+          <li>firebase-functions (Node.js, MIT)</li>
+          <li>firebase-functions (Python, Apache-2.0)</li>
+          <li>nodemailer (MIT-0)</li>
+          <li>functions-framework (Apache-2.0)</li>
+          <li>Flask (BSD-3-Clause)</li>
+          <li>sentry-sdk (MIT)</li>
         </ul>
         <h2>Website</h2>
         <p>Direkte Abhängigkeiten dieser Website (package.json):</p>
